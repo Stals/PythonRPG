@@ -1,11 +1,18 @@
 import sys
 import random
+#TODO так как рандом в питоне такойже как в с++ по умолчанию то не возможно быстро сгенерировать несколько разных чисел
+#Соответственно нужно найти способ это обойти, так как мне бы хотелось достаточно быстро генерировать полностью случайное подземелье
+#http://stackoverflow.com/questions/817705/pythons-random-what-happens-if-i-dont-use-seedsomevalue
+
+
+
 #размер Подземелья
-x=100;
-y=10;
+#TODO Для отдельной версии нужно сделать так чтобы можно было задать размер из консоли
+x=100
+y=10
 #Координаты входа в подземелье
-entranceLocationX=0;
-entranceLocationY=0;
+entranceLocationX=0
+entranceLocationY=0
 
 #создаём подземелье 100 на 10 (x=100,y=10)
 dungeon=[["*"]*x for i in range(y)]#сделано так а не [["*"]*100]*10 чтобы они не ссылись на одни и теже элементы.
@@ -24,20 +31,20 @@ def printDungeon():
 entranceWall=random.randint(0,3)
 #Где 0 - Север 1 - Восток 2 - Юг 3 - Запад
 #Нарисуем E - Entrance на случайном месте той стророны что выбрали
-if entranceWall==0 :
+if entranceWall == 0 :
     entranceLocationX=0
     entranceLocationY=random.randint(0,x-1)
-elif entranceWall==1 :
+elif entranceWall == 1 :
     entranceLocationX=random.randint(0,y-1)
     entranceLocationY=x-1
-elif entranceWall==2:
+elif entranceWall == 2:
     entranceLocationX=y-1
     entranceLocationY=random.randint(0,x-1)
-elif entranceWall==3:
+elif entranceWall == 3:
     entranceLocationX=random.randint(0,y-1)
     entranceLocationY=0
 dungeon[entranceLocationX][entranceLocationY]="E"
 
-
+#С этого места мы уже начнём создавать подземелье
 
 printDungeon()
