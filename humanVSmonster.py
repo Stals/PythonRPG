@@ -65,3 +65,5 @@ elif player.hp>0:
     print("{0} WINS!".format(player.name))
 else:
     print("{0} LOOSE!".format(player.name))
+
+os.system("pause")

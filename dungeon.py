@@ -1,4 +1,4 @@
-
+import os
 #создаём пустую карту подземелья
 map=[[]]
 numberOfmonster=0
@@ -6,6 +6,7 @@ numberOfmonster=0
 exec(open('generateDungeon.py').read())
 
 def printMap():
+    os.system("cls")
     for line in map:
         #от 1 так как слева всегда двойная стенка , а нам нужна одинарная
         #до -1 так как нам не нужно печатать символ переноса строки
@@ -13,6 +14,8 @@ def printMap():
     print("*"*69)#звездочки для того чтобы справа и снизу были стенки также как и сверху/слева
 
 printMap()
+
+
 
 
 
