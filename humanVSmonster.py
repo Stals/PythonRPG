@@ -1,25 +1,15 @@
 import random
-
+import os
 #Вообще може было всё запизнуть в один класс entity и уже переменные назвать human и monnster , но я сделал так потому
 #что думаю что У человека возможно будет больше чего (например опыт и уровни и тД)
 
 #Из за моей лени тут вообще нету проверок на вводы (ника и монстра)
-class monster:
+class Entity:
     def __init__(self,name,hp,dmg):
         self.name=name
         self.hp=hp
         self.dmg=dmg
-    def attack(self,human):
-        randDmg=random.randint(self.dmg[0],self.dmg[1])
-        human.hp-=randDmg
-        print("{0} attacks for {1} dmg".format(self.name,randDmg))
-        print("{0} now have {1} hp".format(human.name,str(human.hp)))
 
-class human:
-    def __init__(self,name,hp,dmg):
-        self.name=name
-        self.hp=hp
-        self.dmg=dmg
     def attack(self,monster):
         randDmg=random.randint(self.dmg[0],self.dmg[1])
         monster.hp-=randDmg
@@ -27,6 +17,12 @@ class human:
         print("{0} now have {1} hp".format(monster.name,str(monster.hp)))
 
 
+
+class monster(Entity):
+    pass
+
+class human(Entity):
+    pass
 
 #создаём список всех монстров
 monsters=[monster("Dragon",50,(10,20)),
