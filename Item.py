@@ -8,6 +8,12 @@ import random
 class stats:
     def __init__(self,Str=0,Dex=0,Con=0,Mag=0):
         self.stats={"Str":Str,"Dex":Dex,"Con":Con,"Mag":Mag}
+    def __str__(self):
+        result=""
+        for key,value in self.stats.items():
+            result+="{0}: {1} \n".format(key,value)
+        return result
+
 
 #TODO я думаю тоже нужно вытеснить, так как у монстров будет не оружие а урон (хотя не факт) Короче если где еще будет нужно то вытащить отсюда
 class damage:
@@ -66,5 +72,4 @@ class Weapon(Item):
 
 magicBow=Weapon("Magic Bow",stats(1,3,3,4),damage(5,10))
 fireSword=Weapon("Fire Sword",stats(1,2,3,4),damage(1,10))
-print(fireSword.damage.getDamage())
-
+#print(fireSword.damage.getDamage())
