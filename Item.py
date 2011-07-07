@@ -7,7 +7,12 @@ import random
 #TODO перетащить в другой файл так как еще понадобится при создании монстров и Героя
 class stats:
     def __init__(self,Str=0,Dex=0,Con=0,Mag=0):
-        self.stats={"Str":Str,"Dex":Dex,"Con":Con,"Mag":Mag}
+        self.stats={
+            "Str":Str,
+            "Dex":Dex,
+            "Con":Con,
+            "Mag":Mag
+        }
     def __str__(self):
         result=""
         for key,value in self.stats.items():

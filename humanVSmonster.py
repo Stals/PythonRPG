@@ -30,11 +30,12 @@ class human(Entity):
 	pass
 
 #создаём список всех монстров
-monsters=[monster("Dragon",50,(10,20)),
-		  monster("Black Knight",30,(20,30)),
-		  monster("Mighty Wizard",20,(40,40)),
-		  monster("Zaraki Kempachi",70,(50,100)),
-		  monster("Phenix",100,(1,200))
+monsters=[
+    monster("Dragon",50,(10,20)),
+    monster("Black Knight",30,(20,30)),
+    monster("Mighty Wizard",20,(40,40)),
+    monster("Zaraki Kempachi",70,(50,100)),
+    monster("Phenix",100,(1,200))
 ]
 #Получаем имя Игрока
 #TODO Если вводить русские буквы то ломается
