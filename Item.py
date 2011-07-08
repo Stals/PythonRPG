@@ -65,7 +65,6 @@ class Item:
         #Снимает вещь, убирая те эффекты которые она давала и кладёт её в инвентарь
         pass
 
-
 class Weapon(Item):
     def __init__(self,name,stats,damage):
         super().__init__(name,stats)
@@ -73,8 +72,18 @@ class Weapon(Item):
     def __str__(self):
         return '"{0}" {1} {2}'.format(self.name,self.damage,self.bonusStats)
 
+class Armour(Item):
+    def __init__(self,name,stats,defence):
+        super().__init__(name,stats)
+        self.defence=defence
+    def __str__(self):
+        return '"{0}"  Defence:{1} {2}'.format(self.name,self.defence,self.bonusStats)
 
 
 magicBow=Weapon("Magic Bow",stats(1,3,3,4),damage(5,10))
 fireSword=Weapon("Fire Sword",stats(1,2,3,4),damage(1,10))
-#print(fireSword.damage.getDamage())
+
+ironBoots=Armour("Iron Boots",stats(3,2,0,0),10)
+
+print(fireSword)
+print(ironBoots)
