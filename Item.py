@@ -1,44 +1,14 @@
 #функция __str__() в класса позволяет очень просто выводит их содержимое через print(MagicBow) например
 import random
+from statistics import stats, damage
 
-#Позволяет не думать о том какие статы сейчас есть, за счёт того что они пределены только в одном месте
-#Но чтобы создать вещь вам обязательно нужно знать о stats
-
-#TODO перетащить в другой файл так как еще понадобится при создании монстров и Героя
-class stats:
-    def __init__(self,Str=0,Dex=0,Con=0,Mag=0):
-        self.stats={
-            "Str":Str,
-            "Dex":Dex,
-            "Con":Con,
-            "Mag":Mag
-        }
-    def __str__(self):
-        result=""
-        for key,value in self.stats.items():
-            result+="{0}: {1} \n".format(key,value)
-        return result
-
-
-#TODO я думаю тоже нужно вытеснить, так как у монстров будет не оружие а урон (хотя не факт) Короче если где еще будет нужно то вытащить отсюда
-class damage:
-    def __init__(self,min,max):
-        self.min=min
-        self.max=max
-    def __str__(self):
-        return " Damage:{0}-{1} ".format(self.min,self.max)
-    #Возвращает урон (между min и max)
-    def getDamage(self):
-        return random.randint(self.min,self.max)
-
-#Необходим только для вещей (Брони/Оружия) так что он останется тут
-#bonusStats является оберткой вокруг stats чтобы
+#bonusStats является оберткой вокруг stats
 class bonusStats:
     def __init__(self,stats):
         self.stats=stats
     def __str__(self):
         result=""
-        for key,value in self.stats.stats.items():
+        for key,value in self.stats.items():
             if value!=0:
                 if value>0:
                     sign="+"
@@ -46,7 +16,14 @@ class bonusStats:
                     sign=""#минус будет ставится автоматически прямо в числе
                 result+="{0}:{1}{2} ".format(key,sign,value)
         return result
-
+    def str(self):
+        return self.stats.str()
+    def dex(self):
+        return self.stats.dex()
+    def mag(self):
+        return self.stats.mag()
+    def con(self):
+        return self.stats.con()
 
 class Item:
     #TODO сделать getStr() и другие методы если будет необходимо
