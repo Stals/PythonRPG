@@ -5,5 +5,5 @@ def printList(list):
             print("{0}. {1}".format(i,list[i-1]))
 
 
-monsters=["Dragon","Mighty Wizard","Black Knight"]
-printList(monsters)
+#monsters=["Dragon","Mighty Wizard","Black Knight"]
+#printList(monsters)
