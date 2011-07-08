@@ -1,4 +1,4 @@
-#Тут хранятся вещи необъодимые в построении других классов
+#Тут хранятся вещи необходимые в построении других классов Например такого как Hero
 
 import random
 
@@ -36,7 +36,7 @@ class damage:
         self.max=max
     def __str__(self):
         return " Damage:{0}-{1} ".format(self.min,self.max)
-    #Возвращает урон (между min и max)
+    #Возвращает число (между min и max)
     def getDamage(self):
         return random.randint(self.min,self.max)
 
