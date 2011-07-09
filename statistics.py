@@ -28,7 +28,11 @@ class stats:
         return self.stats["Mag"]
     def con(self):
         return self.stats["Con"]
-
+    def addStats(self,stats):
+        self.stats["Str"]+=stats.str()
+        self.stats["Dex"]+=stats.dex()
+        self.stats["Mag"]+=stats.mag()
+        self.stats["Con"]+=stats.con()
 
 class damage:
     def __init__(self,min=0,max=0):
