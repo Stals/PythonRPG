@@ -21,6 +21,9 @@ class Entity:
         monster.hp-=randDmg
         print("{0} attacks for {1} dmg".format(self.name,randDmg))
         print("{0} now have {1} hp".format(monster.name,str(monster.hp)))
+    #TODO вот так private методы определяюся
+    def __heal(self):
+        self.hp=100
 
 
 
