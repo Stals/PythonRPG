@@ -26,13 +26,31 @@ class Entity:
         pass
 
 
+#Класс хранит Имя рассы и те бонусы которые она даёт
+class Race:
+    def __init__(self,name="",stats=stats()):
+        self.name=name
+        self.stats=stats
+    def __str__(self):
+        return "{0}\n{1}".format(self.name,self.stats)
+    def name(self):
+        return self.name
+races=[
+    Race("Ogre",stats(9,2,2,5)),
+    Race("Were-Wolf",stats(7,5,2,4)),
+    Race("Elf",stats(4,7,3,4)),
+    Race("Human",stats(5,5,5,3)),
+    Race("Hobbit",stats(2,9,4,3)),
+    Race("Lepricone",stats(2,5,8,3)),
+    Race("Fairy",stats(1,5,9,3))
+]
 
 class Hero(Entity):
 
     mp = 0
     maxMp = 0
     inventory = Inventory()
-    heroRace = ""
+    heroRace = Race()
     heroClass = ""
 
     def __init__(self):
@@ -40,16 +58,8 @@ class Hero(Entity):
     def getName(self):
         self.name=input("Input you name:")
     def getRace(self):
-        #TODO реализовать Race в одельном классе в файле hero
-        self.heroRace=func.getChoice("Choose Your Race:",[
-            "Ogre      Str:9 Dex:2 Mag:2 Con:5",
-            "Were-Wolf Str:7 Dex:5 Mag:2 Con:4",
-            "Elf       Str:4 Dex:7 Mag:3 Con:4",
-            "Human     Str:5 Dex:5 Mag:5 Con:3",
-            "Hobbit    Str:2 Dex:9 Mag:4 Con:3",
-            "Lepricone Str:2 Dex:5 Mag:8 Con:3",
-            "Fairy     Str:1 Dex:5 Mag:9 Con:3"
-        ])
+        self.heroRace=func.getChoice("Choose your Race:",races)
+        self.stats.addStats(self.heroRace.stats)
         #TODO сделать добавление статов из за рассы  к статам героя ( вызывается self.stats.addStats(Race.stats) )
 
     def getClass(self):
