@@ -3,7 +3,7 @@ from statistics import stats, damage
 from Item import *
 from Inventory import Inventory
 from usefullFunctions import getChoice as func
-from Resists import Resists
+from Elements import Elements
 class Entity:
     name = ""
     hp = 0
@@ -11,7 +11,7 @@ class Entity:
     gold = 0
     stats = stats()
     damage = damage()
-    Resists = Resists()
+    Resists = Elements()
 
     def __init__(self):
         pass
