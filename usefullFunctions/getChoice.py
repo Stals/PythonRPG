@@ -46,16 +46,3 @@ def getChoice(question , choices):
 ## print("You choosed a {0}".format(choosedItem.name))
 ###После чего можно просто сделать
 ## choosedItem.equip() # если все эти вещи определены в классе
-
-
-
-
-#TODO как сделаю HERO убрать отсюда это
-##сразу запихнуть результат в race внутри класса hero
-#def getRace():
-#self.Race=getChoice("Choose your Race:",["Human","Were-Wolf","Demon","Elf"])
-##после чего уже в зависимости от того что лежит в Race сделать статы
-#if self.Race=="Human"
-#    pass
-#elif self.Race=="Were-Worf"
-#TODO __str__() в hero делать с переносом на новую строку при выводе каждого объекта. При этом с использованием \n и дальше на новой строке код
