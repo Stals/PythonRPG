@@ -31,7 +31,7 @@ class stats:
 
 
 class damage:
-    def __init__(self,min,max):
+    def __init__(self,min=0,max=0):
         self.min=min
         self.max=max
     def __str__(self):
