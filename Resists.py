@@ -9,7 +9,7 @@ class Resists:
         }
     def __str__(self):
         result=""
-        for key,value in self.stats.items():
+        for key,value in self.resists.items():
             result+="{0}: {1} \n".format(key,value)
         return result
     def fire(self):
