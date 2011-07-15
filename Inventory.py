@@ -15,7 +15,10 @@ class Inventory:
 
     def __str__(self):
         result=""
-        for item in self.inventory:
-            #result=result+item.__str__()+"\n"
-            result+="{0} \n".format(item)
+        if len(self.inventory)!=0:
+            for item in self.inventory:
+                #result=result+item.__str__()+"\n"
+                result+="{0} \n".format(item)
+        else: #inventory is empty
+            result = "empty"
         return result
