@@ -33,7 +33,11 @@ class stats:
         self.stats["Dex"]+=stats.dex()
         self.stats["Mag"]+=stats.mag()
         self.stats["Con"]+=stats.con()
-
+    def removeStats(self,stats):
+        self.stats["Str"]-=stats.str()
+        self.stats["Dex"]-=stats.dex()
+        self.stats["Mag"]-=stats.mag()
+        self.stats["Con"]-=stats.con()
 class damage:
     def __init__(self,min=0,max=0):
         self.min=min
