@@ -81,7 +81,9 @@ class Hero(Entity):
     # TODO в наследниках востанавливать ману и rage
     def heal(self):
         self.hp = self.maxHp
-
+    def castSpell(self,spell):
+        #TODO Сделать когда будет готов класс Spell и SpellBook
+        pass
 
 
 #TODO __str__() в hero делать с переносом на новую строку при выводе каждого объекта. При этом с использованием \n и дальше на новой строке код
