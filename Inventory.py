@@ -6,8 +6,8 @@ class Inventory:
         pass
     def addItem(self,newItem):
         self.inventory.append(newItem)
-    def removeItem(self,index):# Сюда передаются индекс как он отображается пользователю
-        self.inventory.pop(index+1)
+    def removeItem(self,index):# Индекс начинается с 0
+        self.inventory.pop(index)
     def sort(self):
         #TODO сделать сортировку по типу Ботинки вместе, оружие вместе и тд
         pass
