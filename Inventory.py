@@ -1,7 +1,7 @@
 from Item import Item
 #Хранит вещи игрока
 class Inventory:
-    inventory=[]
+    inventory = []
     def __int__(self):
         pass
     def addItem(self,newItem):
@@ -14,7 +14,7 @@ class Inventory:
 
 
     def __str__(self):
-        result=""
+        result = ""
         if len(self.inventory)!=0:
             for item in self.inventory:
                 #result=result+item.__str__()+"\n"

@@ -9,7 +9,7 @@ class Elements:
             "Lightning" : Lightning
         }
     def __str__(self):
-        result=""
+        result = ""
         for key,value in self.resists.items():
             result+="{0}: {1} \n".format(key,value)
         return result

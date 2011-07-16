@@ -1,3 +1,4 @@
+
 #TODO Пишет всё здесь а после делаем refactor -> move
 from statistics import stats, damage
 from Item import *
@@ -11,7 +12,7 @@ class Entity:
     gold = 0
     stats = stats()
     damage = damage()
-    Resists = Elements()
+    resists = Elements()
 
     def __init__(self):
         pass
@@ -29,8 +30,8 @@ class Entity:
 #Класс хранит Имя рассы и те бонусы которые она даёт
 class Race:
     def __init__(self,name="",stats=stats()):
-        self.name=name
-        self.stats=stats
+        self.name = name
+        self.stats = stats
     def __str__(self):
         return "{0}\n{1}".format(self.name,self.stats)
     def name(self):
@@ -56,9 +57,9 @@ class Hero(Entity):
     def __init__(self):
         super().__init__()
     def getName(self):
-        self.name=input("Input you name:")
+        self.name = input("Input you name:")
     def getRace(self):
-        self.heroRace=func.getChoice("Choose your Race:",races)
+        self.heroRace = func.getChoice("Choose your Race:",races)
         self.stats.addStats(self.heroRace.stats)
         #TODO сделать добавление статов из за рассы  к статам героя ( вызывается self.stats.addStats(Race.stats) )
 
@@ -77,7 +78,7 @@ class Hero(Entity):
 
     # TODO в наследниках востанавливать ману и rage
     def heal(self):
-        self.hp=self.maxHp
+        self.hp = self.maxHp
 
 
 

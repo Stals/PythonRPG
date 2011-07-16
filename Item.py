@@ -5,9 +5,9 @@ from statistics import stats, damage
 #bonusStats является оберткой вокруг stats
 class bonusStats:
     def __init__(self,stats):
-        self.stats=stats
+        self.stats = stats
     def __str__(self):
-        result=""
+        result = ""
         for key,value in self.stats.items():
             if value!=0:
                 if value>0:
@@ -28,7 +28,7 @@ class bonusStats:
 class Item:
     #TODO сделать getStr() и другие методы если будет необходимо
     def __init__(self,name,stats):
-        self.name=name
+        self.name = name
         #TODO перенести отдельно в Armour и Weapon , если potion будет наследоваться от item
         self.bonusStats=bonusStats(stats)#Вещь может иметь статы
     def __str__(self): #переопределен в наследниках
@@ -45,7 +45,7 @@ class Item:
 class Weapon(Item):
     def __init__(self,name,stats,damage):
         super().__init__(name,stats)
-        self.damage=damage
+        self.damage = damage
     def __str__(self):
         return '"{0}" {1} {2}'.format(self.name,self.damage,self.bonusStats)
 
@@ -53,8 +53,8 @@ class Armour(Item):
 
     def __init__(self,name,stats,defence,armourType):
         super().__init__(name,stats)
-        self.defence=defence
-        self.armourType=armourType
+        self.defence = defence
+        self.armourType = armourType
     def __str__(self):
         return '"{0}"  Defence:{1} {2}'.format(self.name,self.defence,self.bonusStats)
 
