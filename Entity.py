@@ -3,6 +3,7 @@
 from statistics import stats, damage
 from Item import *
 from Inventory import Inventory
+from Potion import *
 from usefullFunctions import getChoice as func
 from Elements import Elements
 class Entity:
@@ -51,6 +52,7 @@ class Hero(Entity):
     mp = 0
     maxMp = 0
     inventory = Inventory()
+    potionsPocket = PotionsPocket()
     heroRace = Race()
     heroClass = ""
 
