@@ -24,6 +24,6 @@ class Entity:
         return self.hp<=0
 
     def __str__(self):
-        pass
+        return '"{0}" Health : {1}/{2}'.format(self.name,self.hp,self.maxHp)
 
 

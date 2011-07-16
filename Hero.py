@@ -55,6 +55,9 @@ class Hero(Entity):
         elif temp[0]=="M":
             self.heroClass="Mage"
 
+    def showStats(self):
+        #TODO showStats() в hero делать с переносом на новую строку при выводе каждого объекта. При этом с использованием \n и дальше на новой строке код
+        pass
     # TODO в наследниках востанавливать ману и rage
     def heal(self):
         self.hp = self.maxHp
@@ -62,5 +65,4 @@ class Hero(Entity):
         #TODO Сделать когда будет готов класс Spell и SpellBook
         pass
     def __str__(self):
-        #TODO __str__() в hero делать с переносом на новую строку при выводе каждого объекта. При этом с использованием \n и дальше на новой строке код
-        pass
+        return '"{0}" Health: {1}/{2} Mana: {3}/{4}'.format(self.name,self.hp,self.maxHp,self.mp,self.maxMp)
