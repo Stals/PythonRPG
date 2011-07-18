@@ -23,7 +23,7 @@ class Entity:
         pass
     #TODO Переписать в зависимости от оружия и силы+зависит от коэфицента силы
     def simpleAttack(self,target):#simple attack with a weapon
-        dmg=self.stats.str()
+        dmg=self.damage.getDamage()
         target.hp-=dmg
         print('"{0}" hits "{1}" for {2} damage.'.format(self.name,target.name,dmg))
     def isDead(self): #returns true if entity is dead
