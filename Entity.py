@@ -18,6 +18,11 @@ class Entity:
         pass
     def doTurn(self):#used by Battle to make one turn
         pass
+    #TODO Переписать в зависимости от оружия и силы+зависит от коэфицента силы
+    def simpleAttack(self,target):#simple attack with a weapon
+        dmg=self.stats.str()
+        target.hp-=dmg
+        print('"{0}" hits "{1}" for {2} damage.'.format(self.name,target.name,dmg))
     def simpleAttack(self):#simple attack with a weapon
         pass
     def isDead(self): #returns true if entity is dead
