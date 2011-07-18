@@ -23,8 +23,6 @@ class Entity:
         dmg=self.stats.str()
         target.hp-=dmg
         print('"{0}" hits "{1}" for {2} damage.'.format(self.name,target.name,dmg))
-    def simpleAttack(self):#simple attack with a weapon
-        pass
     def isDead(self): #returns true if entity is dead
         return self.hp<=0
 
