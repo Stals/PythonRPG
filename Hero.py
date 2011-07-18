@@ -39,9 +39,13 @@ class Hero(Entity):
         self.getClass()
         self.getRace()
 
+        #TODO ПЕРЕНЕСТИ В ENTITY ТАК КАК У МОБА ТОЖЕСАМОЕ может сделать player=Hero(Hero.getName,и ТД) Или просто в main определить эти функции с рассой и тд?
         self.maxHp=self.hp=self.stats.con()*10
         self.maxMp=self.mp=self.stats.mag()*10
-        
+        #TODO ПЕРЕПИСАТЬ какнить....
+        self.damage.min=self.stats.str()
+        self.damage.max=self.stats.str()
+
         self.inventory = Inventory()
 
     def getName(self): #TODO Не получать пустую строку , и чтобы ввод был норм.
