@@ -14,7 +14,7 @@ class Race:
         return "{0}\n{1}".format(self.name,self.stats)
     def name(self):
         return self.name
-
+#TODO Сдлеать чтобы маны было меньше , и также как и hp примерно для среднего класса Human Может для human все статы по 5 ?
 races=[
     Race("Ogre",stats(9,2,2,5)),
     Race("Were-Wolf",stats(7,5,2,4)),
@@ -26,21 +26,31 @@ races=[
 ]
 class Hero(Entity):
 
-    mp = 0
-    maxMp = 0
-    inventory = Inventory()
+
+
     potionsPocket = PotionsPocket()
     heroRace = Race()
     heroClass = ""
 
     def __init__(self):
         super().__init__()
-    def getName(self):
+
+        self.getName()
+        self.getClass()
+        self.getRace()
+
+        self.maxHp=self.hp=self.stats.con()*10
+        self.maxMp=self.mp=self.stats.mag()*10
+        
+        self.inventory = Inventory()
+
+    def getName(self): #TODO Не получать пустую строку , и чтобы ввод был норм.
         self.name = input("Input you name:")
     def getRace(self):
+        #Получам Рассу
         self.heroRace = func.getChoice("Choose your Race:",races)
+        #Получаем статистики для Героя из Рассы которую он выбрал
         self.stats.addStats(self.heroRace.stats)
-        #TODO сделать добавление статов из за рассы  к статам героя ( вызывается self.stats.addStats(Race.stats) )
 
     def getClass(self):
         temp=func.getChoice("Choose Your Class:",[

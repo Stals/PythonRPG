@@ -17,9 +17,9 @@ class Potion:
 
 #TODO сделать ограничение в количество которое можно носить с собой
 class PotionsPocket:
-    pocket = []
+
     def __init__(self):
-        pass
+        self.pocket = []
 
     def __str__(self):
         result = ""

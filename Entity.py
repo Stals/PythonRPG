@@ -6,16 +6,19 @@ from Item import *
 
 from Elements import Elements
 class Entity:
-    name = ""
-    hp = 0
-    maxHp = 0
-    gold = 0
-    stats = stats()
-    damage = damage()
-    resists = Elements()
+
 
     def __init__(self):
-        pass
+        self.name = ""
+        self.hp = 0
+        self.maxHp = 0
+        self.mp = 0
+        self.maxMp = 0
+        self.gold = 0
+        self.stats = stats()
+        self.damage = damage()
+        self.resists = Elements()
+
     def doTurn(self):#used by Battle to make one turn
         pass
     #TODO Переписать в зависимости от оружия и силы+зависит от коэфицента силы

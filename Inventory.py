@@ -3,10 +3,11 @@ from Item import Item
 
 #TODO сделать максимально переносимое число вещей ( зависит от Stamina )
 class Inventory:
-    inventory = []
-    def __int__(self):
-        pass
+    def __init__(self):
+         self.inventory = []
+
     def addItem(self,newItem):
+
         self.inventory.append(newItem)
         self.__sort()
     def removeItem(self,item):# if item is in invenrory it will be removed
