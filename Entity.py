@@ -1,17 +1,22 @@
 from Item import *
 
 from Elements import Elements
+from statistics import *
 class Entity:
     def __init__(self,name,stats,resists,gold):
 
 
         self.name = name
-        self.stats = stats
-        self.damage = damage()
-        self.maxHp = self.hp = self.stats.con()*10
-        self.maxMp = self.mp = self.stats.mag()*10
-        self.damage.min = self.stats.str()
-        self.damage.max = self.stats.str()
+        self.damage = Damage()
+        self.hp=0
+        self.maxHp=0
+        self.mp=0
+        self.maxMp=0
+        self.stats = Stats()
+        self.stats.addStats(stats,self)
+
+
+
         self.resists=resists
         self.gold = gold
 

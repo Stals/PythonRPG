@@ -3,8 +3,8 @@
 import random
 
 #Позволяет не думать о том какие статы сейчас есть, за счёт того что они пределены только в одном месте
-#Но чтобы создать вещь вам обязательно нужно знать о stats
-class stats:
+#Но чтобы создать вещь вам обязательно нужно знать о Stats
+class Stats:
     def __init__(self,Str=0,Dex=0,Mag=0,Con=0):
         self.stats={
             "Str":Str,#Strength
@@ -28,17 +28,31 @@ class stats:
         return self.stats["Mag"]
     def con(self):
         return self.stats["Con"]
-    def addStats(self,stats):
+    def addStats(self,stats,entity):
+        #TODO В момент когда человеку добавляются или отнимаются статы - у него должны перещитываться Damage , hp и mp
+
         self.stats["Str"]+=stats.str()
         self.stats["Dex"]+=stats.dex()
         self.stats["Mag"]+=stats.mag()
         self.stats["Con"]+=stats.con()
-    def removeStats(self,stats):
+        self.recalculateStats(entity)
+    def removeStats(self,stats,entity):
         self.stats["Str"]-=stats.str()
         self.stats["Dex"]-=stats.dex()
         self.stats["Mag"]-=stats.mag()
         self.stats["Con"]-=stats.con()
-class damage:
+        self.recalculateStats(entity)
+    def recalculateStats(self,entity):#TODO Если игрок в городе выбирает что одеть - то у него hp восстаноятся - нада этого избежать. И мне нужно добавить с максимуму и минимуму именно столько сколько приехало.
+        entity.maxHp = entity.stats.con()*10
+        entity.hp = entity.stats.con()*10
+        
+        entity.maxMp = entity.stats.mag()*10
+        entity.mp = entity.stats.mag()*10
+
+        entity.damage.min = entity.stats.str()
+        entity.damage.max = entity.stats.str()
+
+class Damage:
     def __init__(self,min=0,max=0):
         self.min=min
         self.max=max
