@@ -59,9 +59,9 @@ class Weapon(Item):
         entity.stats.addStats(self.bonusStats,entity)
         entity.damage.addDamage(self.damage)
 
-    def takeOff(self,entity):
+    def unequip(self,entity):
         #remove Stats that this item added
-        Stats.removeStats(entity.equipment.equipment[self.piece].bonusStats,entity)
+        entity.stats.removeStats(entity.equipment.equipment[self.piece].bonusStats,entity)
         #add it to inventory
         entity.inventory.addItem(entity.equipment.equipment[self.piece])
         #make this slot empty
