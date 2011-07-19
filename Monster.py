@@ -1,6 +1,6 @@
 from Entity import *
 class Monster(Entity):
-    def __init__(self,name,stats,bonusDamage,resists,gold):
+    def __init__(self,name,stats,bonusDamage,resists,gold=0):
         super().__init__(name,stats,resists,gold)
         self.damage.addDamage(bonusDamage) #TODO Убрать если у монстров будет оружие
 
@@ -9,6 +9,6 @@ class Monster(Entity):
 
 
 #initialization looks like that
-#monster = Monster("Dragon",stats(5,5,5,5),damage(1,10),Elements(0,0,0,0),10)
+#monster = Monster("Dragon",Stats(5,5,5,5),Damage(1,10),Elements(0,0,0,0),10)
 #                    |              |              |               |       |
-#                  name           stats        bonusDamage      resists  gold
+#                  name           Stats        bonusDamage      resists  gold

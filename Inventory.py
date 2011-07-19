@@ -7,7 +7,6 @@ class Inventory:
          self.inventory = []
 
     def addItem(self,newItem):
-
         self.inventory.append(newItem)
         self.__sort()
     def removeItem(self,item):# if item is in invenrory it will be removed

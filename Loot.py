@@ -6,4 +6,4 @@ class Loot:
         pass
     def getLoot(self):
         #TODO return a true random item
-        return Item.Weapon("Fire Sword",stats(),damage(1,10))
+        return Item.Weapon("Fire Sword",Stats(),Damage(1,10))
