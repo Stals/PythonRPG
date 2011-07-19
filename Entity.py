@@ -23,6 +23,6 @@ class Entity:
     def isDead(self): #returns true if entity is dead
         return self.hp<=0
     def __str__(self):
-        return '"{0}" Health : {1}/{2}'.format(self.name,self.hp,self.maxHp)
+        return '"{0}" Health: {1}/{2} Mana: {3}/{4}'.format(self.name,self.hp,self.maxHp,self.mp,self.maxMp)
 
 
