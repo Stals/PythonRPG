@@ -1,8 +1,8 @@
 #функция __str__() в класса позволяет очень просто выводит их содержимое через print(MagicBow) например
 import random
-from statistics import stats, damage
+from statistics import *
 
-#bonusStats является оберткой вокруг stats
+#bonusStats является оберткой вокруг Stats
 class bonusStats:
     def __init__(self,stats):
         self.stats = stats
@@ -25,7 +25,7 @@ class bonusStats:
     def con(self):
         return self.stats.con()
 
-class Item:
+class Item:#TODO Сдлеать специфичные для класса вещи - типо одеть magicWand может только wizard/mage/cleric
     #TODO сделать getStr() и другие методы если будет необходимо
     def __init__(self,name,stats,price=0):
         self.name = name
@@ -45,8 +45,27 @@ class Weapon(Item):
     def __init__(self,name,stats,damage):
         super().__init__(name,stats)
         self.damage = damage
+        self.piece="Weapon"
+
     def __str__(self):
         return '"{0}" {1} {2}'.format(self.name,self.damage,self.bonusStats)
+
+    def equip(self,entity):
+        if entity.equipment.equipment[self.piece] != "empty":#if there is an item
+            entity.equipment.equipment[self.piece].takeOff(entity)
+        #now the slot is empty
+        entity.equipment.equipment[self.piece]=self
+        #give items Stats bonus and Damage
+        entity.stats.addStats(self.bonusStats,entity)
+        entity.damage.addDamage(self.damage)
+
+    def takeOff(self,entity):
+        #remove Stats that this item added
+        Stats.removeStats(entity.equipment.equipment[self.piece].bonusStats,entity)
+        #add it to inventory
+        entity.inventory.addItem(entity.equipment.equipment[self.piece])
+        #make this slot empty
+        entity.equipment.equipment[self.piece] = "empty"
 
 class Armour(Item):
 
