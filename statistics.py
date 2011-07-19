@@ -47,4 +47,9 @@ class damage:
     #Возвращает число (между min и max)
     def getDamage(self):
         return random.randint(self.min,self.max)
-
+    def addDamage(self,damage):
+        self.min+=damage.min
+        self.max+=damage.max
+    def removeDamage(self,damage):
+        self.min-=damage.min
+        self.max-=damage.max
