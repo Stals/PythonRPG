@@ -14,7 +14,7 @@ class Inventory:
         if item in self.inventory:
             self.inventory.remove(item)
     def __sort(self):
-        #TODO сделать сортировку по типу Ботинки вместе, оружие вместе и тд
+        #TODO сделать сортировку по типу Ботинки вместе, оружие вместе и тд (тогда у Оружия тоже должен быть piece)
         pass
     def __str__(self):
         result = ""

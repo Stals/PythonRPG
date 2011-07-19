@@ -25,9 +25,6 @@ races=[
     Race("Fairy",stats(1,5,9,3))
 ]
 class Hero(Entity):
-
-
-
     potionsPocket = PotionsPocket()
     heroRace = Race()
     heroClass = ""
@@ -71,12 +68,20 @@ class Hero(Entity):
 
     def showStats(self):
         #TODO showStats() в hero делать с переносом на новую строку при выводе каждого объекта. При этом с использованием \n и дальше на новой строке код
+#        +stats
+#        +damage
+#        +inventory
+#        +potionsPocket
+#        +resists
+#        -questJournal
+#        -equipment
+#        -spellbook
+#
         pass
-    # TODO в наследниках востанавливать ману и rage
-    def heal(self):
+
+    def heal(self): # TODO в наследниках востанавливать ману и rage
         self.hp = self.maxHp
-    def castSpell(self,spell):
-        #TODO Сделать когда будет готов класс Spell и SpellBook
+    def castSpell(self,spell): #TODO Сделать когда будет готов класс Spell и SpellBook
         pass
     def __str__(self):
         return '"{0}" Health: {1}/{2} Mana: {3}/{4}'.format(self.name,self.hp,self.maxHp,self.mp,self.maxMp)
