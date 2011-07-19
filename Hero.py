@@ -1,7 +1,8 @@
 from Entity import Entity
 from Inventory import Inventory
 from Potion import PotionsPocket
-from statistics import stats
+from Elements import *
+from statistics import *
 
 #Класс хранит Имя рассы и те бонусы которые она даёт
 import usefullFunctions.getChoice as func
@@ -25,33 +26,31 @@ races=[
     Race("Fairy",stats(1,5,9,3))
 ]
 class Hero(Entity):
-    potionsPocket = PotionsPocket()
-    heroRace = Race()
-    heroClass = ""
 
     def __init__(self):
-        super().__init__()
 
+        self.heroRace = Race()
+        self.heroClass = ""
+
+        #Получаем Данные от пользователя
         self.getName()
         self.getClass()
         self.getRace()
 
-        #TODO ПЕРЕНЕСТИ В ENTITY ТАК КАК У МОБА ТОЖЕСАМОЕ может сделать player=Hero(Hero.getName,и ТД) Или просто в main определить эти функции с рассой и тд?
-        self.maxHp=self.hp=self.stats.con()*10
-        self.maxMp=self.mp=self.stats.mag()*10
-        #TODO ПЕРЕПИСАТЬ какнить....
-        self.damage.min=self.stats.str()
-        self.damage.max=self.stats.str()
+        super().__init__(self.name,self.heroRace.stats,Elements(),0)
 
         self.inventory = Inventory()
+        self.potionsPocket = PotionsPocket()
 
     def getName(self): #TODO Не получать пустую строку , и чтобы ввод был норм.
         self.name = input("Input you name:")
     def getRace(self):
         #Получам Рассу
         self.heroRace = func.getChoice("Choose your Race:",races)
+
+        ##Теперь они добавляются при вызове super().__init__()
         #Получаем статистики для Героя из Рассы которую он выбрал
-        self.stats.addStats(self.heroRace.stats)
+        #self.stats.addStats(self.heroRace.stats)
 
     def getClass(self):
         temp=func.getChoice("Choose Your Class:",[

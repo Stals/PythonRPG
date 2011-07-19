@@ -2,16 +2,18 @@ from Item import *
 
 from Elements import Elements
 class Entity:
-    def __init__(self):
-        self.name = ""
-        self.hp = 0
-        self.maxHp = 0
-        self.mp = 0
-        self.maxMp = 0
-        self.gold = 0
-        self.stats = stats()
+    def __init__(self,name,stats,resists,gold):
+
+
+        self.name = name
+        self.stats = stats
         self.damage = damage()
-        self.resists = Elements()
+        self.maxHp = self.hp = self.stats.con()*10
+        self.maxMp = self.mp = self.stats.mag()*10
+        self.damage.min = self.stats.str()
+        self.damage.max = self.stats.str()
+        self.resists=resists
+        self.gold = gold
 
     def doTurn(self):#used by Battle to make one turn
         pass
