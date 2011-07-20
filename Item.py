@@ -42,8 +42,8 @@ class Item:#TODO Сдлеать специфичные для класса ве�
         pass
 
 class Weapon(Item):
-    def __init__(self,name,stats,damage):
-        super().__init__(name,stats)
+    def __init__(self,name,stats,damage,price=0):
+        super().__init__(name,stats,price)
         self.damage = damage
         self.piece="Weapon"
 
@@ -69,8 +69,8 @@ class Weapon(Item):
 
 class Armour(Item):
 
-    def __init__(self,name,stats,defence,armourType):
-        super().__init__(name,stats)
+    def __init__(self,name,stats,defence,armourType,price=0):
+        super().__init__(name,stats,price)
         self.defence = defence
         self.armourType = armourType
     def __str__(self):
