@@ -8,10 +8,11 @@ class Entity:
 
         self.name = name
         self.damage = Damage()
-        self.hp=0
-        self.maxHp=0
-        self.mp=0
-        self.maxMp=0
+        self.hp = 0
+        self.maxHp = 0
+        self.mp = 0
+        self.maxMp = 0
+        self.defence = 0
         self.stats = Stats()
         self.stats.addStats(stats,self)
 
