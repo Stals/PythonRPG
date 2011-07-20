@@ -6,7 +6,7 @@ class Damage:
         self.min=min
         self.max=max
     def __str__(self):
-        return " Damage:{0}-{1} ".format(self.min,self.max)
+        return " Damage: {0}-{1} ".format(self.min,self.max)
     #Возвращает число (между min и max)
     def getDamage(self):
         return random.randint(self.min,self.max)
