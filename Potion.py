@@ -8,6 +8,9 @@ class Potion:
         return "Potion heals {0}% of HP and MP".format(int(self.percent*100))
         pass
     def use(self,target): #uses potion on a target and removes potion from potionsPocket
+        beforeHp=target.hp
+        beforeMp=target.mp
+
         target.hp += self.percent * target.maxHp
         target.mp += self.percent * target.maxMp
         if target.hp > target.maxHp : target.hp = target.maxHp
@@ -15,6 +18,10 @@ class Potion:
         #removes potion from pocket after it was used
         target.potionsPocket.removePotion(self)
 
+        afterHp=target.hp
+        afterMp=target.mp
+
+        print ('Potion healed "{0}" for {1} health and {2} mana'.format(target.name,(afterHp-beforeHp),(afterMp-beforeMp)))
 #TODO сделать ограничение в количество которое можно носить с собой
 class PotionsPocket:
 
