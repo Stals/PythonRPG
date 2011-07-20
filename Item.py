@@ -37,12 +37,6 @@ class Item:#TODO Сдлеать специфичные для класса ве�
     def __str__(self): #переопределен в наследниках
         pass
 
-    def equip(self,hero):
-        #Снимает вещь в томже слоте делая unequip после чего одевает Item и добавляет bonusStats к статистикам игрока
-        pass
-    def unequip(self,hero):
-        #Снимает вещь, убирая те эффекты которые она давала и кладёт её в инвентарь
-        pass
     def isWeapon(self):
         return self.piece=="Weapon"
     def isArmour(self):#TODO поменять если будут еще и урашения наследоваться из Item
@@ -56,25 +50,6 @@ class Weapon(Item):
 
     def __str__(self):
         return '"{0}" {1} {2}'.format(self.name,self.damage,self.bonusStats)
-
-    def equip(self,entity):
-        if entity.equipment.equipment[self.piece] != "empty":#if there is an item
-            entity.equipment.equipment[self.piece].takeOff(entity)
-        #now the slot is empty
-        entity.equipment.equipment[self.piece]=self
-        #Если вещь в инвентаре - убрать её оттуда
-        entity.inventory.removeItem(self)
-        #give items Stats bonus and Damage
-        entity.stats.addStats(self.bonusStats,entity)
-        entity.damage.addDamage(self.damage)
-
-    def unequip(self,entity):
-        #remove Stats that this item added
-        entity.stats.removeStats(entity.equipment.equipment[self.piece].bonusStats,entity)
-        #add it to inventory
-        entity.inventory.addItem(entity.equipment.equipment[self.piece])
-        #make this slot empty
-        entity.equipment.equipment[self.piece] = "empty"
 
 
 #armourType can be "Head" "Gloves" "Chest" "Leggings" or "Boots"
