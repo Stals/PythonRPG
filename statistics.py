@@ -1,9 +1,31 @@
 #Тут хранятся вещи необходимые в построении других классов Например такого как Hero
 
 import random
+class Damage:
+    def __init__(self,min=0,max=0):
+        self.min=min
+        self.max=max
+    def __str__(self):
+        return " Damage:{0}-{1} ".format(self.min,self.max)
+    #Возвращает число (между min и max)
+    def getDamage(self):
+        return random.randint(self.min,self.max)
+    def addDamage(self,damage):
+        self.min+=damage.min
+        self.max+=damage.max
+    def removeDamage(self,damage):
+        self.min-=damage.min
+        self.max-=damage.max
+
+
+
+
 
 #Позволяет не думать о том какие статы сейчас есть, за счёт того что они пределены только в одном месте
 #Но чтобы создать вещь вам обязательно нужно знать о Stats
+
+
+
 class Stats:
     def __init__(self,Str=0,Dex=0,Mag=0,Con=0):
         self.stats={
@@ -28,42 +50,27 @@ class Stats:
         return self.stats["Mag"]
     def con(self):
         return self.stats["Con"]
-    def addStats(self,stats,entity):
-        #TODO В момент когда человеку добавляются или отнимаются статы - у него должны перещитываться Damage , hp и mp
-
+    def addStats(self,stats,entity):#stats - that should be added to entity
         self.stats["Str"]+=stats.str()
         self.stats["Dex"]+=stats.dex()
         self.stats["Mag"]+=stats.mag()
         self.stats["Con"]+=stats.con()
-        self.recalculateStats(entity)
-    def removeStats(self,stats,entity):
+        entity.maxHp += stats.con()*10
+        entity.hp += stats.con()*10
+
+        entity.maxMp += stats.mag()*10
+        entity.mp += stats.mag()*10
+
+        entity.damage.addDamage(Damage(stats.str(),stats.str()))
+    def removeStats(self,stats,entity):#stats - that should be removed from entity
         self.stats["Str"]-=stats.str()
         self.stats["Dex"]-=stats.dex()
         self.stats["Mag"]-=stats.mag()
         self.stats["Con"]-=stats.con()
-        self.recalculateStats(entity)
-    def recalculateStats(self,entity):#TODO Если игрок в городе выбирает что одеть - то у него hp восстаноятся - нада этого избежать. И мне нужно добавить с максимуму и минимуму именно столько сколько приехало.
-        entity.maxHp = entity.stats.con()*10
-        entity.hp = entity.stats.con()*10
-        
-        entity.maxMp = entity.stats.mag()*10
-        entity.mp = entity.stats.mag()*10
+        entity.maxHp -= stats.con()*10
+        entity.hp -= stats.con()*10
 
-        entity.damage.min = entity.stats.str()
-        entity.damage.max = entity.stats.str()
+        entity.maxMp -= stats.mag()*10
+        entity.mp -= stats.mag()*10
 
-class Damage:
-    def __init__(self,min=0,max=0):
-        self.min=min
-        self.max=max
-    def __str__(self):
-        return " Damage:{0}-{1} ".format(self.min,self.max)
-    #Возвращает число (между min и max)
-    def getDamage(self):
-        return random.randint(self.min,self.max)
-    def addDamage(self,damage):
-        self.min+=damage.min
-        self.max+=damage.max
-    def removeDamage(self,damage):
-        self.min-=damage.min
-        self.max-=damage.max
+        entity.damage.removeDamage(Damage(stats.str(),stats.str()))
