@@ -4,7 +4,8 @@
 #! Объект внутри списка обязан обладать методом __str__() который выводит описание этого объекта
 #!(встроенные типы уже обладают этим методом)[Даже список списков нормально будет выведен]
 
-def getChoice(question , choices):
+
+def getChoice(question , choices):#TODO вариант 0 это отмена - а везде где вызывается getChoice проверять не выдала ли функия None
     if len(choices)>=1:
         print(question)
         for i in range(1,len(choices)+1):
