@@ -30,27 +30,28 @@ class Item:#TODO Сдлеать специфичные для класса ве�
     def __init__(self,name,stats,piece,type,price=0):
         self.name = name
         self.bonusStats=bonusStats(stats)#Вещь может иметь статы
-        self.piece = piece #Weapon or Armour
-        self.type = type #Boots , Chest, ect. / Melee , Ranged
+        self.piece = piece #Weapon or Boots,Chest ect #TODO Если определение оружие это или нет не нужно - убрать
+
         self.price=price #Необходимо для продажи в магазине
 
     def __str__(self): #переопределен в наследниках
         pass
 
     def equip(self,hero):
-        #Снимает вещь в томже слоте делая takeOff после чего одевает Item и добавляет bonusStats к статистикам игрока
+        #Снимает вещь в томже слоте делая unequip после чего одевает Item и добавляет bonusStats к статистикам игрока
         pass
     def unequip(self,hero):
         #Снимает вещь, убирая те эффекты которые она давала и кладёт её в инвентарь
         pass
     def isWeapon(self):
         return self.piece=="Weapon"
-    def isArmour(self):
-        return self.piece=="Armour"
-#weaponType can be "Melee" or "Ranged"
+    def isArmour(self):#TODO поменять если будут еще и урашения наследоваться из Item
+        return self.piece!="Weapon"
+
+
 class Weapon(Item):
-    def __init__(self,name,stats,damage,weaponType,price=0):
-        super().__init__(name,stats,"Weapon",weaponType,price)
+    def __init__(self,name,stats,damage,price=0):
+        super().__init__(name,stats,"Weapon",price)
         self.damage = damage
 
     def __str__(self):
@@ -61,6 +62,8 @@ class Weapon(Item):
             entity.equipment.equipment[self.piece].takeOff(entity)
         #now the slot is empty
         entity.equipment.equipment[self.piece]=self
+        #Если вещь в инвентаре - убрать её оттуда
+        entity.inventory.removeItem(self)
         #give items Stats bonus and Damage
         entity.stats.addStats(self.bonusStats,entity)
         entity.damage.addDamage(self.damage)
@@ -72,16 +75,13 @@ class Weapon(Item):
         entity.inventory.addItem(entity.equipment.equipment[self.piece])
         #make this slot empty
         entity.equipment.equipment[self.piece] = "empty"
-    def isMelee(self):
-        return self.type=="Melee"
-    def isRangef(self):
-        return self.type=="Ranged"
 
 
+#armourType can be "Head" "Gloves" "Chest" "Leggings" or "Boots"
 class Armour(Item):
 
     def __init__(self,name,stats,defence,armourType,price=0):
-        super().__init__(name,stats,"Armour",armourType,price)
+        super().__init__(name,stats,armourType,price)
         self.defence = defence
 
     def __str__(self):
