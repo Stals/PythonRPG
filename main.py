@@ -4,7 +4,7 @@ from Elements import *
 from Potion import *
 
 player = Hero()
-monster = Monster("Dragon",Stats(7,5,5,5),Damage(0,4),Elements(),10)
+monster = Monster("Dragon",Stats(7,5,5,5),Damage(0,4),4,Elements(),10)
 
 
 # TODO Если player.class = "Warrior" сделать
@@ -14,11 +14,11 @@ monster = Monster("Dragon",Stats(7,5,5,5),Damage(0,4),Elements(),10)
 magicBow=Weapon("Magic Bow",Stats(1,3,0,1),Damage(1,5))
 fireSword=Weapon("Fire Sword",Stats(3,0,0,2),Damage(1,5))
 
-bronzeHead=Armour("Bronze Head",Stats(0,0,0,1),1,"Head")
-bronzeGloves=Armour("Bronze Gloves",Stats(0,0,0,1),1,"Gloves")
-bronzeChest=Armour("Bronze Chest",Stats(0,0,0,1),1,"Chest")
-bronzeLeggings=Armour("Bronze Leggings",Stats(0,0,0,1),1,"Leggings")
-bronzeBoots=Armour("Bronze Boots",Stats(0,0,0,1),1,"Boots")
+bronzeHead=Armour("Bronze Head",Stats(Con=1),1,"Head")
+bronzeGloves=Armour("Bronze Gloves",Stats(Con=1),1,"Gloves")
+bronzeChest=Armour("Bronze Chest",Stats(Con=1),1,"Chest")
+bronzeLeggings=Armour("Bronze Leggings",Stats(Con=1),1,"Leggings")
+bronzeBoots=Armour("Bronze Boots",Stats(Con=1),1,"Boots")
 
 
 player.inventory.addItem(magicBow)
