@@ -84,13 +84,13 @@ class Hero(Entity):
         self.hp = self.maxHp
     def castSpell(self,spell): #TODO Сделать когда будет готов класс Spell и SpellBook
         pass
-    def equip(self,item):
+    def equip(self,item):#TODO Когда вещь одевается- она не убирается из инвентаря...
         if self.equipment.equipment[item.piece] != "empty":#if there is an item
-            self.equipment.equipment[item.piece].takeOff(self)
+            self.unequip(self.equipment.equipment[item.piece])
         #now the slot is empty
         self.equipment.equipment[item.piece]=item
         #Если вещь в инвентаре - убрать её оттуда
-        self.inventory.removeItem(self)
+        self.inventory.removeItem(item)
         #give items Stats bonus and damage/defence
         self.stats.addStats(item.bonusStats,self)
         if item.isWeapon():
@@ -100,10 +100,11 @@ class Hero(Entity):
     def unequip(self,item):
         #remove Stats that this item added
         self.stats.removeStats(self.equipment.equipment[item.piece].bonusStats,self)
-        #make this slot empty
-        self.equipment.equipment[self.piece] = "empty"
         #add it to inventory
         self.inventory.addItem(self.equipment.equipment[item.piece])
+        #make this slot empty
+        self.equipment.equipment[item.piece] = "empty"
+
 
     def __str__(self):
         return '"{0}" Health: {1}/{2} Mana: {3}/{4}'.format(self.name,self.hp,self.maxHp,self.mp,self.maxMp)
