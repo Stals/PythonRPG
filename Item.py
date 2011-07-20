@@ -43,7 +43,10 @@ class Item:#TODO Сдлеать специфичные для класса ве�
     def unequip(self,hero):
         #Снимает вещь, убирая те эффекты которые она давала и кладёт её в инвентарь
         pass
-
+    def isWeapon(self):
+        return self.piece=="Weapon"
+    def isArmour(self):
+        return self.piece=="Armour"
 #weaponType can be "Melee" or "Ranged"
 class Weapon(Item):
     def __init__(self,name,stats,damage,weaponType,price=0):
@@ -69,7 +72,10 @@ class Weapon(Item):
         entity.inventory.addItem(entity.equipment.equipment[self.piece])
         #make this slot empty
         entity.equipment.equipment[self.piece] = "empty"
-
+    def isMelee(self):
+        return self.type=="Melee"
+    def isRangef(self):
+        return self.type=="Ranged"
 
 
 class Armour(Item):
