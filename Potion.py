@@ -43,6 +43,8 @@ class PotionsPocket:
     def removePotion(self,potion):
         if potion in self.pocket:
             self.pocket.remove(potion)
+    def items(self):
+        return self.pocket
     def __sort(self):
         def percent(potion):
             return potion.percent

@@ -15,3 +15,5 @@ class QuestJournal:
     #Даёт награду за выполненный квест и вызывает remove чтобы убрать его
     def finishQuest(self,quest):
         pass
+    def items(self):
+        return self.journal
