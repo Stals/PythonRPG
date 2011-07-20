@@ -24,7 +24,7 @@ class Entity:
     def doTurn(self):#used by Battle to make one turn
         pass
 
-    def simpleAttack(self,target):#simple attack with a weapon #TODO Переписать в зависимости от оружия и силы (сила добавляет и min и max одинаково)
+    def simpleAttack(self,target):#simple attack with a weapon #TODO Переписать в зависимости от оружия и силы и defence противника
         dmg=self.damage.getDamage()
         target.hp-=dmg
         print('"{0}" hits "{1}" for {2} damage.'.format(self.name,target.name,dmg))
