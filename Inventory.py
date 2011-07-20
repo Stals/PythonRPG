@@ -2,6 +2,7 @@ from Item import Item
 #Хранит вещи игрока
 
 #TODO сделать максимально переносимое число вещей ( зависит от Stamina )
+#TODO Сделать чтобы при выводе через func использовали player.inventory.items()  // И ДЛЯ ДРУГИХ ТИПО POTIONSPOCKET
 class Inventory:
     def __init__(self):
          self.inventory = []
@@ -12,6 +13,8 @@ class Inventory:
     def removeItem(self,item):# if item is in invenrory it will be removed
         if item in self.inventory:
             self.inventory.remove(item)
+    def items(self):
+        return self.inventory
     def __sort(self):
         #TODO сделать сортировку по типу Ботинки вместе, оружие вместе и тд (тогда у Оружия тоже должен быть piece)
         pass
