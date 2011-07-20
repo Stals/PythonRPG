@@ -27,25 +27,28 @@ class bonusStats:
 
 class Item:#TODO Сдлеать специфичные для класса вещи - типо одеть magicWand может только wizard/mage/cleric
     #TODO сделать getStr() и другие методы если будет необходимо
-    def __init__(self,name,stats,price=0):
+    def __init__(self,name,stats,piece,type,price=0):
         self.name = name
         self.bonusStats=bonusStats(stats)#Вещь может иметь статы
+        self.piece = piece #Weapon or Armour
+        self.type = type #Boots , Chest, ect. / Melee , Ranged
         self.price=price #Необходимо для продажи в магазине
+
     def __str__(self): #переопределен в наследниках
         pass
-    #TODO Так как equip для каждого куска брони будет уникален, в него можно заложить каую именно часть он будет снимать и куда надеваться
+
     def equip(self,hero):
         #Снимает вещь в томже слоте делая takeOff после чего одевает Item и добавляет bonusStats к статистикам игрока
         pass
-    def takeOff(self,hero):
+    def unequip(self,hero):
         #Снимает вещь, убирая те эффекты которые она давала и кладёт её в инвентарь
         pass
 
+#weaponType can be "Melee" or "Ranged"
 class Weapon(Item):
-    def __init__(self,name,stats,damage,price=0):
-        super().__init__(name,stats,price)
+    def __init__(self,name,stats,damage,weaponType,price=0):
+        super().__init__(name,stats,"Weapon",weaponType,price)
         self.damage = damage
-        self.piece="Weapon"
 
     def __str__(self):
         return '"{0}" {1} {2}'.format(self.name,self.damage,self.bonusStats)
@@ -67,11 +70,13 @@ class Weapon(Item):
         #make this slot empty
         entity.equipment.equipment[self.piece] = "empty"
 
+
+
 class Armour(Item):
 
     def __init__(self,name,stats,defence,armourType,price=0):
-        super().__init__(name,stats,price)
+        super().__init__(name,stats,"Armour",armourType,price)
         self.defence = defence
-        self.armourType = armourType
+
     def __str__(self):
         return '"{0}"  Defence:{1} {2}'.format(self.name,self.defence,self.bonusStats)
