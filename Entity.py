@@ -23,6 +23,7 @@ class Entity:
         pass
 
     def simpleAttack(self,target):#simple attack with a weapon  #TODO писать каким оружием бъеш - только имя (а если оружие не надаето ==empty писать что бъеш руками)
+        #TODO тут действуют только defence и damage(weapon+str) , а dex будет влиять в battle на то как часто ты бъеш...
         dmg=self.damage.getDamage()-int(target.defence/2)
         if dmg < 0:
             dmg = 0
