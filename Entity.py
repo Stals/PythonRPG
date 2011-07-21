@@ -1,6 +1,4 @@
-from Item import *
 
-from Elements import Elements
 from statistics import *
 class Entity:
     def __init__(self,name,stats,resists,gold):

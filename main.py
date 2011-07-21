@@ -4,7 +4,7 @@ from Elements import *
 from Potion import *
 
 player = Hero()
-monster = Monster("Dragon",Stats(7,5,5,5),Damage(0,4),4,Elements(),10)
+monster = Monster("Dragon",Stats(10,5,5,10),Damage(2,6),4,Elements(),10)
 
 
 # TODO Если player.class = "Warrior" сделать
@@ -38,21 +38,17 @@ player.potionsPocket.addPotion(Potion(0.25))
 player.potionsPocket.addPotion(Potion(0.33))
 print(player.potionsPocket)
 
-
-
 print (player)
 print (monster)
-
 print ()
+
 while not player.isDead() and not monster.isDead():
     player.simpleAttack(monster)
     monster.simpleAttack(player)
+
 print ()
 print (player)
 print (monster)
-
-
-
 
 
 # TODO Что нужно сделать
