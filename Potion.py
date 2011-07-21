@@ -4,9 +4,7 @@ class Potion:
     def __init__(self,percent=0.33,price=0):
         self.percent = percent
         self.price = price
-    def __str__(self):
-        return "Potion heals {0}% of HP and MP".format(int(self.percent*100))
-        pass
+
     def use(self,target): #uses potion on a target and removes potion from potionsPocket
         beforeHp=target.hp
         beforeMp=target.mp
@@ -22,21 +20,13 @@ class Potion:
         afterMp=target.mp
 
         print ('Potion healed "{0}" for {1} health and {2} mana'.format(target.name,(afterHp-beforeHp),(afterMp-beforeMp)))
+    def __str__(self):
+        return "Potion heals {0}% of HP and MP".format(int(self.percent*100))
 #TODO сделать ограничение в количество которое можно носить с собой
 class PotionsPocket:
 
     def __init__(self):
         self.pocket = []
-
-    def __str__(self):
-        result = ""
-        if len(self.pocket)!=0:
-            for potion in self.pocket:
-                result+="{0} \n".format(potion)
-        else: #pocket is empty
-            result = "empty"
-        return result
-
     def addPotion(self,potion):
         self.pocket.append(potion)
         self.__sort()
@@ -49,3 +39,12 @@ class PotionsPocket:
         def percent(potion):
             return potion.percent
         self.pocket.sort(key=percent)
+    def __str__(self):
+        result = ""
+        if len(self.pocket)!=0:
+            for potion in self.pocket:
+                result+="{0} \n".format(potion)
+        else: #pocket is empty
+            result = "empty"
+        return result
+

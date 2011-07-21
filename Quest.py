@@ -7,8 +7,6 @@ class Quest:
 class QuestJournal:
     def __int__(self):
         self.journal = []
-    def __str__(self):
-        pass
     #Убирает квест из journal (не приносит награды)
     def removeQuest(self,quest):
         pass
@@ -17,3 +15,5 @@ class QuestJournal:
         pass
     def items(self):
         return self.journal
+    def __str__(self):
+        pass

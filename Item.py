@@ -6,6 +6,15 @@ from statistics import *
 class bonusStats:
     def __init__(self,stats):
         self.stats = stats
+
+    def str(self):
+        return self.stats.str()
+    def dex(self):
+        return self.stats.dex()
+    def mag(self):
+        return self.stats.mag()
+    def con(self):
+        return self.stats.con()
     def __str__(self):
         result = ""
         for key,value in self.stats.items():
@@ -16,14 +25,6 @@ class bonusStats:
                     sign=""#минус будет ставится автоматически прямо в числе
                 result+="{0}:{1}{2} ".format(key,sign,value)
         return result
-    def str(self):
-        return self.stats.str()
-    def dex(self):
-        return self.stats.dex()
-    def mag(self):
-        return self.stats.mag()
-    def con(self):
-        return self.stats.con()
 
 class Item:#TODO Сдлеать специфичные для класса вещи - типо одеть magicWand может только wizard/mage/cleric
     #TODO сделать getStr() и другие методы если будет необходимо

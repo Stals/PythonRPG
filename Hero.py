@@ -49,11 +49,6 @@ class Hero(Entity):
     def getRace(self):
         #Получам Рассу
         self.heroRace = func.getChoice("Choose your Race:",races)
-
-        ##Теперь они добавляются при вызове super().__init__()
-        #Получаем статистики для Героя из Рассы которую он выбрал
-        #self.Stats.addStats(self.heroRace.Stats)
-
     def getClass(self):
         temp=func.getChoice("Choose Your Class:",[
             "Warrior - major stat is Strength",
@@ -80,8 +75,9 @@ class Hero(Entity):
 #
         pass
 
-    def heal(self): # TODO в наследниках востанавливать ману и rage
+    def heal(self):
         self.hp = self.maxHp
+        self.mp = self.maxMp
     def castSpell(self,spell): #TODO Сделать когда будет готов класс Spell и SpellBook
         pass
     def equip(self,item):#TODO EquipSet (передаётся список вещей, для каждой из которых вызывается equip) - нужно ли будет?
@@ -108,7 +104,6 @@ class Hero(Entity):
         self.inventory.addItem(self.equipment.equipment[item.piece])
         #make this slot empty
         self.equipment.equipment[item.piece] = "empty"
-
 
     def __str__(self):
         return '"{0}" Health: {1}/{2} Mana: {3}/{4} {5} Defence: {6}'.format(self.name,self.hp,self.maxHp,self.mp,self.maxMp,self.damage,self.defence)

@@ -8,11 +8,7 @@ class Elements:
             "Water" : Water,
             "Lightning" : Lightning
         }
-    def __str__(self):
-        result = ""
-        for key,value in self.resists.items():
-            result+="{0}: {1} \n".format(key,value)
-        return result
+
     def fire(self):
         return self.resists["Fire"]
     def ice(self):
@@ -21,5 +17,9 @@ class Elements:
         return self.resists["Water"]
     def lightning(self):
         return self.resists["Lightning"]
-
+    def __str__(self):
+        result = ""
+        for key,value in self.resists.items():
+            result+="{0}: {1} \n".format(key,value)
+        return result
 
