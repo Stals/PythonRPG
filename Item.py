@@ -51,6 +51,12 @@ class Weapon(Item):
     def __str__(self):
         return '"{0}" {1} {2}'.format(self.name,self.damage,self.bonusStats)
 
+class armourType:
+    Head = "Head"
+    Gloves = "Gloves"
+    Chest = "Chest"
+    Leggings = "Leggings"
+    Boots = "Boots"
 
 #armourType can be "Head" "Gloves" "Chest" "Leggings" or "Boots"
 class Armour(Item):
