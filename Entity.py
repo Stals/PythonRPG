@@ -22,9 +22,11 @@ class Entity:
     def doTurn(self):#used by Battle to make one turn
         pass
 
-    def simpleAttack(self,target):#simple attack with a weapon #TODO Переписать в зависимости от оружия и силы и defence противника
-        #TODO писать каким оружием бъеш - только имя (а если оружие не надаето ==empty писать что бъеш руками)
-        dmg=self.damage.getDamage()
+    def simpleAttack(self,target):#simple attack with a weapon  #TODO писать каким оружием бъеш - только имя (а если оружие не надаето ==empty писать что бъеш руками)
+        dmg=self.damage.getDamage()-int(target.defence/2)
+        if dmg < 0:
+            dmg = 0
+
         target.hp-=dmg
         print('"{0}" hits "{1}" for {2} damage.'.format(self.name,target.name,dmg))
     def isDead(self): #returns true if entity is dead
