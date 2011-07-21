@@ -5,7 +5,7 @@ from Potion import *
 from Item import *
 
 player = Hero()
-monster = Monster("Dragon",Stats(10,5,5,10),Damage(2,6),4,Elements(),10)
+monster = Monster("Dragon",Stats(9,5,5,10),Damage(2,6),4,Elements(),10)
 
 
 # TODO Если player.class = "Warrior" сделать
