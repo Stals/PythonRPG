@@ -28,11 +28,11 @@ class bonusStats:
     def __str__(self):
         result = ""
         for key,value in self.stats.items():
-            if value!=0:
-                if value>0:
-                    sign="+"
+            if value != 0:
+                if value > 0:
+                    sign = "+"
                 else:
-                    sign=""#минус будет ставится автоматически прямо в числе
+                    sign = ""#минус будет ставится автоматически прямо в числе
                 result+="{0}:{1}{2} ".format(key,sign,value)
         return result
 
@@ -40,9 +40,9 @@ class bonusStats:
 class Item:#TODO Сдлеать специфичные для класса вещи - типо одеть magicWand может только wizard/mage/cleric
     #TODO сделать getStr() и другие методы если будет необходимо
 
-    def __init__(self,name,stats,piece,type,price=0):
+    def __init__(self,name,stats,piece,price=0):
         self.name = name
-        self.bonusStats=bonusStats(stats)#Вещь может иметь статы
+        self.bonusStats = bonusStats(stats)#Вещь может иметь статы
         self.piece = piece #Weapon or Boots,Chest ect #TODO Если определение оружие это или нет не нужно - убрать
 
         self.price=price #Необходимо для продажи в магазине
@@ -53,7 +53,7 @@ class Item:#TODO Сдлеать специфичные для класса ве�
 
     ## Возвращает True если вещь является Броней
     def isArmour(self):#TODO поменять если будут еще и урашения наследоваться из Item
-        return self.piece!="Weapon"
+        return self.piece != "Weapon"
 
     ## переопределен в наследниках
     def __str__(self):
