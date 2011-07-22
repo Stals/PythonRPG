@@ -3,10 +3,10 @@ from Monster import *
 from Elements import *
 from Potion import *
 from Item import *
-
+from Battle import *
 player = Hero()
 monster = Monster("Dragon",Stats(9,5,5,10),Damage(2,6),4,Elements(),10)
-
+monster2= Monster("Puppy ",Stats(1,1,1,2),Damage(1,1),1,Elements(),5)
 
 # TODO Если player.class = "Warrior" сделать
 # player = Warrior(player)
@@ -33,28 +33,16 @@ player.equip(bronzeGloves)
 player.equip(bronzeChest)
 player.equip(bronzeLeggings)
 player.equip(bronzeBoots)
-print(player.equipment)
+#print(player.equipment)
 
 player.potionsPocket.addPotion(Potion(0.25))
 player.potionsPocket.addPotion(Potion(0.33))
-print(player.potionsPocket)
+#print(player.potionsPocket)
 
-print (player)
-print (monster)
-print ()
-
-while not player.isDead() and not monster.isDead():
-    player.simpleAttack(monster)
-    monster.simpleAttack(player)
-
-print ()
-print (player)
-print (monster)
+Battle(player,monster)
 
 
 # TODO Что нужно сделать
 # Quest / QuestJournal
 # SpellBook
-# Battle
-# BattleChoices
 # City
