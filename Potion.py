@@ -9,8 +9,8 @@ class Potion:
         beforeHp=target.hp
         beforeMp=target.mp
 
-        target.hp += self.percent * target.maxHp
-        target.mp += self.percent * target.maxMp
+        target.hp += round(self.percent * target.maxHp)
+        target.mp += round(self.percent * target.maxMp)
         if target.hp > target.maxHp : target.hp = target.maxHp
         if target.mp > target.maxMp : target.mp = target.maxMp
         #removes potion from pocket after it was used
@@ -35,6 +35,8 @@ class PotionsPocket:
             self.pocket.remove(potion)
     def items(self):
         return self.pocket
+    def isEmpty(self):
+        return not len(self.pocket)
     def __sort(self):
         def percent(potion):
             return potion.percent
