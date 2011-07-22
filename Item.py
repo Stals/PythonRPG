@@ -64,6 +64,7 @@ class Weapon(Item):
     def __init__(self,name,stats,damage,price=0):
         super().__init__(name,stats,"Weapon",price)
         self.damage = damage
+
     ## Возвращает описание оружия в виде строки
     def __str__(self):
         return '"{0}" {1} {2}'.format(self.name,self.damage,self.bonusStats)

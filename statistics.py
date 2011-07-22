@@ -54,6 +54,8 @@ class Stats:
         return self.stats["Mag"]
     def con(self):
         return self.stats["Con"]
+
+    ## Добавляет статистики к своим и перещитывает hp mp и damage в entity
     def addStats(self,stats,entity):#stats - that should be added to entity
         self.stats["Str"]+=stats.str()
         self.stats["Dex"]+=stats.dex()
@@ -66,6 +68,8 @@ class Stats:
         entity.mp += stats.mag()*10
 
         entity.damage.addDamage(Damage(stats.str(),stats.str()))
+
+    ## Отнимает статистики от своих и перещитывает hp mp и damage в entity
     def removeStats(self,stats,entity):#stats - that should be removed from entity
         self.stats["Str"]-=stats.str()
         self.stats["Dex"]-=stats.dex()
@@ -78,6 +82,8 @@ class Stats:
         entity.mp -= stats.mag()*10
 
         entity.damage.removeDamage(Damage(stats.str(),stats.str()))
+
+    ## Возвращает статистики в виде строки
     def __str__(self):
         result=""
         for key,value in self.stats.items():

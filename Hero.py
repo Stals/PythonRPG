@@ -8,14 +8,19 @@ from statistics import *
 #Класс хранит Имя рассы и те бонусы которые она даёт
 import usefullFunctions.getChoice as func
 
+## Расса
 class Race:
     def __init__(self,name="",stats=Stats()):
         self.name = name
         self.stats = stats
-    def __str__(self):
-        return "{0}\n{1}".format(self.name,self.stats)
+
+    ## Возвращает название рассы
     def name(self):
         return self.name
+    ## Возвращает описание Рассы в виде строки
+    def __str__(self):
+        return "{0}\n{1}".format(self.name,self.stats)
+
 #TODO Сдлеать чтобы маны было меньше , и также как и hp примерно для среднего класса Human Может для human все статы по 5 ?
 races=[
     Race("Ogre",Stats(9,2,2,5)),
@@ -26,6 +31,8 @@ races=[
     Race("Lepricone",Stats(2,5,8,3)),
     Race("Fairy",Stats(1,5,9,3))
 ]
+
+## Герой 
 class Hero(Entity):
 
     def __init__(self):
