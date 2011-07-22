@@ -20,10 +20,10 @@ class Entity:
         self.resists=resists
         self.gold = gold
 
-    def doTurn(self):#used by Battle to make one turn
+    def getBattleChoice(self): #used by Battle to make one turn
         pass
 
-    def simpleAttack(self,target):#simple attack with a weapon  #TODO писать каким оружием бъеш - только имя (а если оружие не надаето ==empty писать что бъеш руками)
+    def simpleAttack(self,target):#simple attack with a weapon // returns true if this killed an enemy  #TODO писать каким оружием бъеш - только имя (а если оружие не надаето ==empty писать что бъеш руками)
         #TODO тут действуют только defence и damage(weapon+str) , а dex будет влиять в battle на то как часто ты бъеш...
         #Разность в Dex влияет на попадание
         hitChance=self.stats.dex()/target.stats.dex()
@@ -33,7 +33,12 @@ class Entity:
                 dmg = 0
 
             target.hp-=dmg
-            print('"{0}" hits "{1}" for {2} damage.'.format(self.name,target.name,dmg))
+            if target.isDead():
+                print('"{0}" kills "{1}" with {2} damage.'.format(self.name,target.name,dmg))
+                return True
+            else:
+                print('"{0}" hits "{1}" for {2} damage. ({3}/{4} hp left)'.format(self.name,target.name,dmg,target.hp,target.maxHp))
+                return False
         else: #you missed
             print('"{0}" missed "{1}" with {2}% hit chance.'.format(self.name,target.name,hitChance*100))
     def isDead(self): #returns true if entity is dead
