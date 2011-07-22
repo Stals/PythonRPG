@@ -17,5 +17,6 @@ class QuestJournal:
     ## Возвращает список всех квестов в журнале
     def items(self):
         return self.journal
+    ## Возвращает список всех квестов в виде строки
     def __str__(self):
         pass

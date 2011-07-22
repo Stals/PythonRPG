@@ -1,11 +1,15 @@
 from Entity import *
 class Monster(Entity):
+
     def __init__(self,name,stats,bonusDamage,bonusDefence,resists,gold=0):
         super().__init__(name,stats,resists,gold)
         self.damage.addDamage(bonusDamage) #TODO Убрать если у монстров будет оружие
         self.defence=bonusDefence#TODO убрать если у монстров будет броня
+
     def getBattleChoice(self): #TODO Сделать более сложной (если будут заклинания, + возможно potions)
+        # чтобы в Battle было выбрано simpleAttack
         return "Attack"
+
     ## Даёт Награду hero
     def giveLoot(self,hero):
         hero.gold+=self.gold

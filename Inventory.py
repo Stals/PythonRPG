@@ -3,21 +3,32 @@ from Item import Item
 
 #TODO сделать максимально переносимое число вещей ( зависит от Stamina )
 #TODO Сделать чтобы при выводе через func использовали player.inventory.items()  // И ДЛЯ ДРУГИХ ТИПО POTIONSPOCKET
+
+## Инвентарь (Хранит наследники Item)
 class Inventory:
     def __init__(self):
          self.inventory = []
 
-    def addItem(self,newItem):
-        self.inventory.append(newItem)
+    ## Добавляет item в inventory
+    def addItem(self,item):
+        self.inventory.append(item)
         self.__sort()
+
+    ## Убирает item из инвентаря
     def removeItem(self,item):# if item is in invenrory it will be removed
         if item in self.inventory:
             self.inventory.remove(item)
+
+    ## Возвращает список всех вещей в инвентаре
     def items(self):
         return self.inventory
+
+    ## Сортирует вещи по типу - Ботинки / Шлем / Оружие и тд
     def __sort(self):
         #TODO сделать сортировку по типу Ботинки вместе, оружие вместе и тд (тогда у Оружия тоже должен быть piece)
         pass
+    
+    ## Возвращает список всех вещей в инвентаре в виде строки
     def __str__(self):
         result = ""
         if len(self.inventory)!=0:
