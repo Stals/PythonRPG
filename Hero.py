@@ -44,11 +44,16 @@ class Hero(Entity):
         self.equipment = Equipment()
         self.potionsPocket = PotionsPocket()
 
+    ## Получает имя Персонажа
     def getName(self): #TODO Не получать пустую строку , и чтобы ввод был норм.
         self.name = input("Input you name:")
+
+    ## Получает Рассу
     def getRace(self):
         #Получам Рассу
         self.heroRace = func.getChoice("Choose your Race:",races)
+        
+    ## Получает Класс
     def getClass(self):
         temp=func.getChoice("Choose Your Class:",[
             "Warrior - major stat is Strength",
@@ -61,28 +66,42 @@ class Hero(Entity):
             self.heroClass="Ranger"
         elif temp[0]=="M":
             self.heroClass="Mage"
-
+            
+    ## Выводит полный перечень Того что есть у Персонажа:
+    ## Статистики (stats,hp,mp,gold)
+    ## Урон
+    ## Вещи в inventory (инвентаре)
+    ## Вещи в equipment (обмундировании)
+    ## Лечебки в potionsPocket
+    ## Резисты Персонажа
+    ## Квесты в QuestJournal
+    ## Заклинания в SpellBook
     def showStats(self):
         #TODO showStats() в hero делать с переносом на новую строку при выводе каждого объекта. При этом с использованием \n и дальше на новой строке код
 #        +Stats
 #        +Damage
 #        +inventory
+#        +equipment
 #        +potionsPocket
 #        +resists
 #        -questJournal
-#        +equipment
 #        -spellbook
 #
         pass
 
+    ## восстанавливает hp и mp
     def heal(self):
         self.hp = self.maxHp
         self.mp = self.maxMp
+    ## Кастует Заклинание
     def castSpell(self,spell): #TODO Сделать когда будет готов класс Spell и SpellBook
         pass
-    def getBattleChoice(self):#Даёт Выбор что сделать
+    
+    ## Даёт выбор что сделать в бою
+    def getBattleChoice(self):
+
         actions = []
-        actions.append('Attack with "{0}"'.format(self.equipment.weapon()))
+        actions.append("Attack with \"{0}\"".format(self.equipment.weapon()))
         #TODO вернуть когда сделаю заклинания
         #if not self.spellBook.isEmpty():
         #    actions.append("Cast Spell")
@@ -92,6 +111,7 @@ class Hero(Entity):
         choice = func.getChoice("What would you do?",actions)
         return choice
 
+    ## Одевает item в equipment и убирает из inventory
     def equip(self,item):#TODO EquipSet (передаётся список вещей, для каждой из которых вызывается equip) - нужно ли будет?
         if self.equipment.equipment[item.piece] != "empty":#if there is an item
             self.unequip(self.equipment.equipment[item.piece])
@@ -105,6 +125,8 @@ class Hero(Entity):
             self.damage.addDamage(item.damage)
         if item.isArmour():
             self.defence+=item.defence
+
+    ## Снимает item из equipment и кладёт в inventory
     def unequip(self,item):
         #remove Stats that this item added
         self.stats.removeStats(self.equipment.equipment[item.piece].bonusStats,self)
@@ -116,6 +138,6 @@ class Hero(Entity):
         self.inventory.addItem(self.equipment.equipment[item.piece])
         #make this slot empty
         self.equipment.equipment[item.piece] = "empty"
-
+    
     def __str__(self):
         return '"{0}" Health: {1}/{2} Mana: {3}/{4} {5} Defence: {6}'.format(self.name,self.hp,self.maxHp,self.mp,self.maxMp,self.damage,self.defence)

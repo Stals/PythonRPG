@@ -1,6 +1,10 @@
 #чтобы предложить снять вещь из equipment'а нужео передать items() в getChoice()
+
+## Обмундирование 
 class Equipment:
     def __init__(self):
+
+        ## Хранит обмундирование в виде Словаря
          self.equipment={
             "Weapon"   : "empty",
             "Head"     : "empty",
@@ -9,18 +13,24 @@ class Equipment:
             "Leggings" : "empty",
             "Boots"    : "empty"
         }
-    def items(self):#returns list of all items that are equiped
+
+    ## Возвращает список всех вещей которые одеты
+    def items(self):
         list = []
 
         for piece,item in self.equipment.items():
             if item!="empty":
                 list.append(item)
         return list
+
+    ## Возвращает имя оружия если оно есть, иначе возвращает Fists (кулаки)
     def weapon(self):
         if self.equipment["Weapon"] == "empty":
             return "Fists"
         else:
             return self.equipment["Weapon"].name
+
+    ## Возвращает все одетые вещи в виде строки
     def __str__(self):
         result = ""
         for piece,item in self.equipment.items():

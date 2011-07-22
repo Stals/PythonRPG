@@ -6,6 +6,7 @@ class Monster(Entity):
         self.defence=bonusDefence#TODO убрать если у монстров будет броня
     def getBattleChoice(self): #TODO Сделать более сложной (если будут заклинания, + возможно potions)
         return "Attack"
+    ## Даёт Награду hero
     def giveLoot(self,hero):
         hero.gold+=self.gold
         #TODO Давать рандомный шмот ( не каждый раз ) Но при этом может упасть вещь типо Dragon lether и тд
