@@ -16,7 +16,11 @@ class Equipment:
             if item!="empty":
                 list.append(item)
         return list
-
+    def weapon(self):
+        if self.equipment["Weapon"] == "empty":
+            return "Fists"
+        else:
+            return self.equipment["Weapon"].name
     def __str__(self):
         result = ""
         for piece,item in self.equipment.items():
