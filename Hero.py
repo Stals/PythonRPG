@@ -80,6 +80,18 @@ class Hero(Entity):
         self.mp = self.maxMp
     def castSpell(self,spell): #TODO Сделать когда будет готов класс Spell и SpellBook
         pass
+    def getBattleChoice(self):#Даёт Выбор что сделать
+        actions = []
+        actions.append('Attack with "{0}"'.format(self.equipment.weapon()))
+        #TODO вернуть когда сделаю заклинания
+        #if not self.spellBook.isEmpty():
+        #    actions.append("Cast Spell")
+        if not self.potionsPocket.isEmpty():
+            actions.append("Use Potion")
+        actions.append("Flee")
+        choice = func.getChoice("What would you do?",actions)
+        return choice
+
     def equip(self,item):#TODO EquipSet (передаётся список вещей, для каждой из которых вызывается equip) - нужно ли будет?
         if self.equipment.equipment[item.piece] != "empty":#if there is an item
             self.unequip(self.equipment.equipment[item.piece])
