@@ -11,6 +11,7 @@ class Entity:
         self.maxHp = 0
         self.mp = 0
         self.maxMp = 0
+        ## Показатель защиты
         self.defence = 0
         self.stats = Stats()
         self.stats.addStats(stats,self)
@@ -20,7 +21,7 @@ class Entity:
 
     ## Функция переопределяется в наследниках
     ## Даёт выбор что сделать в бою
-    def getBattleChoice(self): #used by Battle to make one turn
+    def getBattleChoice(self):
         pass
 
     ## Обычная атака оружием

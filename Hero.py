@@ -47,8 +47,11 @@ class Hero(Entity):
 
         super().__init__(self.name,self.heroRace.stats,Elements(),0)
 
+        ## Инвентарь героя
         self.inventory = Inventory()
+        ## Обмундирование героя
         self.equipment = Equipment()
+        ## Карман с Лечебками героя
         self.potionsPocket = PotionsPocket()
 
     ## Получает имя Персонажа
