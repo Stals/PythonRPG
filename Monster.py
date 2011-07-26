@@ -9,6 +9,11 @@ class Monster(Entity):
     def getBattleChoice(self): #TODO Сделать более сложной (если будут заклинания, + возможно potions)
         # чтобы в Battle было выбрано simpleAttack
         return "Attack"
+    
+    #TODO переписать give в get?
+    ## Дат опыт hero в зависимоти от статистик monster
+    def giveExp(selfmhero):
+        pass
 
     ## Даёт Награду hero
     def giveLoot(self,hero):
