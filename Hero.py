@@ -65,17 +65,12 @@ class Hero(Entity):
         
     ## Получает Класс
     def getClass(self):
-        temp=func.getChoice("Choose Your Class:",[
-            "Warrior - major stat is Strength",
-            "Ranger  - major stat is Dexterity",
-            "Mage    - major stat is Magick"
+        self.heroClass = func.getChoice("Choose Your Class:",[
+            "Warrior",
+            "Ranger",
+            "Mage"
         ])
-        if temp[0]=="W":
-            self.heroClass="Warrior"
-        elif temp[0]=="R":
-            self.heroClass="Ranger"
-        elif temp[0]=="M":
-            self.heroClass="Mage"
+
             
     ## Выводит полный перечень Того что есть у Персонажа:
     ## Статистики (stats,hp,mp,gold)
