@@ -20,6 +20,8 @@ class Monster(Entity):
         hero.gold+=self.gold
         #TODO Давать рандомный шмот ( не каждый раз ) Но при этом может упасть вещь типо Dragon lether и тд
 
+	#NOTE: __str__() опеределен в Entity
+	
 #initialization looks like that
 #monster = Monster("Dragon",Stats(5,5,5,5),Damage(1,10),5,Elements(0,0,0,0),10)
 #                    |              |        |          |            |       |
