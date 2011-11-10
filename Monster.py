@@ -12,7 +12,7 @@ class Monster(Entity):
     
     #TODO переписать give в get?
     ## Дат опыт hero в зависимоти от статистик monster
-    def giveExp(selfmhero):
+    def giveExp(self, hero):
         pass
 
     ## Даёт Награду hero
