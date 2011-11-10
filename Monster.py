@@ -4,9 +4,9 @@ class Monster(Entity):
     def __init__(self,name,stats,bonusDamage,bonusDefence,resists,gold=0):
         super().__init__(name,stats,resists,gold)
         self.damage.addDamage(bonusDamage) #TODO Убрать если у монстров будет оружие
-        self.defence=bonusDefence#TODO убрать если у монстров будет броня
+        self.defence = bonusDefence#TODO убрать если у монстров будет броня
 
-    def getBattleChoice(self): #TODO Сделать более сложной (если будут заклинания, + возможно potions)
+    def getBattleChoice(self): #TODO Сделать более сложной (если будут заклинания(можно сделать Класс MageMonster у которого будет список заклинаний при инициализации и он сможет их использовать (даже heal)), + возможно potions)
         # чтобы в Battle было выбрано simpleAttack
         return "Attack"
     
