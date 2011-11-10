@@ -37,8 +37,13 @@ class Battle: #TODO Сделать чтобы при выборе вещи/пр�
                         deadEnemies.append(choosedEnemy)
 
                 if choice[0] == 'U': #Use Potion
-                    func.getChoice("What potion to use?",hero.potionsPocket.items()).use(hero) #TODO ЕСЛИ ОТМЕНА в getChoice то заново дать выбрать ( continue иди goto)
-
+                    choosedPotion = func.getChoice("What potion to use?", hero.potionsPocket.items(), cancel = True)
+                    if choosedPotion == 0:
+						#Выбрали Отмену
+                        continue
+                    else:
+                        hero.use(choosedPotion)
+                    
                 #проверка на выйгрыш игрока
                 if len(enemyList)==0:
                     victory = True
