@@ -26,7 +26,10 @@ class Battle: #TODO Сделать чтобы при выборе вещи/пр�
 
                 if choice[0] == 'A': #Attack #TODO заменить на функцию так как тоже самое вызывается и для enemy (тогда перенести проверку на убийство моба дальше)
                     if len(enemyList) > 1:
-                        choosedEnemy = func.getChoice("Choose your target:",enemyList)
+                        choosedEnemy = func.getChoice("Choose your target:", enemyList, cancel = True)
+                        if choosedEnemy == 0:
+                            # Если была выбрана отмена
+                            continue
                     else: # Если один противник - его бьёт автоматически
                         choosedEnemy = enemyList[0]
                     hero.simpleAttack(choosedEnemy)
