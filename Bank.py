@@ -3,8 +3,8 @@ from Inventory import *
 class Bank():#TODO придумать как будет выглядеть взаимодействие с банком
 	#TODO Если тут есть removeGold() который будет вызываться, то видимо нужно сделать такойже для hero?
 	def __init__(self):
-		storage = Inventory()
-		gold = 0
+		self.storage = Inventory()
+		self.gold = 0
 
 	## Добавляет gold золота в банк
 	def addGold(self, gold):
@@ -15,7 +15,7 @@ class Bank():#TODO придумать как будет выглядеть вз�
 		if self.enoughGold(gold):
 			self.gold -= gold
 		else:
-			print("Gold is not enough.\n Bank stores only {0} gold\n".format(self.gold))
+			print("Gold is not enough.\nBank stores only {0} gold\n".format(self.gold))
 
 	## Возвращает true если в банке есть столько денег
 	def enoughGold(self, gold):
@@ -26,17 +26,18 @@ class Bank():#TODO придумать как будет выглядеть вз�
 
 	## Добавляет item в банк
 	def addItem(self, item):
-		pass
+		self.storage.addItem(item)
 
 	## Убирает item из банка
-	def takeItem(self, item):
-		pass
+	def removeItem(self, item):
+		self.storage.removeItem(item)
 
 	## Возвращает список всех вещей в банке
 	def items(self):
-		pass
+		return self.storage.items()
 
 	## Возвращает золото и список всех вещей в банке в виде строке
 	def __str__(self):
-		pass
-
+		result = "{0} gold\n".format(self.gold)
+		result += self.storage.__str__()
+		return result
