@@ -1,7 +1,7 @@
 import random
 import os
 
-from usefullFunctions import getChoice as func
+from utils import getChoice as utils
 
 #Вообще може было всё запизнуть в один класс entity и уже переменные назвать human и monnster , но я сделал так потому
 #что думаю что У человека возможно будет больше чего (например опыт и уровни и тД)
@@ -45,7 +45,7 @@ monsters=[
 player=human(input("Введите ваше имя: "),100,(7,15))
 
 #Позволяем игроку выбрать себе противника
-choosedMonster=func.getChoice("{0} выходит на арену и его просят выбрать себе противника:".format(player.name),monsters)
+choosedMonster=utils.getChoice("{0} выходит на арену и его просят выбрать себе противника:".format(player.name),monsters)
 print("Замечательно, вашим противником будет {0}. Да начнётся бой!".format(choosedMonster.name))
 
 #делам цикл до тех пор пока ктонибудь не умрёт

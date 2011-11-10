@@ -1,5 +1,5 @@
 import Item
-from statistics import *\
+from statistics import *
 
 ## Возвращает рандомную вещь как вознгараждение
 class Loot:

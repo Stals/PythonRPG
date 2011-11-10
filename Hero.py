@@ -6,7 +6,7 @@ from Elements import *
 from statistics import *
 
 #Класс хранит Имя рассы и те бонусы которые она даёт
-import usefullFunctions.getChoice as func
+import utils.getChoice as utils
 
 ## Расса
 class Race:
@@ -61,11 +61,11 @@ class Hero(Entity):
     ## Получает Рассу
     def getRace(self):
         #Получам Рассу
-        self.heroRace = func.getChoice("Choose your Race:",races)
+        self.heroRace = utils.getChoice("Choose your Race:",races)
         
     ## Получает Класс
     def getClass(self):
-        self.heroClass = func.getChoice("Choose Your Class:",[
+        self.heroClass = utils.getChoice("Choose Your Class:",[
             "Warrior",
             "Ranger",
             "Mage"
@@ -113,7 +113,7 @@ class Hero(Entity):
         if not self.potionsPocket.isEmpty():
             actions.append("Use Potion")
         actions.append("Flee")
-        choice = func.getChoice("What would you do?",actions)
+        choice = utils.getChoice("What would you do?",actions)
         return choice
 
     ## Одевает item в equipment и убирает из inventory
