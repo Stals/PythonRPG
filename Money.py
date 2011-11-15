@@ -13,17 +13,17 @@ class Money: #TODO сделать Exceptions Если при вычетании 
 		if gold>=0:
 			self.gold = gold
 		else:
-			raise Exception("Wrong gold value!")
+			raise Exception("Wrong gold value!\nShould be >= 0.")
 
 		if 100 > silver >= 0:
 			self.silver = silver
 		else:
-			raise Exception("Wrong silver value!\nShould be between 0 and 99")
+			raise Exception("Wrong silver value!\nShould be between 0 and 99.")
 
 		if 100 > silver >=0:
 			self.bronze = bronze
 		else:
-			raise Exception("Wrong bronze value!\nShould be between 0 and 99")
+			raise Exception("Wrong bronze value!\nShould be between 0 and 99.")
 
 	def toBronze(self):
 		"""
