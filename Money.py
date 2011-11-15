@@ -25,14 +25,14 @@ class Money: #TODO сделать Exceptions Если при вычетании 
 		else:
 			raise Exception("Wrong bronze value!\nShould be between 0 and 99")
 
-	def __str__(self):
-		return "{0} gold {1} silver {2} bronze".format(self.gold, self.silver, self.bronze)
-
 	def toBronze(self):
 		"""
 		Возвращает кол-во денег в виде бронзы
 		"""
 		return self.gold*100*100 + self.silver*100 + self.bronze
+
+	def __str__(self):
+		return "{0} gold {1} silver {2} bronze".format(self.gold, self.silver, self.bronze)
 
 	# >=
 	def __ge__(self, other): #TODO mb проверять хватает ли золота перед конвертацией
