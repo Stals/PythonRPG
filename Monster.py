@@ -1,7 +1,7 @@
 from Entity import *
 class Monster(Entity):
 
-    def __init__(self,name,stats,bonusDamage,bonusDefence,resists,gold=0):
+    def __init__(self,name,stats,bonusDamage,bonusDefence,resists,gold=0):#TODO пропрвать GOLD на MONEY
         super().__init__(name,stats,resists,gold)
         self.damage.addDamage(bonusDamage) #TODO Убрать если у монстров будет оружие
         self.defence = bonusDefence#TODO убрать если у монстров будет броня
@@ -17,7 +17,7 @@ class Monster(Entity):
 
     ## Даёт Награду hero
     def giveLoot(self,hero):
-        hero.gold+=self.gold
+        hero.gold+=self.gold #TODO изменить на money т.к. сломается
         #TODO Давать рандомный шмот ( не каждый раз ) Но при этом может упасть вещь типо Dragon lether и тд
 
 	#NOTE: __str__() опеределен в Entity
