@@ -17,7 +17,7 @@ class Entity:
         self.stats.addStats(stats,self)
 
         self.resists=resists
-        self.gold = gold #TODO вставить Money() вместо int
+        self.money = Money()
 
     ## Функция переопределяется в наследниках
     ## Даёт выбор что сделать в бою
