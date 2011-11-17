@@ -1,13 +1,14 @@
+from Money import *
 ##Potion  восстанавливает percent процентов hp и mana при применении use на target
 class Potion:
 
     ## percent в дроби, типо 0.33
-    def __init__(self,percent=0.33,price=0):
+    def __init__(self,percent=0.33,price=Money()):
         self.percent = percent
         self.price = price
 
     ## uses potion on a target and removes potion from potionsPocket
-    def use(self,target):
+    def use(self, target):
         beforeHp=target.hp
         beforeMp=target.mp
 
@@ -29,18 +30,16 @@ class Potion:
 
 ## Карман с Лечебками
 class PotionsPocket:#TODO сделать ограничение в количество которое можно носить с собой
-
-
     def __init__(self):
         self.pocket = []
 
     ## Добавлет potion в карман
-    def addPotion(self,potion):
+    def addPotion(self, potion):
         self.pocket.append(potion)
         self.__sort()
 
     ## Уберает potion из кармана
-    def removePotion(self,potion):
+    def removePotion(self, potion):
         if potion in self.pocket:
             self.pocket.remove(potion)
 
@@ -51,11 +50,13 @@ class PotionsPocket:#TODO сделать ограничение в количе�
     ## Возвращает True если карман пуст
     def isEmpty(self):
         return not len(self.pocket)
+
     ## Сортирует лечебки в кармане по проценту который они восстанавливают
     def __sort(self):
         def percent(potion):
             return potion.percent
         self.pocket.sort(key=percent)
+
     ## Возвращает список всех лечебок в виде строки
     def __str__(self):
         result = ""
