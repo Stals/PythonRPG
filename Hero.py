@@ -120,7 +120,7 @@ class Hero(Entity):
         return choice
 
     ## Одевает item в equipment и убирает из inventory
-    def equip(self,item):#TODO EquipSet (передаётся список вещей, для каждой из которых вызывается equip) - нужно ли будет?
+    def equip(self, item):#TODO EquipSet (передаётся список вещей, для каждой из которых вызывается equip) - нужно ли будет?
         if self.equipment.equipment[item.piece] != "empty":#if there is an item
             self.unequip(self.equipment.equipment[item.piece])
         #now the slot is empty

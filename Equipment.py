@@ -19,7 +19,7 @@ class Equipment:
         list = []
 
         for piece,item in self.equipment.items():
-            if item!="empty":
+            if item != "empty":
                 list.append(item)
         return list
 
