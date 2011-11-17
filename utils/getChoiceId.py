@@ -1,3 +1,4 @@
+#Question Может ли эта функция пригодиться?
 # returns 0 for the first element and so on
 def getChoiceId(question , choices):
 	if len(choices)>=1:
