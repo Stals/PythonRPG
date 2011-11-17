@@ -25,6 +25,3 @@ class Damage:
     ## Возвращает Урон в виде строки
     def __str__(self):
         return " Damage: {0}-{1} ".format(self.min,self.max)
-
-
-
