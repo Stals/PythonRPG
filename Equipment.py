@@ -3,7 +3,6 @@
 ## Обмундирование 
 class Equipment:
     def __init__(self):
-
         ## Хранит обмундирование в виде Словаря
          self.equipment={
             "Weapon"   : "empty",
@@ -17,7 +16,6 @@ class Equipment:
     ## Возвращает список всех вещей которые одеты
     def items(self):
         list = []
-
         for piece,item in self.equipment.items():
             if item != "empty":
                 list.append(item)

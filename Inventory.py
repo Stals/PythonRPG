@@ -10,12 +10,12 @@ class Inventory:
          self.inventory = []
 
     ## Добавляет item в inventory
-    def addItem(self,item):
+    def addItem(self, item):
         self.inventory.append(item)
         self.__sort()
 
     ## Убирает item из инвентаря
-    def removeItem(self,item):
+    def removeItem(self, item):
         if item in self.inventory:
 			# if item is in invenrory it will be removed
             self.inventory.remove(item)
