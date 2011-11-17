@@ -26,4 +26,4 @@ class Monster(Entity):
 #initialization looks like that
 #monster = Monster("Dragon",Stats(5,5,5,5),Damage(1,10),5,Elements(0,0,0,0),10)
 #                    |              |        |          |            |       |
-#                  name           Stats  bonusDamage  bonusDefence resists  gold
+#                  name           Stats  bonusDamage  bonusDefence resists  money
