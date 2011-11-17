@@ -1,4 +1,4 @@
-#чтобы предложить снять вещь из equipment'а нужео передать items() в getChoice()
+#NOTE: чтобы предложить снять вещь из equipment'а нужео передать items() в getChoice()
 
 ## Обмундирование 
 class Equipment:

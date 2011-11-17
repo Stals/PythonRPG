@@ -61,7 +61,7 @@ class Hero(Entity):
 
     ## Получает Рассу
     def getRace(self):
-        #Получам Рассу
+        #Получаем Расу
         self.heroRace = utils.getChoice("Choose your Race:",races)
         
     ## Получает Класс
@@ -102,14 +102,14 @@ class Hero(Entity):
         self.mp = self.maxMp
 
     ## Кастует Заклинание
-    def castSpell(self, spell): #TODO Сделать когда будет готов класс Spell и SpellBook
+    def castSpell(self, spell): #TODOlater Сделать когда будет готов класс Spell и SpellBook
         pass
     
     ## Даёт выбор что сделать в бою
     def getBattleChoice(self):
         actions = []
         actions.append("Attack with \"{0}\"".format(self.equipment.weapon()))
-        #TODO вернуть когда сделаю заклинания
+        #TODOlater вернуть когда сделаю заклинания
         #if not self.spellBook.isEmpty():
         #    actions.append("Cast Spell")
         if not self.potionsPocket.isEmpty():

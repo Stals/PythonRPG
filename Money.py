@@ -1,5 +1,4 @@
 #NOTE перед операциями - + , нужно проверять хватает ли денег с помощью > < >= <=
-#TODO Реализовать функции деления , чтобы можно было узнать сколько например будет 1/2 Money
 class Money: #TODO сделать Exceptions Если при вычетании и сложении
 	"""
 	Класс Money позволяет хранить и производить операции над деньгами
@@ -64,7 +63,7 @@ class Money: #TODO сделать Exceptions Если при вычетании 
 		return "{0} gold {1} silver {2} bronze".format(self.gold, self.silver, self.bronze)
 
 	# >=
-	def __ge__(self, other): #TODO mb проверять хватает ли золота перед конвертацией
+	def __ge__(self, other): #Question mb проверять хватает ли золота перед конвертацией
 		# Сравним Кол-во денег в Бронзовом эквиваленте
 		if self.toBronze() >= other.toBronze():
 			return True

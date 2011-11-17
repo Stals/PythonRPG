@@ -9,7 +9,7 @@
 # Если была выбрана Отмена (Cancel) будет возвращен 0
 # В случае ошибки будет возвращен -1
 
-#TODO защиту от русских букв
+#TODO! защиту от русских букв
 def getChoice(question , choices , cancel = False):
 	if len(choices)>=1:
 		print(question)

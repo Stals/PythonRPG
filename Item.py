@@ -38,7 +38,7 @@ class bonusStats:
 
 #TODO из него наследуется то что может выпасть из моба , типо шкура и тд.
 class Item:#TODO Сдлеать специфичные для класса вещи - типо одеть magicWand может только wizard/mage/cleric
-    #TODO сделать getStr() и другие методы если будет необходимо
+    #TODOlater сделать getStr() и другие методы если будет необходимо
 
     def __init__(self,name,stats,piece,price=Money()):
         self.name = name
