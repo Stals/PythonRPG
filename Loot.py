@@ -5,6 +5,7 @@ from statistics import *
 class Loot:
     def __init__(self):
         pass
+
     ## Возвращает случайную вещь
     def getLoot(self):
         #TODO return a true random item

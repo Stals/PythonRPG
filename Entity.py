@@ -47,6 +47,7 @@ class Entity:
     ## Возвращает true если Entity мертв
     def isDead(self):
         return self.hp<=0
+
     ## Возвращает описание Entity в виде строки
     def __str__(self):
         return '"{0}" Health: {1}/{2} Mana: {3}/{4} {5} Defence: {6}'.format(self.name,self.hp,self.maxHp,self.mp,self.maxMp,self.damage,self.defence)

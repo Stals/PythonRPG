@@ -149,6 +149,5 @@ class Hero(Entity):
     def use(self, item):
         item.use(self)
 
-
     def __str__(self):
         return '"{0}" Health: {1}/{2} Mana: {3}/{4} {5} Defence: {6}'.format(self.name,self.hp,self.maxHp,self.mp,self.maxMp,self.damage,self.defence)
