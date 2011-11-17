@@ -1,7 +1,7 @@
 #функция __str__() в класса позволяет очень просто выводит их содержимое через print(MagicBow) например
 import random
 from statistics import *
-
+from Money import *
 ## является оберткой вокруг Stats
 class bonusStats:
 
@@ -40,7 +40,7 @@ class bonusStats:
 class Item:#TODO Сдлеать специфичные для класса вещи - типо одеть magicWand может только wizard/mage/cleric
     #TODO сделать getStr() и другие методы если будет необходимо
 
-    def __init__(self,name,stats,piece,price=0):
+    def __init__(self,name,stats,piece,price=Money()):
         self.name = name
         self.bonusStats = bonusStats(stats)#Вещь может иметь статы
         self.piece = piece #Weapon or Boots,Chest ect #TODO Если определение оружие это или нет не нужно - убрать
