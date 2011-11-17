@@ -5,7 +5,7 @@ class Quest:
     def __str__(self):
         pass
 ## Журнал квестов - хранить текущие квесты игрока
-class QuestJournal:
+class QuestJournal: #TODO метод addQuest [который принемает объект класса Quest()]
     def __int__(self):
         self.journal = []
     ## Убирает квест из journal (не приносит награды)
