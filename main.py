@@ -26,20 +26,20 @@ player.inventory.addItem(magicBow)
 player.inventory.addItem(fireSword)
 
 
-player.equip(func.getChoice("Choose weapon to equip?",player.inventory.items()))
+player.equip(utils.getChoice("Choose weapon to equip?",player.inventory.items()))
 
 player.equip(bronzeHead)
 player.equip(bronzeGloves)
 player.equip(bronzeChest)
 player.equip(bronzeLeggings)
 player.equip(bronzeBoots)
-#print(player.equipment)
+print(player.equipment)
 
 player.potionsPocket.addPotion(Potion(0.25))
 player.potionsPocket.addPotion(Potion(0.33))
 #print(player.potionsPocket)
 
-Battle(player,monster)
+Battle(player,[monster,monster2])
 
 
 # TODO Что нужно сделать
