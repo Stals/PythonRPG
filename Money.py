@@ -41,6 +41,26 @@ class Money: #TODO сделать Exceptions Если при вычетании 
 	def toBronze(self):
 		return self.gold*100*100 + self.silver*100 + self.bronze
 
+	## Конвертирует Бронзу в серебро и золото
+	def fromBronze(self, bronze):
+		_gold = 0
+		_silver = 0
+		_bronze = 0
+
+		while bronze >= 100*100:
+			_gold += 1
+			bronze -= 100*100
+
+		while bronze >= 100:
+			_silver += 1
+			bronze -= 100
+
+		_bronze = bronze
+
+		return Money(_gold, _silver, _bronze)
+
+
+
 	## Возвращет кол-во денег в виде строки
 	def __str__(self):
 		return "{0} gold {1} silver {2} bronze".format(self.gold, self.silver, self.bronze)
@@ -105,6 +125,27 @@ class Money: #TODO сделать Exceptions Если при вычетании 
 		self.__sub__(other)
 		return self
 
+	# / - Делит на int, а не на другой объект класса Money
+	# Например "Money(1,0,0) / 2" должен вернуть "Money(0,50,0)"
+	def __truediv__(self, other):
+		_bronze = round(self.toBronze() / other)
+		return self.fromBronze(_bronze)
+
+	# /=
+	def __itruediv__(self, other):
+		self.__truediv__(other)
+		return self
+
+	# * - Умножает на int ,а не на другой объект класса Money
+	def __mul__(self, other):
+		_bronze = self.toBronze() * other
+		return self.fromBronze(_bronze)
+
+	# *=
+	def __imul__(self, other):
+		self.__mul__(other)
+		return self
+
 	# ==
 	def __eq__(self, other):
 		if self.gold == other.gold and\
@@ -113,6 +154,7 @@ class Money: #TODO сделать Exceptions Если при вычетании 
 			return True
 		else:
 			return False
+		
 	# !=
 	def __ne__(self, other):
 		return not self.__eq__(other)
