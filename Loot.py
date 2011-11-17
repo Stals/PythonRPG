@@ -1,5 +1,6 @@
 import Item
-from statistics import *
+from Stats import *
+from Damage import *
 
 ## Возвращает рандомную вещь как вознгараждение
 class Loot:

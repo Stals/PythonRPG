@@ -4,6 +4,8 @@ from Elements import *
 from Potion import *
 from Item import *
 from Battle import *
+from Stats import *
+
 player = Hero()
 monster = Monster("Dragon",Stats(9,5,5,10),Damage(2,6),4,Elements(),10)
 monster2 = Monster("Puppy ",Stats(1,1,1,2),Damage(1,1),1,Elements(),5)

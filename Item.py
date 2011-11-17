@@ -1,6 +1,4 @@
 #функция __str__() в класса позволяет очень просто выводит их содержимое через print(MagicBow) например
-import random
-from statistics import *
 from Money import *
 ## является оберткой вокруг Stats
 class bonusStats:

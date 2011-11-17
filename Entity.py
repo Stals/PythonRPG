@@ -1,6 +1,6 @@
+from Damage import *
+from Stats import *
 
-from statistics import *
-import random
 class Entity:
 
     def __init__(self,name,stats,resists,money):

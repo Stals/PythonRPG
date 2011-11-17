@@ -3,7 +3,7 @@ from Inventory import Inventory
 from Equipment import *
 from Potion import PotionsPocket
 from Elements import *
-from statistics import *
+from Stats import *
 
 #Класс хранит Имя рассы и те бонусы которые она даёт
 import utils.getChoice as utils
