@@ -23,6 +23,7 @@ class Battle:
             	# getBattleChoice возвращает только те варианты которые осуществимы - например есть хотыбы один potion
                 choice = hero.getBattleChoice()
 
+				#TODO! переписать используя это : http://stackoverflow.com/questions/8141165/how-to-dynamically-select-a-method-call-in-python
                 if choice[0] == 'A': #Attack #TODO заменить на функцию так как тоже самое вызывается и для enemy (тогда перенести проверку на убийство моба дальше)
                     if len(enemyList) > 1:
                         choosedEnemy = utils.getChoice("Choose your target:", enemyList, cancel = True)
