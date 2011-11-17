@@ -2,7 +2,7 @@ from Inventory import *
 from Money import *
 ## Класс хранит список вещей и деньги игрока
 class Bank():#Think придумать как будет выглядеть взаимодействие с банком
-	#TODO Если тут есть removeGold() который будет вызываться, то видимо нужно сделать такойже для hero?
+	#Question Если тут есть removeGold() который будет вызываться, то видимо нужно сделать такойже для hero?
 	def __init__(self):
 		self.storage = Inventory()
 		self.money = Money()
