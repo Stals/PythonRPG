@@ -24,22 +24,20 @@ class Money: #TODO сделать Exceptions Если при вычетании 
 		else:
 			raise Exception("Wrong bronze value!\nShould be between 0 and 99.")
 
+	## returns a copy of gold so that class variable would not be changed
 	def getGold(self):
-		"""returns a copy of gold so that class variable would not be changed"""
 		return self.gold[:]
 
+	## returns a copy of silver so that class variable would not be changed
 	def getSilver(self):
-		"""returns a copy of silver so that class variable would not be changed"""
 		return self.silver[:]
 
+	## returns a copy of bronze so that class variable would not be changed
 	def getBronze(self):
-		"""returns a copy of bronze so that class variable would not be changed"""
 		return self.bronze[:]
 
+	## 	Возвращает кол-во денег в виде бронзы
 	def toBronze(self):
-		"""
-		Возвращает кол-во денег в виде бронзы
-		"""
 		return self.gold*100*100 + self.silver*100 + self.bronze
 
 	def __str__(self):
