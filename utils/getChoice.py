@@ -35,7 +35,7 @@ def getChoice(question , choices , cancel = False):
 						else:
 							return choices[ int(result) - 1 ]
 	else:
-		return -1
+		raise Exception("There should be 1 or more choices!")
 
 
 
