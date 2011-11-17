@@ -41,6 +41,7 @@ class Money: #TODO сделать Exceptions Если при вычетании 
 	def toBronze(self):
 		return self.gold*100*100 + self.silver*100 + self.bronze
 
+	## Возвращет кол-во денег в виде строки
 	def __str__(self):
 		return "{0} gold {1} silver {2} bronze".format(self.gold, self.silver, self.bronze)
 
