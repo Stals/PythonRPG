@@ -1,25 +1,26 @@
 from Inventory import *
+from Money import *
 ## Класс хранит список вещей и деньги игрока
 class Bank():#TODO придумать как будет выглядеть взаимодействие с банком
 	#TODO Если тут есть removeGold() который будет вызываться, то видимо нужно сделать такойже для hero?
 	def __init__(self):
 		self.storage = Inventory()
-		self.gold = 0 #TODO изменить на money
+		self.money = Money()
 
 	## Добавляет gold золота в банк
-	def addGold(self, gold):
-		self.gold += gold
+	def addMoney(self, money):
+		self.money += money
 
 	## Убирает gold золота из банка, если хватит золота
-	def removeGold(self, gold):
-		if self.enoughGold(gold):
-			self.gold -= gold
+	def removeMoney(self, money):
+		if self.money >= money:
+			self.money -= money
 		else:
-			print("Gold is not enough.\nBank stores only {0} gold\n".format(self.gold))
+			print("Money is not enough.\nBank stores only {0}".format(self.money))
 
 	## Возвращает true если в банке есть столько денег
-	def enoughGold(self, gold):
-		if self.gold >= gold:
+	def enoughMoney(self, money):
+		if self.money >= money:
 			return True
 		else:
 			return False
@@ -38,6 +39,7 @@ class Bank():#TODO придумать как будет выглядеть вз�
 
 	## Возвращает золото и список всех вещей в банке в виде строки
 	def __str__(self):
-		result = "{0} gold\n".format(self.gold)
+		result = "{0}\n".format(self.money)
 		result += self.storage.__str__()
 		return result
+	
