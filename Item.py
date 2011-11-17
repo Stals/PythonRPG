@@ -70,14 +70,14 @@ class Weapon(Item):
         return '"{0}" {1} {2}'.format(self.name,self.damage,self.bonusStats)
 
 ## Является enum'ом для класса Armor
-class armourType:
+class armorType:
     Head = "Head"
     Gloves = "Gloves"
     Chest = "Chest"
     Leggings = "Leggings"
     Boots = "Boots"
 
-#armourType can be "Head" "Gloves" "Chest" "Leggings" or "Boots"
+#armorType can be "Head" "Gloves" "Chest" "Leggings" or "Boots"
 ## Броня
 class Armor(Item):
 
