@@ -135,7 +135,7 @@ class Hero(Entity):
             self.defence+=item.defence
 
     ## Снимает item из equipment и кладёт в inventory
-    def unequip(self,item):
+    def unequip(self, item):
         #remove Stats that this item added
         self.stats.removeStats(self.equipment.equipment[item.piece].bonusStats,self)
         if item.isWeapon():
