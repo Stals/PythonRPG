@@ -65,7 +65,7 @@ class Hero(Entity):
         self.heroRace = utils.getChoice("Choose your Race:",races)
         
     ## Получает Класс
-    def getClass(self):
+    def getClass(self): #TODO Сдлеать сразу содание класса, при выборе одного из классов(вызывается создание класса) http://stackoverflow.com/questions/8141165/how-to-dynamically-select-a-method-call-in-python
         self.heroClass = utils.getChoice("Choose Your Class:",[
             "Warrior",
             "Ranger",
@@ -102,12 +102,11 @@ class Hero(Entity):
         self.mp = self.maxMp
 
     ## Кастует Заклинание
-    def castSpell(self,spell): #TODO Сделать когда будет готов класс Spell и SpellBook
+    def castSpell(self, spell): #TODO Сделать когда будет готов класс Spell и SpellBook
         pass
     
     ## Даёт выбор что сделать в бою
     def getBattleChoice(self):
-
         actions = []
         actions.append("Attack with \"{0}\"".format(self.equipment.weapon()))
         #TODO вернуть когда сделаю заклинания
