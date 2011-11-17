@@ -10,17 +10,17 @@ class Damage:
 
     ## Возвращает число (между min и max)
     def getDamage(self):
-        return random.randint(self.min,self.max)
+        return random.randint(self.min, self.max)
 
     ## Добавляет урон к текущему урону
     def addDamage(self,damage):
-        self.min+=damage.min
-        self.max+=damage.max
+        self.min += damage.min
+        self.max += damage.max
 
     ## Отнемает урон от текущего
     def removeDamage(self,damage):
-        self.min-=damage.min
-        self.max-=damage.max
+        self.min -= damage.min
+        self.max -= damage.max
 
     ## Возвращает Урон в виде строки
     def __str__(self):
@@ -36,10 +36,10 @@ class Damage:
 class Stats:
     def __init__(self,Str=0,Dex=0,Mag=0,Con=0):
         self.stats={
-            "Str":Str,#Strength
-            "Dex":Dex,#Dextirity
-            "Mag":Mag,#Magic
-            "Con":Con #Construction
+            "Str" : Str,# Strength
+            "Dex" : Dex,# Dextirity
+            "Mag" : Mag,# Magic
+            "Con" : Con # Construction
 
         }
     ## Возвращает элементы словаря stats
@@ -61,13 +61,14 @@ class Stats:
         self.stats["Dex"]+=stats.dex()
         self.stats["Mag"]+=stats.mag()
         self.stats["Con"]+=stats.con()
+
         entity.maxHp += stats.con()*10
         entity.hp += stats.con()*10
 
         entity.maxMp += stats.mag()*10
         entity.mp += stats.mag()*10
 
-        entity.damage.addDamage(Damage(stats.str(),stats.str()))
+        entity.damage.addDamage(Damage(stats.str(), stats.str()))
 
     ## Отнимает статистики от своих и перещитывает hp mp и damage в entity
     def removeStats(self,stats,entity):#stats - that should be removed from entity
@@ -81,11 +82,11 @@ class Stats:
         entity.maxMp -= stats.mag()*10
         entity.mp -= stats.mag()*10
 
-        entity.damage.removeDamage(Damage(stats.str(),stats.str()))
+        entity.damage.removeDamage(Damage(stats.str(), stats.str()))
 
     ## Возвращает статистики в виде строки
     def __str__(self):
         result=""
         for key,value in self.stats.items():
-            result+="{0}: {1} \n".format(key,value)
+            result+="{0}: {1} \n".format(key, value)
         return result

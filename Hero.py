@@ -17,6 +17,7 @@ class Race:
     ## Возвращает название рассы
     def name(self):
         return self.name
+
     ## Возвращает описание Рассы в виде строки
     def __str__(self):
         return "{0}\n{1}".format(self.name,self.stats)
@@ -81,6 +82,7 @@ class Hero(Entity):
     ## Резисты Персонажа
     ## Квесты в QuestJournal
     ## Заклинания в SpellBook
+
     def showStats(self):
         #TODO showStats() в hero делать с переносом на новую строку при выводе каждого объекта. При этом с использованием \n и дальше на новой строке код
 #        +Stats
@@ -98,6 +100,7 @@ class Hero(Entity):
     def heal(self):
         self.hp = self.maxHp
         self.mp = self.maxMp
+
     ## Кастует Заклинание
     def castSpell(self,spell): #TODO Сделать когда будет готов класс Spell и SpellBook
         pass

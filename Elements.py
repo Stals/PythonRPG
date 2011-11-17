@@ -9,6 +9,7 @@ class Elements:
             "Water" : Water,
             "Lightning" : Lightning
         }
+		
     ## Возвращает показатель Элемента Огня
     def fire(self):
         return self.resists["Fire"]

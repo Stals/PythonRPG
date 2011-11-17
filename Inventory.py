@@ -15,8 +15,9 @@ class Inventory:
         self.__sort()
 
     ## Убирает item из инвентаря
-    def removeItem(self,item):# if item is in invenrory it will be removed
+    def removeItem(self,item):
         if item in self.inventory:
+			# if item is in invenrory it will be removed
             self.inventory.remove(item)
 
     ## Возвращает список всех вещей в инвентаре
@@ -24,8 +25,7 @@ class Inventory:
         return self.inventory
 
     ## Сортирует вещи по типу - Ботинки / Шлем / Оружие и тд
-    def __sort(self):
-        #TODO сделать сортировку по типу Ботинки вместе, оружие вместе и тд (тогда у Оружия тоже должен быть piece)
+    def __sort(self):#TODO сделать сортировку по типу Ботинки вместе, оружие вместе и тд (тогда у Оружия тоже должен быть piece)
         pass
     
     ## Возвращает список всех вещей в инвентаре в виде строки
@@ -33,7 +33,6 @@ class Inventory:
         result = ""
         if len(self.inventory)!=0:
             for item in self.inventory:
-                #result=result+item.__str__()+"\n"
                 result+="{0} \n".format(item)
         else: #inventory is empty
             result = "empty"
