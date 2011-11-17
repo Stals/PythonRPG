@@ -69,7 +69,7 @@ class Weapon(Item):
     def __str__(self):
         return '"{0}" {1} {2}'.format(self.name,self.damage,self.bonusStats)
 
-## Является enum'ом для класса Armour
+## Является enum'ом для класса Armor
 class armourType:
     Head = "Head"
     Gloves = "Gloves"
@@ -79,7 +79,7 @@ class armourType:
 
 #armourType can be "Head" "Gloves" "Chest" "Leggings" or "Boots"
 ## Броня
-class Armour(Item):
+class Armor(Item):
 
     def __init__(self,name,stats,defence,armourType,price=0):
         super().__init__(name,stats,armourType,price)

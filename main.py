@@ -15,11 +15,11 @@ monster2 = Monster("Puppy ",Stats(1,1,1,2),Damage(1,1),1,Elements(),5)
 magicBow=Weapon("Magic Bow",Stats(1,3,0,1),Damage(1,5))
 fireSword=Weapon("Fire Sword",Stats(3,0,0,2),Damage(1,5))
 
-bronzeHead=Armour("Bronze Head",Stats(Con=1),1,armourType.Head)
-bronzeGloves=Armour("Bronze Gloves",Stats(Con=1),1,armourType.Gloves)
-bronzeChest=Armour("Bronze Chest",Stats(Con=1),1,armourType.Chest)
-bronzeLeggings=Armour("Bronze Leggings",Stats(Con=1),1,armourType.Leggings)
-bronzeBoots=Armour("Bronze Boots",Stats(Con=1),1,armourType.Boots)
+bronzeHead=Armor("Bronze Head",Stats(Con=1),1,armourType.Head)
+bronzeGloves=Armor("Bronze Gloves",Stats(Con=1),1,armourType.Gloves)
+bronzeChest=Armor("Bronze Chest",Stats(Con=1),1,armourType.Chest)
+bronzeLeggings=Armor("Bronze Leggings",Stats(Con=1),1,armourType.Leggings)
+bronzeBoots=Armor("Bronze Boots",Stats(Con=1),1,armourType.Boots)
 
 
 player.inventory.addItem(magicBow)
