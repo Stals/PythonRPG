@@ -3,7 +3,7 @@ from statistics import *
 import random
 class Entity:
 
-    def __init__(self,name,stats,resists,gold):
+    def __init__(self,name,stats,resists,money):
 
         self.name = name
         self.damage = Damage()
@@ -14,10 +14,10 @@ class Entity:
         ## Показатель защиты
         self.defence = 0
         self.stats = Stats()
-        self.stats.addStats(stats,self)
+        self.stats.addStats(stats, self)
 
-        self.resists=resists
-        self.money = Money()
+        self.resists = resists
+        self.money = money
 
     ## Функция переопределяется в наследниках
     ## Даёт выбор что сделать в бою
