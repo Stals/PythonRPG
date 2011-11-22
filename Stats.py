@@ -8,7 +8,7 @@ class Stats:
     def __init__(self,Str=0,Dex=0,Mag=0,Con=0):
         self.stats={
             "Str" : Str,# Strength
-            "Dex" : Dex,# Dexterity
+            "Dex" : Dex,# Dexterity #TODO! переименовать в agility , так как именно этот стат отвечает за уваротливость. (+ добавить Dex для того чтобы определять очередность ходов)
             "Mag" : Mag,# Magic
             "Con" : Con # Construction
 
@@ -43,10 +43,10 @@ class Stats:
 	#TODO! перенести magick number - 10 в переменную
     ## Добавляет статистики к своим и перещитывает hp mp и damage в self
     def addStats(self, stats):#stats - that should be added to self
-        self.stats["Str"]+=stats.str()
-        self.stats["Dex"]+=stats.dex()
-        self.stats["Mag"]+=stats.mag()
-        self.stats["Con"]+=stats.con()
+        self.stats["Str"] += stats.str()
+        self.stats["Dex"] += stats.dex()
+        self.stats["Mag"] += stats.mag()
+        self.stats["Con"] += stats.con()
 
         self.maxHp += stats.con() * 10
         self.hp += stats.con() * 10
@@ -58,10 +58,10 @@ class Stats:
 
     ## Отнимает статистики от своих и перещитывает hp mp и damage в self
     def removeStats(self,stats):#stats - that should be removed from self
-        self.stats["Str"]-=stats.str()
-        self.stats["Dex"]-=stats.dex()
-        self.stats["Mag"]-=stats.mag()
-        self.stats["Con"]-=stats.con()
+        self.stats["Str"] -= stats.str()
+        self.stats["Dex"] -= stats.dex()
+        self.stats["Mag"] -= stats.mag()
+        self.stats["Con"] -= stats.con()
         self.maxHp -= stats.con() * 10
         self.hp -= stats.con() * 10
 
