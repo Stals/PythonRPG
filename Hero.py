@@ -98,8 +98,8 @@ class Hero(Entity):
 
     ## восстанавливает hp и mp
     def heal(self):
-        self.hp = self.maxHp
-        self.mp = self.maxMp
+        self.stats.hp = self.stats.maxHp
+        self.stats.mp = self.stats.maxMp
 
     ## Кастует Заклинание
     def castSpell(self, spell): #TODOlater Сделать когда будет готов класс Spell и SpellBook
@@ -127,9 +127,9 @@ class Hero(Entity):
         #Если вещь в инвентаре - убрать её оттуда
         self.inventory.removeItem(item)
         #give items Stats bonus and damage/defence
-        self.stats.addStats(item.bonusStats,self)
+        self.stats.addStats(item.bonusStats)
         if item.isWeapon():
-            self.damage.addDamage(item.damage)
+            self.stats.damage.addDamage(item.damage)
         if item.isArmour():
             self.defence+=item.defence
 
@@ -138,9 +138,9 @@ class Hero(Entity):
     ## Снимает item из equipment и кладёт в inventory
     def unequip(self, item):
         #remove Stats that this item added
-        self.stats.removeStats(self.equipment.equipment[item.piece].bonusStats,self)
+        self.stats.removeStats(self.equipment.equipment[item.piece].bonusStats)
         if item.isWeapon():
-            self.damage.removeDamage(item.damage)
+            self.stats.damage.removeDamage(item.damage)
         if item.isArmour():
             self.defence-=item.defence
         #add it to inventory
@@ -154,4 +154,5 @@ class Hero(Entity):
         item.use(self)
 
     def __str__(self):
-        return '"{0}" Health: {1}/{2} Mana: {3}/{4} {5} Defence: {6}'.format(self.name,self.hp,self.maxHp,self.mp,self.maxMp,self.damage,self.defence)
+        #return '"{0}" Health: {1}/{2} Mana: {3}/{4} {5} Defence: {6}'.format(self.name,self.hp,self.maxHp,self.mp,self.maxMp,self.stats.damage,self.defence)
+        return '"{0}" Health: {1.hp}/{1.maxHp} Mana: {1.mp}/{1.maxMp} {1.damage} Defence: {2}'.format(self.name, self.stats, self.defence)

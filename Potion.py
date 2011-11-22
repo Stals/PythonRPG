@@ -9,18 +9,18 @@ class Potion:
 
     ## uses potion on a target and removes potion from potionsPocket
     def use(self, target):
-        beforeHp=target.hp
-        beforeMp=target.mp
+        beforeHp = target.stats.hp
+        beforeMp = target.stats.mp
 
-        target.hp += round(self.percent * target.maxHp)
-        target.mp += round(self.percent * target.maxMp)
-        if target.hp > target.maxHp : target.hp = target.maxHp
-        if target.mp > target.maxMp : target.mp = target.maxMp
+        target.stats.hp += round(self.percent * target.stats.maxHp)
+        target.stats.mp += round(self.percent * target.stats.maxMp)
+        if target.stats.hp > target.stats.maxHp : target.stats.hp = target.stats.maxHp
+        if target.stats.mp > target.stats.maxMp : target.stats.mp = target.stats.maxMp
         #removes potion from pocket after it was used
         target.potionsPocket.removePotion(self)
 
-        afterHp=target.hp
-        afterMp=target.mp
+        afterHp=target.stats.hp
+        afterMp=target.stats.mp
 
         print ('Potion healed "{0}" for {1} health and {2} mana'.format(target.name,(afterHp-beforeHp),(afterMp-beforeMp)))
 

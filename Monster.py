@@ -4,7 +4,7 @@ class Monster(Entity):
 
     def __init__(self,name,stats,bonusDamage,bonusDefence,resists,money=Money()):
         super().__init__(name,stats,resists,money)
-        self.damage.addDamage(bonusDamage) #TODOlater Убрать если у монстров будет оружие
+        self.stats.damage.addDamage(bonusDamage) #TODOlater Убрать если у монстров будет оружие
         self.defence = bonusDefence #TODOlater убрать если у монстров будет броня
 
     def getBattleChoice(self): #TODO Сделать более сложной (если будут заклинания(можно сделать Класс MageMonster у которого будет список заклинаний при инициализации и он сможет их использовать (даже heal)), + возможно potions)

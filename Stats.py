@@ -3,7 +3,7 @@ from Damage import Damage
 #Но чтобы создать вещь вам обязательно нужно знать о Stats
 
 #Question может hp и mp перенести внутрь? не в нутрь статов, а как и stats является переменной. Тогда обновление Жизни и маны будет происзодить прямо в классе stats
-## Хранит статистики Entity и его наследников
+## Хранит статистики self и его наследников
 class Stats:
     def __init__(self,Str=0,Dex=0,Mag=0,Con=0):
         self.stats={
@@ -13,6 +13,15 @@ class Stats:
             "Con" : Con # Construction
 
         }
+        #Note: Кол-во hp и mp определяется статистиками Con и Mag
+        self.maxHp = self.con() * 10
+        self.hp = self.maxHp
+        self.maxMp = self.mag() * 10
+        self.mp = self.maxMp
+
+        #Note: базовое кол-во урона определяется кол-вом str
+        self.damage = Damage()
+
     ## Возвращает элементы словаря stats
     ## позволяет не обращаться к словарю на прямую для вывода статистик
     def items(self):
@@ -30,35 +39,36 @@ class Stats:
     def con(self):
         return self.stats["Con"]
 
+
 	#TODO! перенести magick number - 10 в переменную
-    ## Добавляет статистики к своим и перещитывает hp mp и damage в entity
-    def addStats(self,stats,entity):#stats - that should be added to entity
+    ## Добавляет статистики к своим и перещитывает hp mp и damage в self
+    def addStats(self, stats):#stats - that should be added to self
         self.stats["Str"]+=stats.str()
         self.stats["Dex"]+=stats.dex()
         self.stats["Mag"]+=stats.mag()
         self.stats["Con"]+=stats.con()
 
-        entity.maxHp += stats.con()*10
-        entity.hp += stats.con()*10
+        self.maxHp += stats.con() * 10
+        self.hp += stats.con() * 10
 
-        entity.maxMp += stats.mag()*10
-        entity.mp += stats.mag()*10
+        self.maxMp += stats.mag() * 10
+        self.mp += stats.mag() * 10
 
-        entity.damage.addDamage(Damage(stats.str(), stats.str()))
+        self.damage.addDamage(Damage(stats.str(), stats.str()))
 
-    ## Отнимает статистики от своих и перещитывает hp mp и damage в entity
-    def removeStats(self,stats,entity):#stats - that should be removed from entity
+    ## Отнимает статистики от своих и перещитывает hp mp и damage в self
+    def removeStats(self,stats):#stats - that should be removed from self
         self.stats["Str"]-=stats.str()
         self.stats["Dex"]-=stats.dex()
         self.stats["Mag"]-=stats.mag()
         self.stats["Con"]-=stats.con()
-        entity.maxHp -= stats.con()*10
-        entity.hp -= stats.con()*10
+        self.maxHp -= stats.con() * 10
+        self.hp -= stats.con() * 10
 
-        entity.maxMp -= stats.mag()*10
-        entity.mp -= stats.mag()*10
+        self.maxMp -= stats.mag() * 10
+        self.mp -= stats.mag() * 10
 
-        entity.damage.removeDamage(Damage(stats.str(), stats.str()))
+        self.damage.removeDamage(Damage(stats.str(), stats.str()))
 
     ## Возвращает статистики в виде строки
     def __str__(self):

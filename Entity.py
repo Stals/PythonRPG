@@ -5,17 +5,9 @@ class Entity:
 
     def __init__(self,name,stats,resists,money):
         self.name = name
-        self.damage = Damage()
-        #Note: Кол-во hp и mp определяется статистиками Con и Mag
-        #TODO! Перенести hp и mp внутрь Stats
-        self.hp = 0
-        self.maxHp = 0
-        self.mp = 0
-        self.maxMp = 0
         self.defence = 0 # Показатель защиты
         self.stats = Stats()
-        self.stats.addStats(stats, self)
-
+        self.stats.addStats(stats)
         self.resists = resists
         self.money = money
 
@@ -30,25 +22,24 @@ class Entity:
         #Разность в Dex влияет на попадание
         hitChance = self.stats.dex() / target.stats.dex()
         if hitChance > 1 or random.random() < hitChance: #Если у вас Dex больше или random попал в шанс попадания
-            dmg=self.damage.getDamage()-round(target.defence/2)
+            dmg = self.stats.damage.getDamage() - round(target.defence / 2)
             if dmg < 0:
                 dmg = 0
-            target.hp-=dmg
+            target.stats.hp -= dmg
             if target.isDead():
                 print('"{0}" kills "{1}" with {2} damage.'.format(self.name,target.name,dmg))
                 return True
             else:
-                print('"{0}" hits "{1}" for {2} damage. ({3}/{4} hp left)'.format(self.name,target.name,dmg,target.hp,target.maxHp))
+                print('"{0}" hits "{1}" for {2} damage. ({3}/{4} hp left)'.format(self.name,target.name,dmg,target.stats.hp,target.stats.maxHp))
                 return False
         else: #you missed
-            print('"{0}" missed "{1}" with {2}% hit chance.'.format(self.name,target.name,hitChance*100))
+            print('"{0}" missed "{1}" with {2}% hit chance.'.format(self.name, target.name, hitChance*100))
 
     ## Возвращает true если Entity мертв
     def isDead(self):
-        return self.hp<=0
+        return self.stats.hp<=0
 
     ## Возвращает описание Entity в виде строки
     def __str__(self):
-        return '"{0}" Health: {1}/{2} Mana: {3}/{4} {5} Defence: {6}'.format(self.name,self.hp,self.maxHp,self.mp,self.maxMp,self.damage,self.defence)
-
-
+        #return '"{0}" Health: {1}/{2} Mana: {3}/{4} {5} Defence: {6}'.format(self.name,self.hp,self.maxHp,self.mp,self.maxMp,self.stats.damage,self.defence)
+        return '"{0}" Health: {1.hp}/{1.maxHp} Mana: {1.mp}/{1.maxMp} {1.damage} Defence: {2}'.format(self.name, self.stats, self.defence)
