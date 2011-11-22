@@ -1,7 +1,7 @@
 #функция __str__() в класса позволяет очень просто выводит их содержимое через print(MagicBow) например
 from Money import *
 ## является оберткой вокруг Stats
-class bonusStats:
+class BonusStats:
 
     def __init__(self,stats):
         self.stats = stats
@@ -34,23 +34,23 @@ class bonusStats:
                 result+="{0}:{1}{2} ".format(key,sign,value)
         return result
 
-#TODO из него наследуется то что может выпасть из моба , типо шкура и тд.
+#базовый класс из которого наследуется- Оружие, броня, Другоценности и то что может выпасть из моба , типо шкура и тд.
 class Item:#TODO Сдлеать специфичные для класса вещи - типо одеть magicWand может только wizard/mage/cleric
     #TODOlater сделать getStr() и другие методы если будет необходимо
 
     def __init__(self,name,stats,piece,price=Money()):
         self.name = name
-        self.bonusStats = bonusStats(stats)#Вещь может иметь статы
-        self.piece = piece #Weapon or Boots,Chest ect #TODO Если определение оружие это или нет не нужно - убрать
+        self.bonusStats = BonusStats(stats)#Вещь может иметь статы
+        self.piece = piece #Weapon or Boots,Chest ect
 
         self.price = Money() #Необходимо для продажи в магазине
 
     ## Возвращает True если вещь является Оружием
-    def isWeapon(self):
+    def isWeapon(self):#TODOlater Если определение оружие это или нет не нужно - убрать
         return self.piece == "Weapon"
 
     ## Возвращает True если вещь является Броней
-    def isArmour(self):#TODO поменять если будут еще и урашения наследоваться из Item
+    def isArmour(self):#TODO! поменять если будут еще и урашения наследоваться из Item
         return self.piece != "Weapon"
 
     ## переопределен в наследниках
@@ -86,3 +86,6 @@ class Armor(Item):
     ## Возвращает описание Брони в виде строки
     def __str__(self):
         return '"{0}"  Defence:{1} {2}'.format(self.name,self.defence,self.bonusStats)
+
+
+#TODO! класс jewels который может быть кольцом, ожирельем и серьги
