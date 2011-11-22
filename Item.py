@@ -1,7 +1,7 @@
 #функция __str__() в класса позволяет очень просто выводит их содержимое через print(MagicBow) например
 from Money import *
-## является оберткой вокруг Stats
-class BonusStats:#TODO! Question Зачем обертка а не наследование с переопределением __str__()?
+## является оберткой вокруг Stats (т.к нам не нужны некоторые аспекты класса Stats() - hp,mp,damage)
+class BonusStats:
 
     def __init__(self,stats):
         self.stats = stats
