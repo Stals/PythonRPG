@@ -2,7 +2,7 @@ from Item import Item
 #Хранит вещи игрока
 
 #TODO сделать максимально переносимое число вещей ( зависит от Stamina )
-#TODO Сделать чтобы при выводе через func использовали player.inventory.items()  // И ДЛЯ ДРУГИХ ТИПО POTIONSPOCKET
+#TODO Сделать чтобы при выводе через getChoice использовали player.inventory.items()  // И ДЛЯ ДРУГИХ ТИПО POTIONSPOCKET
 
 ## Инвентарь (Хранит наследники Item)
 class Inventory:

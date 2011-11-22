@@ -8,24 +8,29 @@ class Stats:
     def __init__(self,Str=0,Dex=0,Mag=0,Con=0):
         self.stats={
             "Str" : Str,# Strength
-            "Dex" : Dex,# Dextirity
+            "Dex" : Dex,# Dexterity
             "Mag" : Mag,# Magic
             "Con" : Con # Construction
 
         }
     ## Возвращает элементы словаря stats
     ## позволяет не обращаться к словарю на прямую для вывода статистик
-    def items(self): #TODO переназвать чтобы не походило на методы equipment,inventory и тд
+    def items(self):
         return self.stats.items()
+
     def str(self):
         return self.stats["Str"]
+
     def dex(self):
         return self.stats["Dex"]
+
     def mag(self):
         return self.stats["Mag"]
+
     def con(self):
         return self.stats["Con"]
 
+	#TODO! перенести magick number - 10 в переменную
     ## Добавляет статистики к своим и перещитывает hp mp и damage в entity
     def addStats(self,stats,entity):#stats - that should be added to entity
         self.stats["Str"]+=stats.str()

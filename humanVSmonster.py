@@ -12,16 +12,18 @@ class Entity:
         self.name=name
         self.hp=hp
         self.dmg=dmg
+
     def __str__(self):
         #TODO GOOGLE: Вывод таблицы чтобы всё было ровно ( ровные столбики не смотря на длинну) В зависимости от длинны слова размер столбца меняется [Печать таблиц python]
         #TODO Убрать magic numbers 20 и 5
         return "{0:20} Hp: {1:<5} Dmg: {2}-{3}".format(self.name,self.hp,self.dmg[0],self.dmg[1])
+
     def attack(self,monster):
         randDmg=random.randint(self.dmg[0],self.dmg[1])
         monster.hp-=randDmg
         print("{0} attacks for {1} dmg".format(self.name,randDmg))
         print("{0} now have {1} hp".format(monster.name,str(monster.hp)))
-    #TODO вот так private методы определяюся
+
     def __heal(self):
         self.hp=100
 

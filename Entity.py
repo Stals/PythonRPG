@@ -6,6 +6,8 @@ class Entity:
     def __init__(self,name,stats,resists,money):
         self.name = name
         self.damage = Damage()
+        #Note: Кол-во hp и mp определяется статистиками Con и Mag
+        #TODO! Перенести hp и mp внутрь Stats
         self.hp = 0
         self.maxHp = 0
         self.mp = 0

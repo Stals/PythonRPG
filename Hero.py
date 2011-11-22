@@ -56,7 +56,7 @@ class Hero(Entity):
         self.potionsPocket = PotionsPocket()
 
     ## Получает имя Персонажа
-    def getName(self): #TODO Не получать пустую строку , и чтобы ввод был норм.
+    def getName(self): #TODO! Не получать пустую строку , и чтобы ввод был норм.
         self.name = input("Input you name:")
 
     ## Получает Рассу
@@ -119,7 +119,7 @@ class Hero(Entity):
         return choice
 
     ## Одевает item в equipment и убирает из inventory
-    def equip(self, item):#TODO EquipSet (передаётся список вещей, для каждой из которых вызывается equip) - нужно ли будет?
+    def equip(self, item):
         if self.equipment.equipment[item.piece] != "empty":#if there is an item
             self.unequip(self.equipment.equipment[item.piece])
         #now the slot is empty
@@ -132,6 +132,8 @@ class Hero(Entity):
             self.damage.addDamage(item.damage)
         if item.isArmour():
             self.defence+=item.defence
+
+	#Think Нужен ли equipList() - который будет просто вызывать equip для каждой вещи
 
     ## Снимает item из equipment и кладёт в inventory
     def unequip(self, item):
