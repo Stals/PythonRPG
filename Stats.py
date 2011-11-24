@@ -12,8 +12,8 @@ class Stats:
             "Con" : Con # Construction
 
         }
-        self._HpMultiplier = 10
-        self._MpMultiplier = 10
+        self._HpMultiplier = 10 # 1 Con даёт 10 Hp
+        self._MpMultiplier = 10 # 1 Mag даёт 10 Mp
 		
         #Note: Кол-во hp и mp определяется статистиками Con и Mag
         self.maxHp = self.con() * self._HpMultiplier
