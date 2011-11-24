@@ -2,7 +2,6 @@ from Damage import Damage
 #Позволяет не думать о том какие статы сейчас есть, за счёт того что они пределены только в одном месте
 #Но чтобы создать вещь вам обязательно нужно знать о Stats
 
-#Question может hp и mp перенести внутрь? не в нутрь статов, а как и stats является переменной. Тогда обновление Жизни и маны будет происзодить прямо в классе stats
 ## Хранит статистики self и его наследников
 class Stats:
     def __init__(self,Str=0,Dex=0,Mag=0,Con=0):
@@ -13,10 +12,13 @@ class Stats:
             "Con" : Con # Construction
 
         }
+        self._HpMultiplier = 10
+        self._MpMultiplier = 10
+		
         #Note: Кол-во hp и mp определяется статистиками Con и Mag
-        self.maxHp = self.con() * 10
+        self.maxHp = self.con() * self._HpMultiplier
         self.hp = self.maxHp
-        self.maxMp = self.mag() * 10
+        self.maxMp = self.mag() * self._MpMultiplier
         self.mp = self.maxMp
 
         #Note: базовое кол-во урона определяется кол-вом str
@@ -39,8 +41,6 @@ class Stats:
     def con(self):
         return self.stats["Con"]
 
-
-	#TODO! перенести magick number - 10 в переменную
     ## Добавляет статистики к своим и перещитывает hp mp и damage в self
     def addStats(self, stats):#stats - that should be added to self
         self.stats["Str"] += stats.str()
@@ -48,11 +48,11 @@ class Stats:
         self.stats["Mag"] += stats.mag()
         self.stats["Con"] += stats.con()
 
-        self.maxHp += stats.con() * 10
-        self.hp += stats.con() * 10
+        self.maxHp += stats.con() * self._HpMultiplier
+        self.hp += stats.con() * self._HpMultiplier
 
-        self.maxMp += stats.mag() * 10
-        self.mp += stats.mag() * 10
+        self.maxMp += stats.mag() * self._MpMultiplier
+        self.mp += stats.mag() * self._MpMultiplier
 
         self.damage.addDamage(Damage(stats.str(), stats.str()))
 
@@ -62,11 +62,11 @@ class Stats:
         self.stats["Dex"] -= stats.dex()
         self.stats["Mag"] -= stats.mag()
         self.stats["Con"] -= stats.con()
-        self.maxHp -= stats.con() * 10
-        self.hp -= stats.con() * 10
+        self.maxHp -= stats.con() * self._HpMultiplier
+        self.hp -= stats.con() * self._HpMultiplier
 
-        self.maxMp -= stats.mag() * 10
-        self.mp -= stats.mag() * 10
+        self.maxMp -= stats.mag() * self._MpMultiplier
+        self.mp -= stats.mag() * self._MpMultiplier
 
         self.damage.removeDamage(Damage(stats.str(), stats.str()))
 
