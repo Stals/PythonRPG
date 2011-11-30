@@ -62,7 +62,7 @@ class Hero(Entity):
     ## Получает Рассу
     def getRace(self):
         #Получаем Расу
-        self.heroRace = utils.getChoice("Choose your Race:",races)
+        self.heroRace = utils.getChoice("Choose your Race:",races) #TODOlater Сделать вывод по горизонтали
         
     ## Получает Класс
     def getClass(self): #TODO Сдлеать сразу содание класса, при выборе одного из классов(вызывается создание класса) http://stackoverflow.com/questions/8141165/how-to-dynamically-select-a-method-call-in-python

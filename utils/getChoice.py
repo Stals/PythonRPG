@@ -15,7 +15,7 @@ def getChoice(question , choices , cancel = False):
 		print(question)
 		if cancel == True:
 				print ("0. Cancel")
-		for i in range(1, len(choices) + 1):
+		for i in range(1, len(choices) + 1): #TODO! Дописать параметр позовляющий выводить варианты в ширину если он равен True
 			print("{0}. {1}".format(i, choices[i - 1]))# Для вывода элемента из choices вызывается __str__()
 
 		# Бесконечный цикл до тех пор пока не будет правильный ввод
