@@ -24,13 +24,11 @@ class Race:
 
 #TODO Сдлеать чтобы маны было меньше , и также как и hp примерно для среднего класса Human Может для human все статы по 5 ?
 races=[
-    Race("Ogre",Stats(9,2,2,5)),
-    Race("Were-Wolf",Stats(7,5,2,4)),
-    Race("Elf",Stats(4,7,3,4)),
-    Race("Human",Stats(5,5,5,3)),
-    Race("Hobbit",Stats(2,9,4,3)),
-    Race("Lepricone",Stats(2,5,8,3)),
-    Race("Fairy",Stats(1,5,9,3))
+    Race( "Dwarf",		Stats(7,7,4,4,4,4) ),
+    Race( "Wood Elf",	Stats(5,4,3,4,7,7) ),
+    Race( "Human",		Stats(5,5,5,5,5,5) ),
+    Race( "High Elf",	Stats(3,4,8,8,3,4) ),
+    Race( "Orc",		Stats(7,6,3,4,4,5) )
 ]
 
 ## Герой 

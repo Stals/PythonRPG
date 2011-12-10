@@ -3,76 +3,89 @@ from Damage import Damage
 #Но чтобы создать вещь вам обязательно нужно знать о Stats
 
 ## Хранит статистики self и его наследников
-class Stats:
-    def __init__(self,Str=0,Dex=0,Mag=0,Con=0):
-        self.stats={
-            "Str" : Str,# Strength
-            "Dex" : Dex,# Dexterity #TODO! переименовать в agility , так как именно этот стат отвечает за уваротливость. (+ добавить Dex для того чтобы определять очередность ходов)
-            "Mag" : Mag,# Magic
-            "Con" : Con # Construction
+class Stats: #TODOlater Question может N кол-во Con даёт резист? типо 10 Con +1 resist ко всему
+	def __init__(self, Str=0,Con=0,Int=0,Wis=0,Agi=0,Dex=0):
+		self.stats={
+			"Str" : Str,# Strength - Влияет на урон оружием
+			"Con" : Con,# Construction - Влияет на кол-во Hp
+			"Wis" : Wis,# Wisdom - Влияет на урон магии
+			"Int" : Int,# Intellect - Влияет на кол-во Mp
+			"Agi" : Agi,# Agility - влияет на способность уворота и попадания по противнику
+			"Dex" : Dex # Dexterity - влияет на очередность ходов
+		}
 
-        }
-        self._HpMultiplier = 10 # 1 Con даёт 10 Hp
-        self._MpMultiplier = 10 # 1 Mag даёт 10 Mp
-		
-        #Note: Кол-во hp и mp определяется статистиками Con и Mag
-        self.maxHp = self.con() * self._HpMultiplier
-        self.hp = self.maxHp
-        self.maxMp = self.mag() * self._MpMultiplier
-        self.mp = self.maxMp
+		self._HpMultiplier = 10 # 1 Con даёт 10 Hp
+		self._MpMultiplier = 10 # 1 Int даёт 10 Mp
 
-        #Note: базовое кол-во урона определяется кол-вом str
-        self.damage = Damage()
+		#Note: Кол-во hp и mp определяется статистиками Con и Int
+		self.maxHp = self.con() * self._HpMultiplier
+		self.hp = self.maxHp
+		self.maxMp = self.int() * self._MpMultiplier
+		self.mp = self.maxMp
 
-    ## Возвращает элементы словаря stats
-    ## позволяет не обращаться к словарю на прямую для вывода статистик
-    def items(self):
-        return self.stats.items()
+		#Note: базовое кол-во урона определяется кол-вом str
+		self.damage = Damage()
 
-    def str(self):
-        return self.stats["Str"]
+	## Возвращает элементы словаря stats
+	## позволяет не обращаться к словарю на прямую для вывода статистик
+	def items(self):
+		return self.stats.items()
 
-    def dex(self):
-        return self.stats["Dex"]
+	def str(self):
+		return self.stats["Str"]
 
-    def mag(self):
-        return self.stats["Mag"]
+	def con(self):
+		return self.stats["Con"]
 
-    def con(self):
-        return self.stats["Con"]
+	def wis(self):
+		return self.stats["Wis"]
 
-    ## Добавляет статистики к своим и перещитывает hp mp и damage в self
-    def addStats(self, stats):#stats - that should be added to self
-        self.stats["Str"] += stats.str()
-        self.stats["Dex"] += stats.dex()
-        self.stats["Mag"] += stats.mag()
-        self.stats["Con"] += stats.con()
+	def int(self):
+		return self.stats["Int"]
 
-        self.maxHp += stats.con() * self._HpMultiplier
-        self.hp += stats.con() * self._HpMultiplier
+	def agi(self):
+		return self.stats["Agi"]
 
-        self.maxMp += stats.mag() * self._MpMultiplier
-        self.mp += stats.mag() * self._MpMultiplier
+	def dex(self):
+		return self.stats["Dex"]
 
-        self.damage.addDamage(Damage(stats.str(), stats.str()))
+	## Добавляет статистики к своим и перещитывает hp mp и damage в self
+	def addStats(self, stats):#stats - that should be added to self
+		self.stats["Str"] += stats.str()
+		self.stats["Con"] += stats.con()
+		self.stats["Wis"] += stats.wis()
+		self.stats["Int"] += stats.int()
+		self.stats["Agi"] += stats.agi()
+		self.stats["Dex"] += stats.dex()
 
-    ## Отнимает статистики от своих и перещитывает hp mp и damage в self
-    def removeStats(self,stats):#stats - that should be removed from self
-        self.stats["Str"] -= stats.str()
-        self.stats["Dex"] -= stats.dex()
-        self.stats["Mag"] -= stats.mag()
-        self.stats["Con"] -= stats.con()
-        self.maxHp -= stats.con() * self._HpMultiplier
-        self.hp -= stats.con() * self._HpMultiplier
+		self.maxHp += stats.con() * self._HpMultiplier
+		self.hp += stats.con() * self._HpMultiplier
 
-        self.maxMp -= stats.mag() * self._MpMultiplier
-        self.mp -= stats.mag() * self._MpMultiplier
+		self.maxMp += stats.int() * self._MpMultiplier
+		self.mp += stats.int() * self._MpMultiplier
 
-        self.damage.removeDamage(Damage(stats.str(), stats.str()))
+		self.damage.addDamage(Damage(stats.str(), stats.str()))
 
-    ## Возвращает статистики в виде строки
-    def __str__(self):
-        result=""
-        for key,value in self.stats.items():
-            result+="{0}: {1} \n".format(key, value)
-        return result
+	## Отнимает статистики от своих и перещитывает hp mp и damage в self
+	def removeStats(self, stats):#stats - that should be removed from self
+		self.stats["Str"] -= stats.str()
+		self.stats["Con"] -= stats.con()
+		self.stats["Wis"] -= stats.wis()
+		self.stats["Int"] -= stats.int()
+		self.stats["Agi"] -= stats.agi()
+		self.stats["Dex"] -= stats.dex()
+
+		self.maxHp -= stats.con() * self._HpMultiplier
+		self.hp -= stats.con() * self._HpMultiplier
+
+		self.maxMp -= stats.int() * self._MpMultiplier
+		self.mp -= stats.int() * self._MpMultiplier
+
+		self.damage.removeDamage(Damage(stats.str(), stats.str()))
+
+	## Возвращает статистики в виде строки
+	def __str__(self):
+		result=""
+		for key,value in self.stats.items(): #TODO! заменить на self.items() - когда пойму что stats работет
+			result+="{0}: {1} \n".format(key, value)
+		return result
