@@ -86,6 +86,6 @@ class Stats: #TODOlater Question может N кол-во Con даёт рези�
 	## Возвращает статистики в виде строки
 	def __str__(self):
 		result=""
-		for key,value in self.stats.items(): #TODO! заменить на self.items() - когда пойму что stats работет
-			result+="{0}: {1} \n".format(key, value)
+		for key,value in self.items():
+			result+="{0}: {1}\n".format(key, value)
 		return result
