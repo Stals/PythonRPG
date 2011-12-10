@@ -5,7 +5,7 @@ class Entity:
 
     def __init__(self,name,stats,resists,money):
         self.name = name
-        self.defence = 0 # Показатель защиты
+        self.defence = 0 # 2 defence защищают от 1 урона
         self.stats = Stats()
         self.stats.addStats(stats)
         self.resists = resists
