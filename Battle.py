@@ -1,6 +1,6 @@
 from utils import getChoice as utils
 ## Отвечает за бой между героем и монстрами
-class Battle:
+class Battle:#TODO! Изменить вывод боя (Нужно больше переносов строк, может где табуляция)
 ## Принемает героя и монстра или список монстров как противника
 	def __init__(self, hero, enemies):
 		self.enemies = [] # Список живых монтров
@@ -25,7 +25,8 @@ class Battle:
 				else:
 					# Игрок выбрал отмену
 					continue
-
+				print()
+			
 			if self.victory == True:
 				for enemy in self.deadEnemies:
 					enemy.giveExp(hero)
@@ -44,7 +45,8 @@ class Battle:
 		# getBattleChoice возвращает только те варианты которые осуществимы
 		# - например use Potion появляется  тольео если есть хотябы один potion
 		choice = hero.getBattleChoice()
-		#TODO! переписать используя это : http://stackoverflow.com/questions/8141165/how-to-dynamically-select-a-method-call-in-python
+		#TODO! переписать используя это (Нужно вынести в отдельную функцию как-то так как монстр делает тоже самое): http://stackoverflow.com/questions/8141165/how-to-dynamically-select-a-method-call-in-python
+		#TODO! Возможно как-то проверять is entity is self.hero тогда передавать в simpleAttack enemy, а иначе hero
 		if choice[0] == 'A': #Attack #TODO заменить на функцию так как тоже самое вызывается и для enemy (тогда перенести проверку на убийство моба дальше)
 			if len(self.enemies) > 1:
 				choosedEnemy = utils.getChoice("Choose your target:", self.enemies, cancel=True)
@@ -72,7 +74,7 @@ class Battle:
 		if len(self.enemies) == 0:
 			self.victory = True
 
-		#Если небыло выхода из функции через return False , значит игрок ударил противника либо убил его
+		#Если небыла выбрана отмена, значит игрок ударил противника либо убил его
 		return True
 
 	# Ходит каждый из монстров
