@@ -28,7 +28,7 @@ player.inventory.addItem(magicBow)
 player.inventory.addItem(fireSword)
 
 
-player.equip(utils.getChoice("Choose weapon to equip?", player.inventory.items()))
+player.equip(utils.getChoice("Choose weapon to equip:", player.inventory.items()))
 
 player.equip(bronzeHead)
 player.equip(bronzeGloves)
