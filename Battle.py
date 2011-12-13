@@ -16,21 +16,22 @@ class Battle:#TODO!!!!! Изменить вывод боя (Нужно боль�
 				print(enemy)
 			print()
 
+			self.turnNum = 0
 			# Бой идёт до тех пор пока герой не погибнет либо пока не погибнут все монстры
 			while (not hero.isDead()) and (len(self.enemies)):
+				self.turnNum += 1
 				#Entity list хранит героя и живых монстров
 				entityList = [hero,]
 				entityList.extend(self.enemies)
 				#orderedEntityList хранит список существ упорядоченных по DEX
 				orderedEntityList = self.getOrder(entityList)
-
-				print("Turn Order:")
-				printList.printList(orderedEntityList)
+				self.printTurnOrder(orderedEntityList)
 
 				# Чем больше Dex тем раньше будет ходить существо
 				for entity in orderedEntityList:
 					if not entity.isDead():
 						entity.doTurn(entityList)
+				print()
 				# Уберем умерших монстров если такие имеются
 				self.removeDeadEnemies()
 
@@ -47,6 +48,10 @@ class Battle:#TODO!!!!! Изменить вывод боя (Нужно боль�
 		else:
 			raise Exception("Number of monster < 1")
 
+	def printTurnOrder(self, orderedEntityList):
+		print("Turn", self.turnNum, "Order:")
+		printList.printList(orderedEntityList)
+		print()
 
 	def removeDeadEnemies(self):
 		for enemy in self.enemies:
