@@ -1,7 +1,7 @@
 from utils import getChoice as utils
 from utils import printList
 ## Отвечает за бой между героем и монстрами
-class Battle:#TODO!!!!! Изменить вывод боя (Нужно больше переносов строк, может где табуляция)
+class Battle:
 ## Принемает героя и монстра или список монстров как противника
 	def __init__(self, hero, enemies):
 		self.enemies = [] # Список живых монтров
@@ -60,5 +60,5 @@ class Battle:#TODO!!!!! Изменить вывод боя (Нужно боль�
 				self.deadEnemies.append(enemy)
 
 	#Todo Note: с одинаковым dex герой ходит первым
-	def getOrder(self,entityList): #TODO Определить последовательность хода в зависимости от Dex
+	def getOrder(self,entityList):
 		return sorted(entityList, key=lambda entity: entity.stats.dex(),reverse=True)
