@@ -14,21 +14,21 @@ puppyMonster = Monster("Puppy",Stats(1,2,1,2,1,1),Damage(1,1),1,Elements(),5)
 # player = Warrior(player)
 #
 
+#TODO! поправить то какие статы даёт
 magicBow = Weapon("Magic Bow",Stats(1,3,0,1),Damage(1,5))
 fireSword = Weapon("Fire Sword",Stats(3,0,0,2),Damage(1,5))
+
+player.inventory.addItem(magicBow)
+player.inventory.addItem(fireSword)
+
+player.equip(utils.getChoice("Choose weapon to equip:", player.inventory.items()))
+
 
 bronzeHead = Armor("Bronze Head",Stats(Con=1),1,armorType.Head)
 bronzeGloves = Armor("Bronze Gloves",Stats(Con=1),1,armorType.Gloves)
 bronzeChest = Armor("Bronze Chest",Stats(Con=1),1,armorType.Chest)
 bronzeLeggings = Armor("Bronze Leggings",Stats(Con=1),1,armorType.Leggings)
 bronzeBoots = Armor("Bronze Boots",Stats(Con=1),1,armorType.Boots)
-
-
-player.inventory.addItem(magicBow)
-player.inventory.addItem(fireSword)
-
-
-player.equip(utils.getChoice("Choose weapon to equip:", player.inventory.items()))
 
 player.equip(bronzeHead)
 player.equip(bronzeGloves)
