@@ -17,7 +17,7 @@ class Battle:#TODO!!!!! Изменить вывод боя (Нужно боль�
 			print()
 
 			# Бой идёт до тех пор пока герой не погибнет либо пока не погибнут все монстры
-			while not hero.isDead() or not len(self.enemies):
+			while (not hero.isDead()) and (len(self.enemies)):
 				#Entity list хранит героя и живых монстров
 				entityList = [hero,]
 				entityList.extend(self.enemies)
