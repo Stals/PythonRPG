@@ -29,7 +29,7 @@ class Equipment:
             return self.equipment["Weapon"].name
 
     ## Возвращает все одетые вещи в виде строки
-    def __str__(self):
+    def __str__(self): #TODO! красивый вывод
         result = ""
         for piece,item in self.equipment.items():
             result+="{0} : {1}\n".format(piece,item)
