@@ -7,8 +7,8 @@ from Battle import *
 from Stats import *
 
 player = Hero()
-monster = Monster("Dragon",Stats(9,10,4,4,6,1),Damage(2,6),4,Elements(),10)
-monster2 = Monster("Puppy",Stats(1,2,1,2,1,1),Damage(1,1),1,Elements(),5)
+dragonMonster = Monster("Dragon",Stats(9,10,4,4,6,1),Damage(2,6),4,Elements(),10)
+puppyMonster = Monster("Puppy",Stats(1,2,1,2,1,1),Damage(1,1),1,Elements(),5)
 
 # TODO Если player.class = "Warrior" сделать
 # player = Warrior(player)
@@ -41,7 +41,7 @@ player.potionsPocket.addPotion(Potion(0.25))
 player.potionsPocket.addPotion(Potion(0.33))
 #print(player.potionsPocket)
 
-Battle(player,[monster,monster2])
+Battle(player,[dragonMonster,puppyMonster])
 
 
 # TODO Что нужно сделать
