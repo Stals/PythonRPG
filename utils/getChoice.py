@@ -25,14 +25,17 @@ def getChoice(question , choices , cancel = False):
 				if not cancel:
 					# Если вариант отмены не предусмотрен
 					if 1 <= int(result) <= len(choices):
+						print()
 						return choices[ int(result) - 1 ]
 
 				elif cancel:
 					# Если возможен вариант отмены разрешаем вариант ввода нуля
 					if 0 <= int(result) <= len(choices):
 						if int(result) == 0 :
+							print()
 							return 0
 						else:
+							print()
 							return choices[ int(result) - 1 ]
 	else:
 		raise Exception("There should be 1 or more choices!")
