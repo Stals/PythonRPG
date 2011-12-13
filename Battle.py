@@ -1,6 +1,7 @@
 from utils import getChoice as utils
+from utils import printList
 ## Отвечает за бой между героем и монстрами
-class Battle:#TODO! Изменить вывод боя (Нужно больше переносов строк, может где табуляция)
+class Battle:#TODO!!!!! Изменить вывод боя (Нужно больше переносов строк, может где табуляция)
 ## Принемает героя и монстра или список монстров как противника
 	def __init__(self, hero, enemies):
 		self.enemies = [] # Список живых монтров
@@ -15,19 +16,26 @@ class Battle:#TODO! Изменить вывод боя (Нужно больше 
 				print(enemy)
 			print()
 
-			# Бой идёт до тех пор пока victory не будет изменена внутри playerTurn или enemiesTurn
-			while self.victory == None:
-				print (hero) # чтобы игрок мог видеть свои hp при выборе действия
+			# Бой идёт до тех пор пока герой не погибнет либо пока не погибнут все монстры
+			while not hero.isDead() or not len(self.enemies):
+				#Entity list хранит героя и живых монстров
+				entityList = [hero,]
+				entityList.extend(self.enemies)
+				#orderedEntityList хранит список существ упорядоченных по DEX
+				orderedEntityList = self.getOrder(entityList)
 
-				#TODOlater Добавить очерёдность ходов
-				if self.playerTurn(hero):
-					self.enemiesTurn(hero)
-				else:
-					# Игрок выбрал отмену
-					continue
-				print()
-			
-			if self.victory == True:
+				print("Turn Order:")
+				printList.printList(orderedEntityList)
+
+				# Чем больше Dex тем раньше будет ходить существо
+				for entity in orderedEntityList:
+					if not entity.isDead():
+						entity.doTurn(entityList)
+				# Уберем умерших монстров если такие имеются
+				self.removeDeadEnemies()
+
+			if not hero.isDead():
+				# Значит Герой победил
 				for enemy in self.deadEnemies:
 					enemy.giveExp(hero)
 					enemy.giveLoot(hero)
@@ -39,61 +47,13 @@ class Battle:#TODO! Изменить вывод боя (Нужно больше 
 		else:
 			raise Exception("Number of monster < 1")
 
-	# return False - Если выбрана отмена
-	# Иначе - return True
-	def playerTurn(self, hero):
-		# getBattleChoice возвращает только те варианты которые осуществимы
-		# - например use Potion появляется  тольео если есть хотябы один potion
-		choice = hero.getBattleChoice()
-		#TODO! переписать используя это (Нужно вынести в отдельную функцию как-то так как монстр делает тоже самое): http://stackoverflow.com/questions/8141165/how-to-dynamically-select-a-method-call-in-python
-		#TODO! Возможно как-то проверять is entity is self.hero тогда передавать в simpleAttack enemy, а иначе hero
-		if choice[0] == 'A': #Attack #TODO заменить на функцию так как тоже самое вызывается и для enemy (тогда перенести проверку на убийство моба дальше)
-			if len(self.enemies) > 1:
-				choosedEnemy = utils.getChoice("Choose your target:", self.enemies, cancel=True)
-				if choosedEnemy == 0:
-					# Выбрана отмена
-					return False
 
-			else: # Если один противник - его бьёт автоматически
-				choosedEnemy = self.enemies[0]
-			hero.simpleAttack(choosedEnemy)
-			# проверка на то не умер ли моб , если умер - то его запихиваем в deadEmenies чтобы потом получить с них нагруду (Loot) если игрок выйграет
-			#TODO! перенести дальше так как spell тоже может убить
-			if choosedEnemy.isDead():
-				self.enemies.remove(choosedEnemy)
-				self.deadEnemies.append(choosedEnemy)
-		if choice[0] == 'U': #Use Potion
-			choosedPotion = utils.getChoice("What potion to use?", hero.potionsPocket.items(), cancel=True)
-			if not choosedPotion:
-				# Выбрали отмену
-				return False
-			else:
-				hero.use(choosedPotion)
-
-		# Если монстров не осталось - игрок выиграл
-		if len(self.enemies) == 0:
-			self.victory = True
-
-		#Если небыла выбрана отмена, значит игрок ударил противника либо убил его
-		return True
-
-	# Ходит каждый из монстров
-	def enemiesTurn(self, hero):
+	def removeDeadEnemies(self):
 		for enemy in self.enemies:
-			choice = enemy.getBattleChoice()
-			if choice[0] == 'A': #Attack
-				enemy.simpleAttack(hero)
+			if enemy.isDead():
+				self.enemies.remove(enemy)
+				self.deadEnemies.append(enemy)
 
-		# проверка на выйгрыш мобов
-		if hero.isDead():
-			self.victory = False
-
-
-		# TODO! переписать enemies так как очерендность может выглядеть так если у монстра 1 dex больше чем у героя :
-		# ход монстра 1
-		# ход игрока
-		# ход моснстра 2
-
-		#   def getOrder(self,hero,enemyList): #TODO Определить последовательность хода в зависимости от Dex
-		#      Потом в основной функции цели предлагается ударить того кого нету... ой ну хз
-		#      pass
+	#Todo Note: с одинаковым dex герой ходит первым
+	def getOrder(self,entityList): #TODO Определить последовательность хода в зависимости от Dex
+		return sorted(entityList, key=lambda entity: entity.stats.dex(),reverse=True)

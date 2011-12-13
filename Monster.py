@@ -2,27 +2,27 @@ from Entity import *
 from Money import *
 class Monster(Entity):
 
-    def __init__(self,name,stats,bonusDamage,bonusDefence,resists,money=Money()):
-        super().__init__(name,stats,resists,money)
-        self.stats.damage.addDamage(bonusDamage) #TODOlater Убрать если у монстров будет оружие
-        self.defence = bonusDefence #TODOlater убрать если у монстров будет броня
+	def __init__(self,name,stats,bonusDamage,bonusDefence,resists,money=Money()):
+		super().__init__(name,stats,resists,money)
+		self.stats.damage.addDamage(bonusDamage) #TODOlater Убрать если у монстров будет оружие
+		self.defence = bonusDefence #TODOlater убрать если у монстров будет броня
 
-    def getBattleChoice(self): #TODO Сделать более сложной (если будут заклинания(можно сделать Класс MageMonster у которого будет список заклинаний при инициализации и он сможет их использовать (даже heal)), + возможно potions)
-        # чтобы в Battle было выбрано simpleAttack
-        return "Attack"
-    
-    #Question переписать give в get?
-    ## Дать опыт hero в зависимоти от статистик monster
-    def giveExp(self, hero):
-        pass
+	def doTurn(self, entityList): #TODOlater Сделать более сложной (если будут заклинания(можно сделать Класс MageMonster у которого будет список заклинаний при инициализации и он сможет их использовать (даже heal)), + возможно potions) [сделать возможные варианты также как и у героя через getAvailableChoices а потом из них уже выбирать]
+		hero = entityList[0]
+		self.simpleAttack(hero)
 
-    ## Даёт Награду hero
-    def giveLoot(self, hero):
-        hero.money += self.money
-        #TODO Давать рандомный шмот ( не каждый раз ) Но при этом может упасть вещь типо Dragon lether и тд
+	#Question переписать give в get?
+	## Дать опыт hero в зависимоти от статистик monster
+	def giveExp(self, hero):
+		pass
 
-	#NOTE: __str__() опеределен в Entity
-	
+	## Даёт Награду hero
+	def giveLoot(self, hero):
+		hero.money += self.money
+		#TODO Давать рандомный шмот ( не каждый раз ) Но при этом может упасть вещь типо Dragon lether и тд
+
+#NOTE: __str__() опеределен в Entity
+
 #initialization looks like that
 #monster = Monster("Dragon",Stats(5,5,5,5),Damage(1,10),5,Elements(0,0,0,0),10)
 #                    |              |        |          |            |       |
