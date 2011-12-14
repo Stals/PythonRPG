@@ -1,4 +1,5 @@
 #NOTE: чтобы предложить снять вещь из equipment'а нужео передать items() в getChoice()
+from utils.listFormat import *
 
 ## Обмундирование 
 class Equipment:
@@ -29,9 +30,23 @@ class Equipment:
 			return self.equipment["Weapon"].name
 
 	## Возвращает все одетые вещи в виде строки
-	def __str__(self): #TODO! красивый вывод
-		result = ""
-		for piece,item in self.equipment.items():
-			result+="{0} : {1}\n".format(piece,item)
-		return result
+	#def __str__(self): #TODO! красивый вывод
+	#	result = ""
+	#	for piece,item in self.equipment.items():
+	#		result+="{0} : {1}\n".format(piece,item)
+	#	return result
 
+	def __str__(self):
+		list = []
+		#создаем двумерный массив
+		for piece, item in self.equipment.items():#TODO! нужно .split() тупо
+			list.append([piece + ":", item.__str__()])
+		list = splitListBy2Spaces(list)
+		list = joinListWithFormat(list)
+
+		
+		#Создаём строку на основу полученного отформатированного массива
+		result = ""
+		for line in list:
+			result = result + line + "\n"
+		return result
