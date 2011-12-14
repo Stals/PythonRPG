@@ -23,7 +23,7 @@ player.inventory.addItem(fireSword)
 player.equip(utils.getChoice("Choose weapon to equip:", player.inventory.items()))
 
 
-bronzeHead = Armor("Bronze Head",Stats(Con=1),1,armorType.Head)
+bronzeHead = Armor("Bronze Helmet",Stats(Con=1),1,armorType.Head)
 bronzeGloves = Armor("Bronze Gloves",Stats(Con=1),1,armorType.Gloves)
 bronzeChest = Armor("Bronze Chest",Stats(Con=1),1,armorType.Chest)
 bronzeLeggings = Armor("Bronze Leggings",Stats(Con=1),1,armorType.Leggings)
