@@ -11,7 +11,7 @@
 # Выходные
 #	[['1  2  3'],
 # 	[11 22 33']]
-def joinListWithFormat(list): #TODO! Делать проверку на длину списка
+def joinListWithFormat(list):
 	#Code from: http://stackoverflow.com/questions/7136432/data-table-in-python
 	if len(list) >=1 :
 		newList = []
