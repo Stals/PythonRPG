@@ -1,5 +1,5 @@
 from utils import getChoice as utils
-from utils import printList
+from utils.printList import *
 ## Отвечает за бой между героем и монстрами
 class Battle:
 ## Принемает героя и монстра или список монстров как противника
@@ -50,7 +50,7 @@ class Battle:
 
 	def printTurnOrder(self, orderedEntityList):
 		print("Turn", self.turnNum, "Order:")
-		printList.printList(orderedEntityList)
+		printList(orderedEntityList)
 		print()
 
 	def removeDeadEnemies(self):
