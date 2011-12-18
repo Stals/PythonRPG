@@ -6,6 +6,9 @@ from Item import *
 from Battle import *
 from Stats import *
 
+
+#TODO! внутри spell.__str__() выводится имя спелла и Описани того что он делает( зависит от спелла )
+
 player = Hero()
 dragonMonster = Monster("Dragon",Stats(9,10,4,4,6,1),Damage(2,6),4,Elements(),10)
 puppyMonster = Monster("Puppy",Stats(1,2,1,2,1,1),Damage(1,1),1,Elements(),5)
