@@ -4,8 +4,7 @@ from utils.printList import *
 class Battle:
 ## Принемает героя и монстра или список монстров как противника
 	def __init__(self, hero, enemies):
-		self.enemies = [] # Список живых монтров
-		self.enemies.extend (enemies)
+		self.enemies = enemies[:] # Список живых монтров
 		self.deadEnemies = [] # Список умерших монстров
 
 		if len(self.enemies) >= 1:
