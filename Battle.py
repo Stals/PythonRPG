@@ -7,7 +7,6 @@ class Battle:
 		self.enemies = [] # Список живых монтров
 		self.enemies.extend (enemies)
 		self.deadEnemies = [] # Список умерших монстров
-		self.victory = None # Флаг выигрыша игрока
 
 		if len(self.enemies) >= 1:
 			#print stats for hero and all enemies
