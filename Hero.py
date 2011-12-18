@@ -107,10 +107,10 @@ class Hero(Entity):
 		pass
 
 		#TODO! Переименовать на action? или еще что-то
-	def castSpellChoice(self, entityList):
+	def castSpellChoice(self, hero, enemies):
 		pass
 
-	def usePotionChoice(self, entityList):
+	def usePotionChoice(self, hero, enemies):
 		choosedPotion = utils.getChoice("What potion to use?", self.potionsPocket.items(), cancel=True)
 		if choosedPotion:
 			# Если было выбрано одно из зелий
@@ -120,8 +120,7 @@ class Hero(Entity):
 			return False
 
 		#вызывает simpleAttack для выбранного монстра
-	def attackChoice(self, entityList):
-		enemies = entityList[1:]
+	def attackChoice(self, hero, enemies):
 		if len(enemies) > 1:
 			choosedEnemy = utils.getChoice("Choose your target:", enemies, cancel=True)
 			if choosedEnemy == 0:
@@ -132,10 +131,10 @@ class Hero(Entity):
 			choosedEnemy = enemies[0]
 		self.simpleAttack(choosedEnemy)
 
-	def doTurn(self, entityList):
+	def doTurn(self, hero, enemies):
 		availableBattleChoices = self.getAvailableBattleChoices()
 		selectedBattleChoice = utils.getChoice("What would you do?", list(availableBattleChoices.keys()))
-		availableBattleChoices[selectedBattleChoice](entityList)
+		availableBattleChoices[selectedBattleChoice](hero, enemies)
 
 
 		## Возвращает Словарь с возможными вариантами хода и методом за них отвечающим

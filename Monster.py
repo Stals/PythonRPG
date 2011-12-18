@@ -6,9 +6,8 @@ class Monster(Entity):
 		super().__init__(name,stats,resists,money)
 		self.stats.damage.addDamage(bonusDamage) #TODOlater Убрать если у монстров будет оружие
 		self.defence = bonusDefence #TODOlater убрать если у монстров будет броня
-
-	def doTurn(self, entityList): #TODOlater Сделать более сложной (если будут заклинания(можно сделать Класс MageMonster у которого будет список заклинаний при инициализации и он сможет их использовать (даже heal)), + возможно potions) [сделать возможные варианты также как и у героя через getAvailableChoices а потом из них уже выбирать]
-		hero = entityList[0]
+	 #TODOlater Сделать более сложной (если будут заклинания(можно сделать Класс MageMonster у которого будет список заклинаний при инициализации и он сможет их использовать (даже heal)), + возможно potions) [сделать возможные варианты также как и у героя через getAvailableChoices а потом из них уже выбирать]
+	def doTurn(self, hero, enemies):
 		self.simpleAttack(hero)
 
 	#Question переписать give в get?

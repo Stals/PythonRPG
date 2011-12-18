@@ -13,7 +13,7 @@ class Entity:
 
 	## Перелпределяется в наслдениках
 	## Метод отвечает за ход в бою
-	def doTurn(self, entityList):
+	def doTurn(self, hero, enemies):
 		pass
 
 	## Обычная атака оружием

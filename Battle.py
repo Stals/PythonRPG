@@ -20,17 +20,14 @@ class Battle:
 			# Бой идёт до тех пор пока герой не погибнет либо пока не погибнут все монстры
 			while (not hero.isDead()) and (len(self.enemies)):
 				self.turnNum += 1
-				#Entity list хранит героя и живых монстров
-				entityList = [hero,]
-				entityList.extend(self.enemies)
 				#orderedEntityList хранит список существ упорядоченных по DEX
-				orderedEntityList = self.getOrder(entityList)
+				orderedEntityList = self.getOrder(hero, self.enemies)
 				self.printTurnOrder(orderedEntityList)
 
 				# Чем больше Dex тем раньше будет ходить существо
 				for entity in orderedEntityList:
 					if not entity.isDead():
-						entity.doTurn(entityList)
+						entity.doTurn(hero, self.enemies) #TODO!!! Сделать чтобы отмена работала типо делать пока не вернёт true.[через цикл] (Соответственно если false то функция вызывается еще раз)
 				print()
 				# Уберем умерших монстров если такие имеются
 				self.removeDeadEnemies()
@@ -50,7 +47,8 @@ class Battle:
 
 	def printTurnOrder(self, orderedEntityList):
 		print("Turn", self.turnNum, "Order:")
-		printList(orderedEntityList)
+		for entity in orderedEntityList:
+			print(" ",entity)
 		print()
 
 	def removeDeadEnemies(self):
@@ -60,5 +58,6 @@ class Battle:
 				self.deadEnemies.append(enemy)
 
 	#Todo Note: с одинаковым dex герой ходит первым
-	def getOrder(self,entityList):
+	def getOrder(self,hero, enemies):
+		entityList = [hero,] + enemies
 		return sorted(entityList, key=lambda entity: entity.stats.dex(),reverse=True)
