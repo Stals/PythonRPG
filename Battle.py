@@ -58,6 +58,6 @@ class Battle:
 				self.deadEnemies.append(enemy)
 
 	#Todo Note: с одинаковым dex герой ходит первым
-	def getOrder(self,hero, enemies):
-		entityList = [hero,] + enemies
+	def getOrder(self, hero, enemies):
+		entityList = [hero] + enemies
 		return sorted(entityList, key=lambda entity: entity.stats.dex(),reverse=True)
