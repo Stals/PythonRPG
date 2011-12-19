@@ -160,7 +160,7 @@ class Hero(Entity):
 		self.stats.addStats(item.bonusStats)
 		if item.isWeapon():
 			self.stats.damage.addDamage(item.damage)
-		if item.isArmour():
+		if item.isArmor():
 			self.defence+=item.defence
 
 	#Think Нужен ли equipList() - который будет просто вызывать equip для каждой вещи
@@ -171,7 +171,7 @@ class Hero(Entity):
 		self.stats.removeStats(self.equipment.equipment[item.piece].bonusStats)
 		if item.isWeapon():
 			self.stats.damage.removeDamage(item.damage)
-		if item.isArmour():
+		if item.isArmor():
 			self.defence-=item.defence
 			#add it to inventory
 		self.inventory.addItem(self.equipment.equipment[item.piece])
