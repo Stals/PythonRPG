@@ -6,11 +6,11 @@ class Monster(Entity):
 		super().__init__(name,stats,resists,money)
 		self.stats.damage.addDamage(bonusDamage) #TODOlater Убрать если у монстров будет оружие
 		self.defence = bonusDefence #TODOlater убрать если у монстров будет броня
-	 #TODOlater Сделать более сложной (если будут заклинания(можно сделать Класс MageMonster у которого будет список заклинаний при инициализации и он сможет их использовать (даже heal)), + возможно potions) [сделать возможные варианты также как и у героя через getAvailableChoices а потом из них уже выбирать]
+
+	#TODOlater Сделать более сложной (если будут заклинания(можно сделать Класс MageMonster у которого будет список заклинаний при инициализации и он сможет их использовать (даже heal)), + возможно potions) [сделать возможные варианты также как и у героя через getAvailableChoices а потом из них уже выбирать]
 	def doTurn(self, hero, enemies):
 		self.simpleAttack(hero)
 
-	#Question переписать give в get?
 	## Дать опыт hero в зависимоти от статистик monster
 	def giveExp(self, hero):
 		pass

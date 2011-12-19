@@ -41,4 +41,4 @@ class Entity:
 	## Возвращает описание Entity в виде строки
 	def __str__(self):
 		#return '"{0}" Health: {1}/{2} Mana: {3}/{4} {5} Defence: {6}'.format(self.name,self.hp,self.maxHp,self.mp,self.maxMp,self.stats.damage,self.defence)
-		return '"{0}" Health: {1.hp}/{1.maxHp} Mana: {1.mp}/{1.maxMp} {1.damage} Defence: {2}'.format(self.name, self.stats, self.defence)
+		return '"{0}"  Health: {1.hp}/{1.maxHp}  Mana: {1.mp}/{1.maxMp}  {1.damage}  Defence: {2}'.format(self.name, self.stats, self.defence)

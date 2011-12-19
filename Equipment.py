@@ -43,7 +43,6 @@ class Equipment:
 			list.append([piece + ":", item.__str__()])
 		list = joinListWithFormat(list, split = True)
 
-		
 		#Создаём строку на основу полученного отформатированного массива
 		result = ""
 		for line in list:

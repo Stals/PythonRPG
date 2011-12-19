@@ -1,7 +1,9 @@
 from utils import getChoice as utils
 from utils.printList import *
+from utils.listFormat import *
 ## Отвечает за бой между героем и монстрами
 class Battle:
+#TODO! question Может сделать battle.fight() чтобы можно было вернуть true или false как результат боя? Можно полностью перенести и делать без inita, вообщем попробывать сделать статическую функцию  в классе если это возможно в питоне
 ## Принемает героя и монстра или список монстров как противника
 	def __init__(self, hero, enemies):
 		self.enemies = enemies[:] # Список живых монтров
@@ -45,7 +47,12 @@ class Battle:
 
 	def printTurnOrder(self, orderedEntityList):
 		print("Turn", self.turnNum, "Order:")
+		list = []
 		for entity in orderedEntityList:
+			list.append([entity.__str__()])
+
+		formattedList = joinListWithFormat(list, split = True)
+		for entity in formattedList:
 			print(" ",entity)
 		print()
 

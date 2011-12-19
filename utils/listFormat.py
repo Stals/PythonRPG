@@ -30,12 +30,14 @@ def joinListWithFormat(list, split = False):
 # Разделяет строки внутри двумерного массива на элементы списка там где есть 2 пробела
 # Пример 
 # Вход : [['1  2'],['2', '3 2']]
-# Выход: [['1','2'],['2','3 2']]
+# Выход: [['1','2'],['2','3 2']]'
+#BUG: Не работает если передавать туда не список списков а просто список строк
 def splitListBy2Spaces(list):
 	if len(list) >=1 :
 		newList = []
 		newLine = []
 		for line in list:
+			#line also should be a list
 			for str in line:
 				newLine.extend(str.split('  '))
 			newList.append(newLine)
