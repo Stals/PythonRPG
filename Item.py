@@ -64,7 +64,7 @@ class Item:#TODO Сдлеать специфичные для класса ве�
 
 ## Оружие
 class Weapon(Item):
-	def __init__(self,name,stats,damage,price=0):
+	def __init__(self,name,stats,damage,price=Money()):
 		super().__init__(name,stats,"Weapon",price)
 		self.damage = damage
 
@@ -84,7 +84,7 @@ class armorType:
 ## Броня
 class Armor(Item):
 
-	def __init__(self,name,stats,defence,armourType,price=0):
+	def __init__(self,name,stats,defence,armourType,price=Money()):
 		super().__init__(name,stats,armourType,price)
 		self.defence = defence
 
