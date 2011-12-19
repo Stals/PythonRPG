@@ -1,6 +1,6 @@
 from Entity import *
 from Money import *
-class Monster(Entity):
+class Monster(Entity): #TODOlater если будут заклинания сделать добавление через monster.spellBook.addSpell() наверно [и при создании монстра ему накидывать заклинаний]
 
 	def __init__(self,name,stats,bonusDamage,bonusDefence,resists,money=Money()):
 		super().__init__(name,stats,resists,money)
