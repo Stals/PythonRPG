@@ -8,8 +8,8 @@ class Stats: #TODOlater Question может N кол-во Con даёт рези�
 		self.stats={
 			"Str" : Str,# Strength - Влияет на урон оружием
 			"Con" : Con,# Construction - Влияет на кол-во Hp
-			"Wis" : Wis,# Wisdom - Влияет на урон магии
-			"Int" : Int,# Intellect - Влияет на кол-во Mp
+			"Wis" : Wis,# Wisdom - Влияет на кол-во Mp
+			"Int" : Int,# Intellect - Влияет на урон магии
 			"Agi" : Agi,# Agility - влияет на способность уворота и попадания по противнику
 			"Dex" : Dex # Dexterity - влияет на очередность ходов
 		}
@@ -20,7 +20,7 @@ class Stats: #TODOlater Question может N кол-во Con даёт рези�
 		#Note: Кол-во hp и mp определяется статистиками Con и Int
 		self.maxHp = self.con() * self._HpMultiplier
 		self.hp = self.maxHp
-		self.maxMp = self.int() * self._MpMultiplier
+		self.maxMp = self.wis() * self._MpMultiplier
 		self.mp = self.maxMp
 
 		#Note: базовое кол-во урона определяется кол-вом str
@@ -61,8 +61,8 @@ class Stats: #TODOlater Question может N кол-во Con даёт рези�
 		self.maxHp += stats.con() * self._HpMultiplier
 		self.hp += stats.con() * self._HpMultiplier
 
-		self.maxMp += stats.int() * self._MpMultiplier
-		self.mp += stats.int() * self._MpMultiplier
+		self.maxMp += stats.wis() * self._MpMultiplier
+		self.mp += stats.wis() * self._MpMultiplier
 
 		self.damage.addDamage(Damage(stats.str(), stats.str()))
 
@@ -78,8 +78,8 @@ class Stats: #TODOlater Question может N кол-во Con даёт рези�
 		self.maxHp -= stats.con() * self._HpMultiplier
 		self.hp -= stats.con() * self._HpMultiplier
 
-		self.maxMp -= stats.int() * self._MpMultiplier
-		self.mp -= stats.int() * self._MpMultiplier
+		self.maxMp -= stats.wis() * self._MpMultiplier
+		self.mp -= stats.wis() * self._MpMultiplier
 
 		self.damage.removeDamage(Damage(stats.str(), stats.str()))
 
