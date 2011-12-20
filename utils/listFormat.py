@@ -13,7 +13,7 @@
 # Выходные
 #	[['1  2  3'],
 # 	[11 22 33']]
-def joinListWithFormat(list, split = False):
+def joinListWithFormat(list, split = False): #TODO! добавить чтобы он сам брал __str__()? чтобы измежать то что проиходит в battle.printturnOrder
 	#Code from: http://stackoverflow.com/questions/7136432/data-table-in-python
 	if len(list) >=1 :
 		if split:
@@ -31,13 +31,14 @@ def joinListWithFormat(list, split = False):
 # Пример 
 # Вход : [['1  2'],['2', '3 2']]
 # Выход: [['1','2'],['2 ','3 2']]'
-#TODO! BUG: Не работает если передавать туда не список списков а просто список строк
-def splitListBy2Spaces(list):
-	if len(list) >=1 :
+def splitListBy2Spaces(lst):
+	if len(lst) >=1 :
 		newList = []
 		newLine = []
-		for line in list:
+		for line in lst:
 			#!line also should be a list
+			if not isinstance(line, list) or isinstance(line, tuple) :
+				line = [line]
 			for str in line:
 				newLine.extend(str.split('  '))
 			newList.append(newLine)
