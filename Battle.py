@@ -49,7 +49,7 @@ class Battle:
 		print("Turn", self.turnNum, "Order:")
 		list = []
 		for entity in orderedEntityList:
-			list.append([entity.__str__()])
+			list.append(entity.__str__())
 
 		formattedList = joinListWithFormat(list, split = True)
 		for entity in formattedList:
