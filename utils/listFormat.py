@@ -36,7 +36,7 @@ def splitListBy2Spaces(lst):
 		newList = []
 		newLine = []
 		for line in lst:
-			#!line also should be a list
+			# line должен быть списокм или кортежом
 			if not isinstance(line, list) or isinstance(line, tuple) :
 				line = [line]
 			for str in line:
