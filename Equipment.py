@@ -39,7 +39,7 @@ class Equipment:
 	def __str__(self):
 		list = []
 		#создаем двумерный массив
-		for piece, item in self.equipment.items():#TODO! нужно .split() тупо
+		for piece, item in self.equipment.items():
 			list.append([piece + ":", item.__str__()])
 		list = joinListWithFormat(list, split = True)
 
