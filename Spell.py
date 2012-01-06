@@ -1,4 +1,6 @@
 #TODO! Сделать AOE = TRUE/FALSE
+# Aoe true false
+# Баффы должны действовать опр кол-во ходов, так что в бою нужно проверять не нужно ли снять их действие
 class Spell:
 	def __init__(self,name,mpCost):
 		self.name = name
