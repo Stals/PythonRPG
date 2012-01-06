@@ -55,8 +55,11 @@ class Hero(Entity):
 
 	## Получает имя Персонажа
 	def getName(self): #TODO! Не получать пустую строку , и чтобы ввод был норм.
-		self.name = input("Input you name:")
-
+		while True:
+			self.name = input("Input you name:")
+			if self.name:
+				# Если что-то было введено - прекратить цикл
+				break
 	## Получает Рассу
 	def getRace(self):
 		#Получаем Расу
