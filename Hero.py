@@ -23,7 +23,7 @@ class Race:
 		return "{0}\n{1}".format(self.name,self.stats)
 
 #TODO Сдлеать чтобы маны было меньше , и также как и hp примерно для среднего класса Human Может для human все статы по 5 ?
-races=[ #TODO! Переписать дома с листочка + можно тоже сделать и для Классов
+races=[
 	Race( "Dwarf",		Stats(7,7,4,4,4,4) ),
 	Race( "Wood Elf",	Stats(5,4,3,4,7,7) ),
 	Race( "Human",		Stats(5,5,5,5,5,5) ),
