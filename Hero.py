@@ -5,20 +5,20 @@ from Potion import PotionsPocket
 from Elements import *
 from Stats import *
 
-#Класс хранит Имя рассы и те бонусы которые она даёт
+#Класс хранит Имя расы и те бонусы которые она даёт
 import utils.getChoice as utils
 
-## Расса
+## Раса
 class Race:
 	def __init__(self,name="",stats=Stats()):
 		self.name = name
 		self.stats = stats
 
-	## Возвращает название рассы
+	## Возвращает название расы
 	def name(self):
 		return self.name
 
-	## Возвращает описание Рассы в виде строки
+	## Возвращает описание Расы в виде строки
 	def __str__(self):
 		return "{0}\n{1}".format(self.name,self.stats)
 
@@ -60,13 +60,14 @@ class Hero(Entity):
 			if self.name:
 				# Если что-то было введено - прекратить цикл
 				break
-	## Получает Рассу
+				
+	## Получает Расу
 	def getRace(self):
 		#Получаем Расу
 		self.heroRace = utils.getChoice("Choose your Race:",races) #TODOlater Сделать вывод по горизонтали
 
 	## Получает Класс
-	def getClass(self): #TODO Сдлеать сразу содание класса, при выборе одного из классов(вызывается создание класса) http://stackoverflow.com/questions/8141165/how-to-dynamically-select-a-method-call-in-python
+	def getClass(self): #TODO Сделать сразу содание класса, при выборе одного из классов(вызывается создание класса) http://stackoverflow.com/questions/8141165/how-to-dynamically-select-a-method-call-in-python
 		self.heroClass = utils.getChoice("Choose Your Class:",[
 			"Warrior",
 			"Ranger",
