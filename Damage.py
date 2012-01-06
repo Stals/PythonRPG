@@ -15,7 +15,7 @@ class Damage:
         self.min += damage.min
         self.max += damage.max
 
-    ## Отнемает урон от текущего
+    ## Отнимает урон от текущего
     def removeDamage(self,damage):
         self.min -= damage.min
         self.max -= damage.max
