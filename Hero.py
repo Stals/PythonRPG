@@ -5,10 +5,9 @@ from Potion import PotionsPocket
 from Elements import *
 from Stats import *
 
-#Класс хранит Имя расы и те бонусы которые она даёт
 import utils.getChoice as utils
 
-## Раса
+#Класс хранит Имя расы и те бонусы которые она даёт
 class Race:
 	def __init__(self,name="",stats=Stats()):
 		self.name = name
@@ -23,7 +22,8 @@ class Race:
 		return "{0}\n{1}".format(self.name,self.stats)
 
 #TODO Сдлеать чтобы маны было меньше , и также как и hp примерно для среднего класса Human Может для human все статы по 5 ?
-races=[
+#TODO! Сделать функцию для каждого класса (specialAblilty(hero)) которая будет давать разный бонус для каждого класса . Например Orc получает Dmg+3 а Дварф +10hp (Можно также давать Spell, например Hight Elf начинает игру с FireBall'ом) // Тоже самое можно сделать и для классов (Воин даёт + hp а маг = MP) [Главное делать бонусы Расс не статами (Хотя бонусы расс можно и статами)]
+races=[ #TODO! Переписать дома с листочка + можно тоже сделать и для Классов
 	Race( "Dwarf",		Stats(7,7,4,4,4,4) ),
 	Race( "Wood Elf",	Stats(5,4,3,4,7,7) ),
 	Race( "Human",		Stats(5,5,5,5,5,5) ),
@@ -55,6 +55,7 @@ class Hero(Entity):
 
 	## Получает имя Персонажа
 	def getName(self): #TODO! Не получать пустую строку , и чтобы ввод был норм.
+
 		while True:
 			self.name = input("Input you name:")
 			if self.name:
