@@ -1,6 +1,7 @@
 import Item
 from Stats import *
 from Damage import *
+#TODOlater Если буде делать бесполезный лут то сделать stacable вещи которые добавляются в 1, тупо увеличивая кол-во
 
 ## Возвращает рандомную вещь как вознгараждение
 class Loot:
