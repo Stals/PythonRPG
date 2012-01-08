@@ -8,6 +8,7 @@ from Stats import *
 #TODO!! Сделать отмени в бою!
 #TODO! Добавить canUse методы в другие классы (weapon,armor - может можно просто в ITEM)
 #TODO! внутри spell.__str__() выводится имя спелла и Описани того что он делает( зависит от спелла )
+#TODO Pet наследуется от Монстра наверно
 
 player = Hero()
 dragonMonster = Monster("Dragon",Stats(9,10,4,4,6,1),Damage(2,6),4,Elements(),10)
@@ -50,3 +51,4 @@ Battle(player,[dragonMonster,puppyMonster])
 # Quest / QuestJournal
 # SpellBook
 # City
+# Pet
