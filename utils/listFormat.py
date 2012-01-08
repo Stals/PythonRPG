@@ -13,6 +13,7 @@
 # Выходные
 #	[['1  2  3'],
 # 	[11 22 33']]
+
 def joinListWithFormat(list, split = False): #TODO! добавить чтобы он сам брал __str__()? чтобы измежать то что проиходит в battle.printturnOrder
 	#Code from: http://stackoverflow.com/questions/7136432/data-table-in-python
 	if len(list) >=1 :
@@ -31,6 +32,7 @@ def joinListWithFormat(list, split = False): #TODO! добавить чтобы 
 # Пример 
 # Вход : [['1  2'],['2', '3 2']]
 # Выход: [['1','2'],['2 ','3 2']]'
+#BUG Вродебы всё еще разбивает слово побуквенно если передаётся строка а не список
 def splitListBy2Spaces(lst):
 	if len(lst) >=1 :
 		newList = []
