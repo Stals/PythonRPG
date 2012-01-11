@@ -30,21 +30,13 @@ class Equipment:
 			return self.equipment["Weapon"].name
 
 	## Возвращает все одетые вещи в виде строки
-	#def __str__(self): #TODO! красивый вывод
-	#	result = ""
-	#	for piece,item in self.equipment.items():
-	#		result+="{0} : {1}\n".format(piece,item)
-	#	return result
-
 	def __str__(self):
 		list = []
 		#создаем двумерный массив
 		for piece, item in self.equipment.items():
 			list.append([piece + ":", item.__str__()])
-		list = joinListWithFormat(list, split = True)
+		lst = joinListWithFormat(list, split = True)
 
-		#Создаём строку на основу полученного отформатированного массива
-		result = ""
-		for line in list:
-			result = result + line + "\n"
-		return result
+		#Возвращаем строку на основу полученного отформатированного массива
+		return "\n".join(lst)
+

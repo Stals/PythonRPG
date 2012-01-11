@@ -60,9 +60,8 @@ class PotionsPocket:#TODO сделать ограничение в количе�
     ## Возвращает список всех лечебок в виде строки
     def __str__(self):
         result = ""
-        if len(self.pocket)!=0:
-            for potion in self.pocket:
-                result+="{0} \n".format(potion)
+        if self.pocket:
+            result = "\n".join(str(potion) for potion in self.pocket)
         else: #pocket is empty
             result = "empty"
         return result

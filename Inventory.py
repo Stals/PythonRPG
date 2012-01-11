@@ -32,9 +32,8 @@ class Inventory:
     ## Возвращает список всех вещей в инвентаре в виде строки
     def __str__(self):
         result = ""
-        if len(self.inventory)!=0:
-            for item in self.inventory:
-                result+="{0} \n".format(item)
+        if self.inventory:
+            result = "\n".join(str(item) for item in self.inventory)
         else: #inventory is empty
             result = "empty"
         return result
