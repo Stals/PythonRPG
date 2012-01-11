@@ -33,7 +33,7 @@ class Inventory:
     def __str__(self):
         result = ""
         if self.inventory:
-            result = "\n".join(str(item) for item in self.inventory)
+            result = "\n".join(map(str, self.inventory))
         else: #inventory is empty
             result = "empty"
         return result

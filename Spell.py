@@ -55,7 +55,7 @@ class SpellBook:#TODO сделать ограничение в количест�
 	## Возвращает список всех заклинаний в виде
 	def __str__(self):
 		if self.book:
-			result = "\n".join(str(spell) for spell in self.book)
+			result = "\n".join(map(str, self.book))
 		else: #Spell book is empty
 			result = "empty"
 		return result

@@ -31,11 +31,11 @@ class Equipment:
 
 	## Возвращает все одетые вещи в виде строки
 	def __str__(self):
-		list = []
+		lst = []
 		#создаем двумерный массив
 		for piece, item in self.equipment.items():
-			list.append([piece + ":", item.__str__()])
-		lst = joinListWithFormat(list, split = True)
+			lst.append([piece + ":", item.__str__()])
+		lst = joinListWithFormat(lst, split = True)
 
 		#Возвращаем строку на основу полученного отформатированного массива
 		return "\n".join(lst)

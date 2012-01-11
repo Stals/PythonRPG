@@ -61,7 +61,7 @@ class PotionsPocket:#TODO сделать ограничение в количе�
     def __str__(self):
         result = ""
         if self.pocket:
-            result = "\n".join(str(potion) for potion in self.pocket)
+            result = "\n".join(map(str, self.pocket))
         else: #pocket is empty
             result = "empty"
         return result
