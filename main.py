@@ -5,6 +5,7 @@ from Potion import *
 from Item import *
 from Battle import *
 from Stats import *
+#TODO rewrite all import * (wild card)
 #TODO!! Сделать отмени в бою!
 #TODO! Добавить canUse методы в другие классы (weapon,armor - может можно просто в ITEM)
 #TODO! внутри spell.__str__() выводится имя спелла и Описани того что он делает( зависит от спелла )
