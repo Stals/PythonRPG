@@ -12,7 +12,7 @@ from utils.listFormat import *
 #TODOlater Дописать параметр позовляющий выводить варианты в ширину если он равен True. Причём мне придётся искать \n и после этого переходить к след элементу, после прохода всех эелементов возвращаться к первому элементу и выводить всё до того как будет найден \n
 
 #TODO! защиту от русских букв
-def getChoice(question , choices , cancel = False):
+def getChoice(question , choices , cancel=False):
 	if len(choices)>=1:
 		print(question)
 		if cancel == True:
