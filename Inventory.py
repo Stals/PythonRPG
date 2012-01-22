@@ -1,4 +1,5 @@
 from Item import Item
+from utils import getChoice as utils
 #Хранит вещи игрока
 
 #TODO сделать максимально переносимое число вещей ( зависит от Stamina )
@@ -15,11 +16,21 @@ class Inventory:
         self.inventory.append(item)
         self.__sort()
 
-    ## Убирает item из инвентаря
+
     def removeItem(self, item):
+        """Убирает item из инвентаря если он там есть"""
         if item in self.inventory:
-			# if item is in invenrory it will be removed
             self.inventory.remove(item)
+
+    def removeSelectedItem(self): #TODO rename
+        """Даёт выбор какую вещь выкинуть из инвентаря"""
+        if self.inventory:
+            selectedItem = utils.getChoice("Which item to drop?", self.inventory, cancel=True)
+            if selectedItem:
+                self.removeItem(selectedItem)
+                print("Droped "+selectedItem.__str__()+"\n")
+        else:
+            print("Inventory is empty\n")
 
     ## Возвращает список всех вещей в инвентаре
     def items(self):
