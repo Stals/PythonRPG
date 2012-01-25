@@ -24,6 +24,13 @@ class Money: #TODO сделать Exceptions Если при вычетании 
 		else:
 			raise Exception("Wrong bronze value!\nShould be between 0 and 99.")
 
+	def isEnough(self, money):
+		"""Возвращает True если денег достаточно и False в противоположном случае"""
+		if self >= money:
+			return True
+		else:
+			return False
+
 	## returns a copy of gold so that class variable would not be changed
 	def getGold(self):
 		return self.gold[:]
