@@ -2,7 +2,7 @@ from utils import getChoice as utils
 from utils.printList import *
 from utils.listFormat import *
 ## Отвечает за бой между героем и монстрами
-class Battle:
+class Battle:#TODO сделать чтобы бой мог идти между 2 героями
 #TODO Question Может сделать battle.fight() чтобы можно было вернуть true или false как результат боя? Можно полностью перенести и делать без inita, вообщем попробывать сделать статическую 
 ## Принимает героя и монстра или список монстров как противника
 	def __init__(self, hero, enemies):
