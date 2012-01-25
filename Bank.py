@@ -13,13 +13,15 @@ class Bank():#Think придумать как будет выглядеть вз
 
 	## Убирает money денег из банка, если хватит золота
 	def removeMoney(self, money):
-		if self.money >= money:
+		if self.isEnoughMoney(money):
 			self.money -= money
+			return True
 		else:
 			print("Money is not enough.\nBank stores only {0}".format(self.money))
+			return False
 
 	## Возвращает true если в банке есть столько денег
-	def enoughMoney(self, money):
+	def isEnoughMoney(self, money):
 		if self.money >= money:
 			return True
 		else:
