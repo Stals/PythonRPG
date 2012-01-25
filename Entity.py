@@ -29,7 +29,7 @@ class Entity:
 				print('"{0}" kills "{1}" with {2} damage.'.format(self.name,target.name,dmg))
 				return True
 			else:
-				print('"{0}" hits "{1}" for {2} damage. ({3}/{4} hp left)'.format(self.name,target.name,dmg,target.stats.hp,target.stats.maxHp))
+				print('"{0}" hits "{1}" for {2} damage. [{3} hp left]'.format(self.name,target.name,dmg,target.stats.hp))
 				return False
 		else: #you missed
 			print('"{0}" missed "{1}" with {2}% hit chance.'.format(self.name, target.name, round(hitChance*100)))
