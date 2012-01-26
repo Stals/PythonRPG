@@ -6,6 +6,23 @@ from Item import *
 from Battle import *
 from Stats import *
 #TODO rewrite all import * (wild card)
+#В городе может быть таверна в которой какраз можно бать квесты а заодно сыграть в азартные игры (место чтобы сделать кости(просто занести в отдельный файл чтобы можно было потом юзать) например в папку minigames/dice и тп
+# Dice 1
+# Если хотябы одна из 2ух костей = 1 то вы выкинули 0 очков, если вы выкинули 2 одинаковые кости - ваши очки умножаются на 2
+# Давать выбор Карточные игры, игры с костями, а когда выбрал - предлагать опр.
+"""
+gameTypes = {"Dice": {
+				"normal": "minigames/dice/normal.py",
+				"specific": "minigames/dice/specific.py"},
+			 "Cards": {
+				"Black Jack": "minigames/cards/blackJack.py",
+				"Texas Poker": "minigames.cards.poker.texas"} # так? а потом вызов hero.money = selectedGame(hero.money)
+}
+gameType = getChoice("Choose game type:", list(gameTypes.keys())
+selectedGame = getChoice("Choose game:", list(gameTypes[gameType].keys())
+exec(open(selectedGame).read()) # Нужно перепистаь так как я хочу передавать кол-во денег у игрока и получать сколько он выйграл или проиграл
+"""
+
 #TODO!! Сделать отмени в бою!
 #TODO! Добавить canUse методы в другие классы (weapon,armor - может можно просто в ITEM)
 #TODO! внутри spell.__str__() выводится имя спелла и Описани того что он делает( зависит от спелла )
