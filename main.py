@@ -26,7 +26,10 @@ exec(open(selectedGame).read()) # Нужно перепистаь так как 
 #TODO!! Сделать отмени в бою!
 #TODO! Добавить canUse методы в другие классы (weapon,armor - может можно просто в ITEM)
 #TODO! внутри spell.__str__() выводится имя спелла и Описани того что он делает( зависит от спелла )
-#TODO Pet наследуется от Монстра наверно
+#TODO Сделать питомца - Pet наследуется от Монстра наверно ( Хотя более логично от Entity )
+	#TODO Добавить питомца в бой.
+#Question делать боевку так чтобы если у тебя dex в 2 раза больше - ты ходиш в 2 раза чаще?
+#TODO писать Physical damage если это не магический урон
 
 player = Hero()
 dragonMonster = Monster("Dragon",Stats(9,10,4,4,6,1),Damage(2,6),4,Elements(),10)
@@ -41,7 +44,6 @@ fireSword = Weapon("Fire Sword",Stats(Str=3,Con=2),Damage(1,5))
 
 player.inventory.addItem(magicBow)
 player.inventory.addItem(fireSword)
-
 player.equip(utils.getChoice("Choose weapon to equip:", player.inventory.items()))
 
 
@@ -60,7 +62,7 @@ print(player.equipment)
 
 player.potionsPocket.addPotion(Potion(0.25))
 player.potionsPocket.addPotion(Potion(0.33))
-#print(player.potionsPocket)
+# print(player.potionsPocket)
 
 Battle(player,[dragonMonster,puppyMonster])
 
