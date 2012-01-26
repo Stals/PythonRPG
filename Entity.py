@@ -32,7 +32,7 @@ class Entity:
 				print('"{0}" hits "{1}" for {2} damage. [{3} hp left]'.format(self.name,target.name,dmg,target.stats.hp))
 				return False
 		else: #you missed
-			print('"{0}" missed "{1}" with {2}% hit chance.'.format(self.name, target.name, round(hitChance*100)))
+			print('"{0}" missed "{1}" with {2}% hit chance. [{3} hp left]'.format(self.name, target.name, round(hitChance*100),target.stats.hp))
 
 	## Возвращает true если Entity мертв
 	def isDead(self):
